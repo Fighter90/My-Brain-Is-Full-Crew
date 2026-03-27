@@ -1,113 +1,113 @@
-# Scribe
+# Писарь (Scribe)
 
-> Your fast-thinking, clean-writing note-taking partner.
+> Ваш быстро соображающий и аккуратно пишущий напарник по заметкам.
 
-## What it does
+## Что он делает
 
-The Scribe turns messy, rushed, half-formed thoughts into clean Obsidian notes. You type fast, you skip punctuation, you mix languages, you abbreviate everything. The Scribe does not care. It takes whatever you throw at it and produces polished, well-structured notes ready for your vault.
+Писарь превращает сумбурные, торопливые, полуоформленные мысли в аккуратные заметки Obsidian. Вы печатаете быстро, пропускаете знаки препинания, мешаете языки, сокращаете всё подряд. Писарю всё равно. Он берёт всё, что вы в него бросаете, и выдаёт отполированные, хорошо структурированные заметки, готовые для хранилища.
 
-It is smart about what it captures. If you dump three unrelated topics in one message, it splits them into three separate notes. If you paste speech-to-text output full of "um" and "like," it cleans it up while keeping your voice. If you are rapid-firing ideas in brainstorm mode, it numbers them all without judging any.
+Он умно подходит к тому, что захватывает. Если вы сваливаете три несвязанные темы в одном сообщении — он разбивает их на три отдельные заметки. Если вставляете результат распознавания речи, полный «ну» и «типа» — он очищает текст, сохраняя ваш голос. Если вы в режиме мозгового штурма стреляете идеями очередями — он пронумерует каждую без осуждения.
 
-Every note the Scribe creates lands in your Inbox (`00-Inbox/`), properly formatted with YAML frontmatter, tags, wikilinks to people and projects, and suggested connections to other notes. The Sorter will file them later. The Scribe's job is pure capture speed and quality.
+Каждая заметка Писаря попадает в папку входящих (`00-Inbox/`), правильно отформатированная с YAML-фронтматтером, тегами, вики-ссылками на людей и проекты, а также предлагаемыми связями с другими заметками. Сортировщик разложит их позже. Задача Писаря — чистая скорость и качество захвата.
 
-## Capabilities
+## Возможности
 
-- **Standard capture**: classifies your input (idea, task, note, person, reference, list) and applies the right template
-- **Voice-to-note**: detects speech-to-text output and cleans it up by removing filler words, restoring punctuation, and preserving your natural voice
-- **Thread capture**: when you send a stream of consciousness, splits it into individual atomic notes linked together
-- **Quote capture**: formats quotes with author, source, page number, and your commentary
-- **Reading notes**: structures book/article/podcast notes with key takeaways, section-by-section summaries, and action items
-- **Brainstorm mode**: captures everything without filtering, numbers ideas, groups by theme, highlights the most promising ones
-- **Multi-note detection**: automatically splits unrelated topics into separate notes
-- **Emotion tagging**: detects emotional tone and tags notes accordingly
-- **Auto-suggested connections**: mentions 2-3 related notes or topics at the end of each note
-- **Code, math, and diagram support**: wraps code in fenced blocks, uses LaTeX for math, creates Mermaid diagrams
-- **Multilingual**: works in any language, handles mixed-language input gracefully
+- **Стандартный захват**: классифицирует ввод (идея, задача, заметка, человек, справка, список) и применяет подходящий шаблон
+- **Голос-в-заметку**: распознаёт результат речевого ввода и очищает его — удаляет слова-паразиты, восстанавливает пунктуацию, сохраняя вашу естественную речь
+- **Захват потока**: когда вы отправляете поток сознания — разбивает его на отдельные атомарные заметки, связанные между собой
+- **Захват цитат**: форматирует цитаты с указанием автора, источника, номера страницы и вашего комментария
+- **Заметки по прочитанному**: структурирует заметки по книгам/статьям/подкастам с ключевыми выводами, разбором по разделам и списком действий
+- **Режим мозгового штурма**: захватывает всё без фильтрации, нумерует идеи, группирует по темам, выделяет наиболее перспективные
+- **Обнаружение нескольких заметок**: автоматически разбивает несвязанные темы на отдельные заметки
+- **Тегирование эмоций**: определяет эмоциональный тон и тегирует заметки соответственно
+- **Автоматические связи**: в конце каждой заметки предлагает 2–3 связанные заметки или темы
+- **Код, формулы и диаграммы**: оборачивает код в блоки, использует LaTeX для формул, создаёт Mermaid-диаграммы
+- **Многоязычность**: работает на любом языке, корректно обрабатывает смешанный языковой ввод
 
-## How to use it
+## Как использовать
 
-Just start typing what you want to capture. The Scribe detects the right mode automatically. You can also be explicit:
+Просто начните вводить то, что хотите сохранить. Писарь автоматически определит нужный режим. Можно также указать явно:
 
-- "Save this: [your text]"
-- "Quick note: [your text]"
-- "Brainstorm: [topic]"
-- "Quote: [quote text]"
-- "Reading notes for [book/article title]"
-- "Thread: [stream of thoughts]"
-- "Voice note: [pasted speech-to-text]"
+- «Сохрани это: [ваш текст]»
+- «Быстрая заметка: [ваш текст]»
+- «Мозговой штурм: [тема]»
+- «Цитата: [текст цитаты]»
+- «Заметки по прочитанному: [название книги/статьи]»
+- «Поток: [поток мыслей]»
+- «Голосовая заметка: [вставленное распознавание речи]»
 
-In Italian: "Salvami questo", "Nota veloce", "Appuntati"
-In French: "Sauvegarde ca", "Note rapide"
-In Spanish: "Guarda esto", "Nota rapida"
-In German: "Schnelle Notiz", "Schreib das"
+На итальянском: "Salvami questo", "Nota veloce", "Appuntati"
+На французском: "Sauvegarde ça", "Note rapide"
+На испанском: "Guarda esto", "Nota rápida"
+На немецком: "Schnelle Notiz", "Schreib das"
 
-## Example conversations
+## Примеры диалогов
 
-### Quick messy capture
+### Быстрый сумбурный захват
 
-**You:** save this: meeting with Marco, budget discussion, he wants report by friday, also mentioned new hire starting in april, seems worried about Q2 numbers
+**Вы:** сохрани: встреча с марко, обсуждали бюджет, хочет отчёт к пятнице, ещё упомянул нового сотрудника с апреля, кажется нервничает насчёт цифр за Q2
 
-**Scribe:** I identified 2 distinct topics and created 2 separate notes:
+**Писарь:** Я обнаружил 2 отдельные темы и создал 2 заметки:
 
-**1. Meeting With Marco, Budget Discussion**
-Filed as `2026-03-21 - Note - Budget Discussion With Marco.md` in `00-Inbox/`
+**1. Встреча с Марко, обсуждение бюджета**
+Сохранено как `2026-03-21 - Note - Budget Discussion With Marco.md` в `00-Inbox/`
 
-Key points captured:
-- Marco wants the budget report by Friday
-- He expressed concern about Q2 numbers
-- Action item: deliver report by Friday
+Ключевые моменты:
+- Марко хочет бюджетный отчёт к пятнице
+- Выразил беспокойство по поводу цифр за Q2
+- Задача: сдать отчёт к пятнице
 
-**2. New Hire Starting in April**
-Filed as `2026-03-21 - Note - New Hire April.md` in `00-Inbox/`
+**2. Новый сотрудник с апреля**
+Сохранено как `2026-03-21 - Note - New Hire April.md` в `00-Inbox/`
 
-Linked to [[05-People/Marco]] in both notes. Does this capture everything correctly?
-
----
-
-### Brainstorm mode
-
-**You:** Brainstorm: ways to improve the onboarding experience for new users
-
-**Scribe:** Created `2026-03-21 - Brainstorm - Onboarding Improvements.md` in `00-Inbox/`
-
-Captured all your ideas, numbered and grouped. I noticed 3 natural clusters: UI changes, documentation improvements, and community-driven ideas. The two most promising ideas (based on feasibility and impact) are highlighted in the Hot Takes section.
-
-Want to expand on any of these?
+В обеих заметках проставлена ссылка на [[05-People/Marco]]. Всё верно захвачено?
 
 ---
 
-### Voice-to-note
+### Режим мозгового штурма
 
-**You:** Voice note: so basically i was thinking about um the whole pricing structure right and like marco said yesterday that we should probably move to a tiered model because uh the enterprise clients are paying the same as the small ones and thats just not sustainable you know so maybe we do three tiers basic pro and enterprise and each one gets different levels of support
+**Вы:** Мозговой штурм: способы улучшить онбординг для новых пользователей
 
-**Scribe:** Detected speech-to-text input. Cleaned and structured as:
+**Писарь:** Создана заметка `2026-03-21 - Brainstorm - Onboarding Improvements.md` в `00-Inbox/`
 
-**Pricing Structure, Tiered Model Proposal**
+Все ваши идеи захвачены, пронумерованы и сгруппированы. Я обнаружил 3 естественных кластера: изменения UI, улучшения документации и идеи от сообщества. Две наиболее перспективные идеи (по критериям реализуемости и влияния) выделены в разделе «Горячие выводы».
 
-Marco suggested moving to a tiered pricing model because enterprise clients currently pay the same as small clients, which is not sustainable. The proposed tiers:
-- **Basic**: entry level
-- **Pro**: mid-tier
-- **Enterprise**: full support
+Хотите развить какую-нибудь из них?
 
-Each tier would include different levels of support.
+---
 
-Filed as `2026-03-21 - Idea - Tiered Pricing Model.md` with `source: voice-note` in the frontmatter. Sound right?
+### Голос-в-заметку
 
-## Works with
+**Вы:** Голосовая заметка: ну в общем я тут думал насчёт всей этой структуры ценообразования и вот марко вчера сказал что нам наверное стоит перейти на многоуровневую модель потому что корпоративные клиенты платят столько же сколько маленькие и это просто нежизнеспособно понимаешь так что может сделаем три уровня базовый про и корпоративный и на каждом разный объём поддержки
 
-- **Sorter** files the notes the Scribe drops in the Inbox
-- **Architect** provides the templates and naming conventions the Scribe follows. If a new project or area seems to be emerging, the Scribe flags it for the Architect
-- **Connector** gets flagged when the Scribe notices a note relates to many existing notes, so it can do deep linking
+**Писарь:** Обнаружен голосовой ввод. Очищено и структурировано:
 
-## Tips
+**Ценообразование: предложение многоуровневой модели**
 
-- **Do not overthink your input.** The messier, the better. That is literally what the Scribe is for. Just dump your thoughts.
-- **Use "quick dump" for multiple topics.** The Scribe will detect and split them automatically.
-- **Paste raw speech-to-text directly.** No need to clean it up first. The Scribe handles filler words, broken sentences, and transcription artifacts.
-- **Say "brainstorm" when you want zero filtering.** The Scribe will capture every idea without judging, then gently highlight the best ones.
-- **Check the suggested connections.** The Scribe adds a Connections section at the end of each note. These are quick wins for building your knowledge graph.
-- **Trust the assumptions.** The Scribe makes judgment calls when your input is ambiguous. It always tells you what it assumed, so you can correct it if needed.
+Марко предложил перейти на многоуровневую модель ценообразования, потому что корпоративные клиенты сейчас платят столько же, сколько малые — это нежизнеспособно. Предлагаемые уровни:
+- **Basic**: начальный уровень
+- **Pro**: средний уровень
+- **Enterprise**: полная поддержка
 
-## What it remembers
+Каждый уровень включает разный объём поддержки.
 
-The Scribe keeps a post-it in `Meta/states/scribe.md` with notes from its last run: which notes it created, brainstorm topics in progress, and assumptions it made. This means if you come back to continue a brainstorm or refine a note, the Scribe already has context.
+Сохранено как `2026-03-21 - Idea - Tiered Pricing Model.md` с `source: voice-note` во фронтматтере. Всё верно?
+
+## Взаимодействие с другими агентами
+
+- **Сортировщик** раскладывает заметки, которые Писарь оставляет во входящих
+- **Архитектор** предоставляет шаблоны и соглашения об именовании, которым следует Писарь. Если намечается новый проект или область — Писарь сигнализирует Архитектору
+- **Связующий** получает сигнал, когда Писарь замечает, что заметка связана со многими существующими заметками, — для глубокой перелинковки
+
+## Советы
+
+- **Не думайте над вводом.** Чем сумбурнее — тем лучше. Для этого Писарь и существует. Просто выгружайте мысли.
+- **Используйте «быструю выгрузку» для нескольких тем.** Писарь сам обнаружит и разделит их.
+- **Вставляйте сырой голосовой ввод напрямую.** Не нужно его чистить заранее. Писарь справляется со словами-паразитами, оборванными фразами и артефактами распознавания.
+- **Скажите «мозговой штурм», когда хотите ноль фильтрации.** Писарь захватит каждую идею без оценки, а затем мягко выделит лучшие.
+- **Обращайте внимание на предложенные связи.** Писарь добавляет раздел «Связи» в конец каждой заметки. Это быстрый способ наращивать граф знаний.
+- **Доверяйте допущениям.** Писарь принимает решения, когда ваш ввод неоднозначен. Он всегда сообщает, что предположил, — можете поправить при необходимости.
+
+## Что он запоминает
+
+Писарь хранит стикер в `Meta/states/scribe.md` с заметками от последнего запуска: какие заметки создал, темы мозгового штурма в процессе и допущения, которые сделал. Поэтому, если вы вернётесь продолжить мозговой штурм или доработать заметку, у Писаря уже будет контекст.

@@ -1,126 +1,126 @@
-# Connector
+# Связующий (Connector)
 
-> The agent that turns isolated notes into a living knowledge web.
+> Агент, превращающий изолированные заметки в живую сеть знаний.
 
-## What it does
+## Что он делает
 
-The Connector is obsessed with relationships between your notes. It reads your vault, analyzes the link structure, and finds connections you did not know existed. That meeting note from January? It relates to the idea you jotted down last week. That book quote? It supports the argument in your project brief. The Connector sees these threads and weaves them together.
+Связующий одержим связями между вашими заметками. Он читает хранилище, анализирует структуру ссылок и находит связи, о существовании которых вы не подозревали. Та заметка совещания из января? Она связана с идеей, которую вы набросали на прошлой неделе. Та цитата из книги? Она подкрепляет аргумент в вашем проектном брифе. Связующий видит эти нити и сплетает их воедино.
 
-Your vault's value grows exponentially with the quality of its connections. A note with zero links is an island, useful on its own but invisible to everything around it. The Connector ensures no note stays isolated for long. It discovers missing links, suggests new connections ranked by confidence, identifies clusters of related notes that need a Map of Content, and can even surprise you with unexpected relationships between seemingly unrelated topics.
+Ценность хранилища растёт экспоненциально с качеством связей. Заметка без ссылок — это остров: полезная сама по себе, но невидимая для всего остального. Связующий следит, чтобы ни одна заметка не оставалась изолированной надолго. Он обнаруживает недостающие ссылки, предлагает новые связи с ранжированием по уверенности, определяет кластеры родственных заметок, которым нужна карта контента, и может даже удивить вас неожиданными связями между, казалось бы, не связанными темами.
 
-It is also your graph health monitor. It tracks metrics like orphan rate, link density, and cluster count, and tells you when parts of your vault are drifting into isolation.
+Он также следит за здоровьем графа. Он отслеживает метрики: долю осиротевших заметок, плотность ссылок, количество кластеров — и сообщает, когда части хранилища начинают дрейфовать в изоляцию.
 
-## Capabilities
+## Возможности
 
-- **Full graph audit**: maps all wikilinks, identifies orphan notes (no incoming links), dead-end notes (no outgoing links), and disconnected clusters
-- **Targeted connection discovery**: given a specific note, finds all potentially related notes ranked by strength (strong, medium, weak)
-- **Serendipity mode**: discovers unexpected connections between notes that share no obvious keywords but relate conceptually
-- **Semantic bridging**: finds notes about the same concept using different terminology
-- **Bridge notes**: creates new notes that explicitly connect two otherwise separate clusters
-- **MOC enhancement**: audits Maps of Content for completeness and suggests missing entries
-- **Constellation view**: shows how a topic connects across different areas of your vault (work, personal, learning)
-- **People network**: maps how people in your vault are connected through meetings, projects, and references
-- **Graph health metrics**: tracks connectivity ratio, orphan rate, average path length, cluster count, and MOC coverage
-- **Batch processing**: after the Sorter files a batch of notes, analyzes all of them for connections at once
+- **Полный аудит графа**: маппинг всех вики-ссылок, определение осиротевших заметок (без входящих ссылок), тупиковых заметок (без исходящих ссылок) и отключённых кластеров
+- **Целевой поиск связей**: для конкретной заметки находит все потенциально связанные заметки с ранжированием по силе (сильная, средняя, слабая)
+- **Режим серендипности**: обнаруживает неожиданные связи между заметками, не имеющими общих ключевых слов, но связанными концептуально
+- **Семантические мосты**: находит заметки об одном и том же концепте, но использующие разную терминологию
+- **Заметки-мосты**: создаёт новые заметки, явно связывающие два иначе изолированных кластера
+- **Улучшение карт контента**: аудит карт контента на полноту и предложение недостающих записей
+- **Режим созвездия**: показывает, как тема связана с разными областями хранилища (работа, личное, обучение)
+- **Сеть людей**: маппинг связей между людьми в хранилище через совещания, проекты и ссылки
+- **Метрики здоровья графа**: коэффициент связности, доля осиротевших заметок, средняя длина пути, количество кластеров, покрытие картами контента
+- **Пакетная обработка**: после того как Сортировщик распределяет пакет заметок, анализирует их все на предмет связей
 
-## How to use it
+## Как использовать
 
-Trigger the Connector when you want to strengthen your vault's knowledge graph:
+Запускайте Связующего, когда хотите укрепить граф знаний хранилища:
 
-- "Find connections for my latest note"
-- "Analyze my vault graph"
-- "What notes are isolated?"
-- "What connects [topic A] and [topic B]?"
-- "Find missing links"
-- "Surprise me, what unexpected connections exist?"
-- "Audit the MOCs"
-- "How is my graph health?"
-- "Show me the people network"
+- «Найди связи для моей последней заметки»
+- «Проанализируй граф хранилища»
+- «Какие заметки изолированы?»
+- «Что связывает [тему A] и [тему B]?»
+- «Найди недостающие ссылки»
+- «Удиви меня — какие неожиданные связи существуют?»
+- «Проверь карты контента»
+- «Как здоровье графа?»
+- «Покажи сеть людей»
 
-In Italian: "Trova connessioni", "Analizza le relazioni", "Collega le note"
-In French: "Trouve des connexions", "Analyse du graphe"
-In Spanish: "Encuentra conexiones", "Analiza el grafo"
-In German: "Finde Verbindungen", "Netzwerkanalyse"
+На итальянском: "Trova connessioni", "Analizza le relazioni", "Collega le note"
+На французском: "Trouve des connexions", "Analyse du graphe"
+На испанском: "Encuentra conexiones", "Analiza el grafo"
+На немецком: "Finde Verbindungen", "Netzwerkanalyse"
 
-## Example conversations
+## Примеры диалогов
 
-### Connection discovery for a specific note
+### Поиск связей для конкретной заметки
 
-**You:** Find connections for my latest note on tiered pricing
+**Вы:** Найди связи для моей заметки о многоуровневом ценообразовании
 
-**Connector:** I analyzed "Tiered Pricing Model" and found these potential connections:
+**Связующий:** Я проанализировал заметку «Tiered Pricing Model» и нашёл следующие потенциальные связи:
 
-**Strong (add these):**
-- [[Client Feedback on Pricing]] contains the client's response to the tiered model idea
-- [[Sprint Planning Q2]] is the meeting where Marco first proposed the tiers
+**Сильные (стоит добавить):**
+- [[Client Feedback on Pricing]] — содержит ответ клиента на идею многоуровневой модели
+- [[Sprint Planning Q2]] — совещание, где Марко впервые предложил уровни
 
-**Medium (probably useful):**
-- [[Competitor Analysis Q1]] includes competitor pricing models for comparison
-- [[Revenue Projections 2026]] would be impacted by a pricing change
+**Средние (скорее всего полезны):**
+- [[Competitor Analysis Q1]] — включает модели ценообразования конкурентов для сравнения
+- [[Revenue Projections 2026]] — будет затронут при изменении ценообразования
 
-**Weak (worth considering):**
-- [[Reading Notes, SaaS Pricing Strategies]] has book notes with relevant frameworks
+**Слабые (стоит рассмотреть):**
+- [[Reading Notes, SaaS Pricing Strategies]] — заметки по книге с релевантными фреймворками
 
-Want me to add the strong connections now?
-
----
-
-### Graph health check
-
-**You:** How is my graph health?
-
-**Connector:** Vault Graph Analysis
-
-Stats:
-- Total notes: 147
-- Total links: 312
-- Average density: 2.1 links per note
-- Orphan notes: 18 (12%), target is under 10%
-- Dead-end notes: 9
-
-Islands (disconnected clusters):
-1. "Personal Finance": 5 interconnected notes, 0 external links
-2. "Old Project Beta": 8 notes, only 1 link to the rest of the vault
-
-Top 5 most connected notes:
-1. [[MOC/Index]], 23 links out
-2. [[Sprint Planning Q2]], 8 links in, 6 links out
-3. [[Project Alpha Roadmap]], 5 links in, 9 links out
-
-Recommendations:
-- The Personal Finance cluster should be linked to your Areas and daily notes
-- 18 orphan notes need attention. Want me to suggest connections for each?
+Добавить сильные связи сейчас?
 
 ---
 
-### Serendipity mode
+### Проверка здоровья графа
 
-**You:** Surprise me, what unexpected connections exist?
+**Вы:** Как здоровье графа?
 
-**Connector:** Here are some connections you probably did not expect:
+**Связующий:** Анализ графа хранилища
 
-1. Your reading notes on "Atomic Habits" and your project retrospective for Beta share the same core insight about feedback loops, one in personal habits, one in software development. Linking them could create a powerful cross-domain concept note.
+Статистика:
+- Всего заметок: 147
+- Всего ссылок: 312
+- Средняя плотность: 2.1 ссылки на заметку
+- Осиротевшие заметки: 18 (12%), цель — менее 10%
+- Тупиковые заметки: 9
 
-2. Three different people in your vault (Marco, Sarah, and the podcast guest from last week) all independently mentioned the same concern about "sustainable growth." This might be an emerging theme worth a dedicated note.
+Острова (изолированные кластеры):
+1. «Личные финансы»: 5 связанных между собой заметок, 0 внешних ссылок
+2. «Старый Project Beta»: 8 заметок, только 1 ссылка на остальное хранилище
 
-Want me to create any of these connections?
+Топ-5 самых связанных заметок:
+1. [[MOC/Index]] — 23 исходящих ссылки
+2. [[Sprint Planning Q2]] — 8 входящих, 6 исходящих
+3. [[Project Alpha Roadmap]] — 5 входящих, 9 исходящих
 
-## Works with
+Рекомендации:
+- Кластер «Личные финансы» нужно связать с вашими областями и ежедневными заметками
+- 18 осиротевших заметок требуют внимания. Предложить связи для каждой?
 
-- **Sorter**: after a batch filing, the Connector receives a notification to analyze newly filed notes
-- **Architect**: when the Connector discovers a cluster needing a new MOC, it flags the Architect to create one
-- **Seeker**: the Connector can ask the Seeker to verify content-level relationships before suggesting links
-- **Librarian**: broken wikilinks found during analysis are reported to the Librarian
+---
 
-## Tips
+### Режим серендипности
 
-- **Run it after big filing sessions.** The best time to use the Connector is right after the Sorter processes a batch of notes. The new notes have the most linking potential.
-- **Start with "strong" connections.** When the Connector suggests links at three confidence levels, always approve the strong ones. They are almost always correct.
-- **Use serendipity mode for creative work.** The unexpected connections it finds can spark genuinely new ideas by linking concepts from different domains.
-- **Watch the orphan rate.** If it climbs above 15-20%, your vault is accumulating unlinked knowledge that is effectively invisible. Run a graph audit.
-- **Do not over-link.** The Connector follows a quality-over-quantity principle. A few meaningful links are worth more than dozens of superficial ones. Trust its judgment.
-- **Check the people network.** It is a surprisingly useful way to see who appears most often in your vault and how they are connected to your projects.
+**Вы:** Удиви меня — какие неожиданные связи существуют?
 
-## What it remembers
+**Связующий:** Вот несколько связей, которых вы, вероятно, не ожидали:
 
-The Connector keeps a post-it in `Meta/states/connector.md` with notes from its last analysis: links it created, orphan notes still unconnected, emerging clusters, and connection suggestions the user deferred. This gives it a head start on the next graph analysis.
+1. Ваши заметки по прочитанному «Atomic Habits» и ретроспектива проекта Beta содержат одно и то же ключевое наблюдение о петлях обратной связи — одно в контексте личных привычек, другое в разработке ПО. Связав их, можно создать мощную кросс-доменную концептуальную заметку.
+
+2. Три разных человека в вашем хранилище (Марко, Сара и гость подкаста на прошлой неделе) независимо упомянули одну и ту же проблему — «устойчивый рост». Это может быть формирующаяся тема, заслуживающая отдельной заметки.
+
+Создать какие-нибудь из этих связей?
+
+## Взаимодействие с другими агентами
+
+- **Сортировщик**: после пакетного распределения Связующий получает уведомление для анализа только что разложенных заметок
+- **Архитектор**: когда Связующий обнаруживает кластер, которому нужна новая карта контента, он сигнализирует Архитектору
+- **Искатель**: Связующий может попросить Искателя проверить связи на уровне содержимого перед предложением ссылок
+- **Библиотекарь**: битые вики-ссылки, найденные при анализе, передаются Библиотекарю
+
+## Советы
+
+- **Запускайте после больших распределений.** Лучшее время для Связующего — сразу после обработки пакета заметок Сортировщиком. У новых заметок максимальный потенциал для перелинковки.
+- **Начинайте с «сильных» связей.** Когда Связующий предлагает ссылки трёх уровней уверенности, всегда одобряйте сильные. Они почти всегда корректны.
+- **Используйте режим серендипности для творческой работы.** Неожиданные связи могут порождать по-настоящему новые идеи, соединяя концепции из разных областей.
+- **Следите за долей осиротевших заметок.** Если она превышает 15–20%, хранилище накапливает несвязанные знания, которые фактически невидимы. Проведите аудит графа.
+- **Не перелинковывайте.** Связующий следует принципу «качество важнее количества». Несколько значимых ссылок ценнее десятков поверхностных. Доверяйте его суждению.
+- **Проверяйте сеть людей.** Это удивительно полезный способ увидеть, кто чаще всего появляется в хранилище и как эти люди связаны с вашими проектами.
+
+## Что он запоминает
+
+Связующий хранит стикер в `Meta/states/connector.md` с заметками от последнего анализа: созданные ссылки, осиротевшие заметки, всё ещё не подключённые, формирующиеся кластеры и предложения по связям, которые пользователь отложил. Это даёт ему фору при следующем анализе графа.

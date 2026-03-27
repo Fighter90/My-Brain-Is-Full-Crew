@@ -1,117 +1,117 @@
-# Seeker
+# Искатель (Seeker)
 
-> Ask your vault a question. Get an answer with sources.
+> Задайте хранилищу вопрос — получите ответ с источниками.
 
-## What it does
+## Что он делает
 
-The Seeker is your vault's search engine and research assistant rolled into one. It does not just find files; it understands questions. Ask "What did we decide about pricing?" and it searches across meeting notes, project files, and email imports to synthesize an answer with source links. Ask "Find all notes about Marco from this month" and it queries by person, date range, and content.
+Искатель — поисковая система и исследовательский ассистент вашего хранилища в одном лице. Он не просто находит файлы — он понимает вопросы. Спросите «Что мы решили по ценообразованию?» — и он обыщет заметки совещаний, файлы проектов и импорт почты, чтобы синтезировать ответ с указанием источников. Спросите «Найди все заметки о Марко за этот месяц» — и он выполнит запрос по человеку, диапазону дат и содержимому.
 
-The Seeker searches everything: file contents, filenames, YAML frontmatter, tags, wikilinks, and relationship graphs. It ranks results by relevance, separates high-quality matches from tangential ones, and presents everything in a clean, scannable format. When it finds nothing, it suggests alternative searches, checks for typos, and offers to create a new note on the topic.
+Искатель ищет по всему: содержимое файлов, имена файлов, YAML-фронтматтер, теги, вики-ссылки и графы связей. Он ранжирует результаты по релевантности, отделяет точные совпадения от косвенных и представляет всё в чистом, удобном для сканирования формате. Когда ничего не находит — предлагает альтернативные поиски, проверяет опечатки и предлагает создать новую заметку по теме.
 
-Beyond searching, the Seeker can also modify existing notes by updating content, adding tags, fixing broken links, or appending new information. It always reads the full note first and confirms changes before making them.
+Помимо поиска, Искатель может модифицировать существующие заметки: обновлять содержимое, добавлять теги, чинить битые ссылки или дополнять новой информацией. Он всегда сначала читает заметку целиком и подтверждает изменения перед внесением.
 
-## Capabilities
+## Возможности
 
-- **Full-text search**: searches file contents with keyword and phrase matching
-- **Metadata search**: queries by type, date range, tag, person, project, or status
-- **Relationship search**: navigates the wikilink graph (forward links, backlinks, common connections)
-- **Answer mode**: synthesizes information from multiple notes to answer a question, with source citations
-- **Timeline mode**: finds notes within a date range, useful for "what happened last week" queries
-- **Diff mode**: compares versions of a topic across different notes to spot contradictions or evolution
-- **Missing knowledge detection**: identifies gaps in your vault (topics mentioned but never explained)
-- **Note modification**: append, update, refactor, re-tag, or fix links in existing notes
-- **Cross-reference answering**: pulls data from multiple sources and presents a unified answer
+- **Полнотекстовый поиск**: ищет по содержимому файлов с поддержкой ключевых слов и фраз
+- **Поиск по метаданным**: запросы по типу, диапазону дат, тегу, человеку, проекту или статусу
+- **Поиск по связям**: навигация по графу вики-ссылок (прямые ссылки, обратные ссылки, общие связи)
+- **Режим ответа**: синтезирует информацию из нескольких заметок для ответа на вопрос с указанием источников
+- **Режим хронологии**: находит заметки в диапазоне дат — полезно для запросов «что было на прошлой неделе»
+- **Режим сравнения**: сопоставляет версии темы из разных заметок для выявления противоречий или эволюции
+- **Обнаружение пробелов в знаниях**: определяет пробелы в хранилище (темы, упомянутые, но никогда не раскрытые)
+- **Модификация заметок**: дополнение, обновление, рефакторинг, перетегирование или починка ссылок в существующих заметках
+- **Кросс-референсные ответы**: собирает данные из нескольких источников и представляет единый ответ
 
-## How to use it
+## Как использовать
 
-Ask any question about your vault, or search for specific content:
+Задайте любой вопрос о хранилище или ищите конкретный контент:
 
-- "What did we decide about [topic]?"
-- "Find all meeting notes from March"
-- "What do I know about [topic]?"
-- "Find notes tagged #marketing"
-- "What notes mention Marco?"
-- "Where did I put the note about [subject]?"
-- "What am I missing about microservices?"
-- "Update the note about [topic] with [new info]"
-- "What connects Marketing and Sales in my vault?"
+- «Что мы решили по [теме]?»
+- «Найди все заметки совещаний за март»
+- «Что я знаю о [теме]?»
+- «Найди заметки с тегом #marketing»
+- «В каких заметках упоминается Марко?»
+- «Куда я дел заметку о [предмете]?»
+- «Чего мне не хватает по микросервисам?»
+- «Обнови заметку о [теме], добавив [новую информацию]»
+- «Что связывает маркетинг и продажи в моём хранилище?»
 
-In Italian: "Cerca nel vault", "Trova", "Dove ho messo", "Che note ho su"
-In French: "Cherche dans le vault", "Trouve"
-In Spanish: "Busca en el vault", "Encuentra"
-In German: "Suche im Vault", "Finde"
+На итальянском: "Cerca nel vault", "Trova", "Dove ho messo", "Che note ho su"
+На французском: "Cherche dans le vault", "Trouve"
+На испанском: "Busca en el vault", "Encuentra"
+На немецком: "Suche im Vault", "Finde"
 
-## Example conversations
+## Примеры диалогов
 
-### Answer mode
+### Режим ответа
 
-**You:** What did we decide about the pricing model?
+**Вы:** Что мы решили по модели ценообразования?
 
-**Seeker:** Based on your notes, here is what I found about pricing decisions:
+**Искатель:** На основе ваших заметок вот что я нашёл о решениях по ценообразованию:
 
-Marco proposed moving to a tiered pricing model (Basic, Pro, Enterprise) during the Sprint Planning on March 18. The main driver is that enterprise clients currently pay the same as small clients. The client feedback note from March 20 suggests the client is open to tiered pricing but wants volume discounts included.
+Марко предложил перейти на многоуровневую модель (Basic, Pro, Enterprise) во время планирования спринта 18 марта. Основная причина — корпоративные клиенты платят столько же, сколько малые. Заметка с обратной связью от клиента от 20 марта указывает, что клиент открыт к многоуровневому ценообразованию, но хочет скидки за объём.
 
-No final decision has been recorded yet. The next step appears to be delivering the pricing report by Friday (March 22).
+Окончательное решение пока не зафиксировано. Следующий шаг — сдать отчёт по ценообразованию к пятнице (22 марта).
 
-Sources:
-- [[06-Meetings/2026/03/Sprint Planning Q2]] (initial proposal)
-- [[02-Areas/Sales/Client Feedback on Pricing]] (client response)
-- [[00-Inbox/Tiered Pricing Model]] (Marco's voice note with details)
-
----
-
-### Finding notes by criteria
-
-**You:** Find all meeting notes from this month with open action items
-
-**Seeker:** Found 5 meeting notes from March 2026 with uncompleted action items:
-
-Top results:
-1. [[Sprint Planning Q2]], March 18, 3 open action items (2 assigned to you)
-2. [[Client Review Contract]], March 15, 1 open action item (pending legal review)
-3. [[Marketing Sync]], March 12, 2 open action items
-
-Other results:
-4. [[Team Standup March 10]], 1 minor follow-up
-5. [[Budget Meeting]], March 5, 1 item marked low priority
-
-Total: 8 open action items across 5 meetings. Want me to compile them into a task list?
+Источники:
+- [[06-Meetings/2026/03/Sprint Planning Q2]] (исходное предложение)
+- [[02-Areas/Sales/Client Feedback on Pricing]] (ответ клиента)
+- [[00-Inbox/Tiered Pricing Model]] (голосовая заметка Марко с деталями)
 
 ---
 
-### Missing knowledge
+### Поиск по критериям
 
-**You:** What am I missing about microservices?
+**Вы:** Найди все заметки совещаний за этот месяц с невыполненными задачами
 
-**Seeker:** You have 4 notes that mention microservices, but I notice some gaps:
+**Искатель:** Найдено 5 заметок совещаний за март 2026 с незавершёнными задачами:
 
-You have covered:
-- Architecture decision to adopt microservices (from a meeting note)
-- Service mesh comparison (from reading notes)
+Основные результаты:
+1. [[Sprint Planning Q2]], 18 марта — 3 открытых задачи (2 назначены вам)
+2. [[Client Review Contract]], 15 марта — 1 открытая задача (ожидает юридической проверки)
+3. [[Marketing Sync]], 12 марта — 2 открытых задачи
 
-Missing or thin:
-- No notes on deployment strategy or CI/CD for microservices
-- No notes on monitoring and observability
-- The meeting note references a "microservices RFC" that does not exist in your vault
+Прочие результаты:
+4. [[Team Standup March 10]] — 1 мелкий follow-up
+5. [[Budget Meeting]], 5 марта — 1 задача с низким приоритетом
 
-Would you like to create notes for any of these gaps, or search for related content that might cover them indirectly?
+Итого: 8 открытых задач в 5 совещаниях. Составить сводный список задач?
 
-## Works with
+---
 
-- **Sorter**: the Seeker can verify whether similar notes already exist before the Sorter files new ones
-- **Connector**: when the Seeker finds unlinked but related notes, it flags them for the Connector
-- **Librarian**: the Seeker often discovers broken links, orphan notes, or frontmatter problems while searching
-- **Scribe**: if a search reveals missing knowledge, the Seeker can suggest creating a new note via the Scribe
+### Обнаружение пробелов
 
-## Tips
+**Вы:** Чего мне не хватает по микросервисам?
 
-- **Ask questions, not just keywords.** The Seeker is best when you ask "What do I know about X?" rather than just typing "X."
-- **Use it for decision archaeology.** "What did we decide about Y?" is one of the most powerful queries. It searches across meetings, emails, and project notes.
-- **Request a timeline.** Saying "Show me everything about project Alpha in chronological order" gives you the full story of a project.
-- **Ask about gaps.** "What am I missing about [topic]?" triggers the missing knowledge detector, which is surprisingly useful for learning and project planning.
-- **Combine criteria.** "Find all notes tagged #urgent that mention Marco from the last two weeks." The Seeker handles compound queries.
-- **Use it to update notes.** Instead of finding a note and editing it yourself, tell the Seeker: "Update the note about X with this new info."
+**Искатель:** У вас 4 заметки, упоминающие микросервисы, но я заметил пробелы:
 
-## What it remembers
+Раскрыто:
+- Архитектурное решение о переходе на микросервисы (из заметки совещания)
+- Сравнение service mesh (из заметок по прочитанному)
 
-The Seeker keeps a post-it in `Meta/states/seeker.md` with notes from its last search: what you searched for, what was found (or not), and recurring topics. This helps it refine future searches and flag vault gaps it has noticed over time.
+Отсутствует или неполно:
+- Нет заметок о стратегии деплоя или CI/CD для микросервисов
+- Нет заметок о мониторинге и наблюдаемости
+- В заметке совещания упоминается «microservices RFC», которого нет в хранилище
+
+Хотите создать заметки для каких-нибудь из этих пробелов или поискать смежный контент, который может их покрывать косвенно?
+
+## Взаимодействие с другими агентами
+
+- **Сортировщик**: Искатель может проверить, существуют ли аналогичные заметки, прежде чем Сортировщик распределит новые
+- **Связующий**: когда Искатель находит несвязанные, но родственные заметки, он сигнализирует Связующему
+- **Библиотекарь**: Искатель часто обнаруживает битые ссылки, осиротевшие заметки или проблемы фронтматтера во время поиска
+- **Писарь**: если поиск выявляет пробел в знаниях, Искатель может предложить создать новую заметку через Писаря
+
+## Советы
+
+- **Задавайте вопросы, а не ключевые слова.** Искатель работает лучше всего, когда вы спрашиваете «Что я знаю о X?», а не просто пишете «X».
+- **Используйте для археологии решений.** «Что мы решили по Y?» — один из самых мощных запросов. Он ищет по совещаниям, письмам и заметкам проектов.
+- **Запрашивайте хронологию.** «Покажи всё о проекте Alpha в хронологическом порядке» — даёт полную историю проекта.
+- **Спрашивайте о пробелах.** «Чего мне не хватает по [теме]?» запускает детектор пробелов в знаниях — удивительно полезно для обучения и планирования проектов.
+- **Комбинируйте критерии.** «Найди все заметки с тегом #urgent, которые упоминают Марко, за последние две недели.» Искатель обрабатывает составные запросы.
+- **Используйте для обновления заметок.** Вместо поиска и ручного редактирования скажите Искателю: «Обнови заметку о X этой новой информацией.»
+
+## Что он запоминает
+
+Искатель хранит стикер в `Meta/states/seeker.md` с заметками от последнего поиска: что вы искали, что было найдено (или нет) и повторяющиеся темы. Это помогает уточнять будущие поиски и отмечать пробелы в хранилище, замеченные со временем.

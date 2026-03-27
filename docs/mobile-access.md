@@ -1,160 +1,160 @@
-# Using the Crew from Your Phone
+# Управление Crew с телефона
 
-> A guide to controlling your vault from your phone using Claude Code's Remote Control feature.
+> Руководство по управлению хранилищем с телефона через функцию Remote Control в Claude Code.
 
 ---
 
-## How it works
+## Как это работает
 
-Claude Code has a feature called **Remote Control** that lets you control a local Claude Code session from your phone's browser or the Claude mobile app. Your computer runs Claude Code locally (with full access to your vault, agents, and MCP servers), and your phone acts as a remote interface.
+В Claude Code есть функция **Remote Control**, которая позволяет управлять локальной сессией Claude Code из браузера телефона или мобильного приложения Claude. Ваш компьютер запускает Claude Code локально (с полным доступом к хранилищу, агентам и MCP-серверам), а телефон выступает удалённым интерфейсом.
 
-Nothing moves to the cloud. Your vault stays on your computer. Your phone just sends messages and receives responses.
+Ничего не уходит в облако. Хранилище остаётся на вашем компьютере. Телефон лишь отправляет сообщения и получает ответы.
 
 ```
-Phone (browser or Claude app)
-    ↓ sends messages via Anthropic servers
-Your computer (Claude Code running locally)
-    ↓ executes agents, reads/writes vault
-Your Obsidian vault (local files)
+Телефон (браузер или приложение Claude)
+    ↓ отправляет сообщения через серверы Anthropic
+Ваш компьютер (Claude Code запущен локально)
+    ↓ выполняет агентов, читает/пишет в хранилище
+Ваше хранилище Obsidian (локальные файлы)
 ```
 
-### A real-world example
+### Пример из жизни
 
-I use this on the go. Before leaving, I start a Remote Control session on my laptop. Out and about, I open the session on my phone and ask: "What's on my calendar today?" or "Save this: just had an idea about reorganizing the team standup." I can even search my vault with "What do I know about the Henderson project?" and get a full answer with sources, right from my phone.
+Я использую это на ходу. Перед уходом запускаю сессию Remote Control на ноутбуке. На улице открываю сессию на телефоне и спрашиваю: «Что у меня в календаре сегодня?» или «Сохрани: только что пришла идея о реорганизации командного стендапа.» Я даже могу искать в хранилище — «Что я знаю о проекте Хендерсон?» — и получить полный ответ с источниками прямо с телефона.
 
-The vault, the agents, the MCP servers: everything works exactly as if I were sitting at my computer.
-
----
-
-## Requirements
-
-- **Claude Code v2.1.51 or later** (check with `claude --version`)
-- **Claude Pro, Max, or Team subscription** (not API keys)
-- Your computer must stay **on and connected to the internet** during the session
-- A phone with a browser or the Claude mobile app (iOS/Android)
-
-> **Team/Enterprise users:** your admin must enable Remote Control at `claude.ai/admin-settings/claude-code`.
+Хранилище, агенты, MCP-серверы — всё работает точно так же, как если бы я сидел за компьютером.
 
 ---
 
-## Setup (one time)
+## Требования
 
-If you haven't already, make sure Claude Code is authenticated and your vault is trusted:
+- **Claude Code версии 2.1.51 или новее** (проверьте командой `claude --version`)
+- **Подписка Claude Pro, Max или Team** (не API-ключи)
+- Компьютер должен оставаться **включённым и подключённым к интернету** во время сессии
+- Телефон с браузером или мобильным приложением Claude (iOS/Android)
+
+> **Пользователи Team/Enterprise:** администратор должен включить Remote Control на `claude.ai/admin-settings/claude-code`.
+
+---
+
+## Настройка (однократно)
+
+Если вы ещё этого не сделали, убедитесь, что Claude Code авторизован и хранилище одобрено:
 
 ```bash
 cd /path/to/your-vault
 claude
 ```
 
-If this is your first time, Claude Code will ask you to log in (`/login`) and accept the workspace trust dialog. Once that's done, you're set.
+При первом запуске Claude Code попросит войти в аккаунт (`/login`) и подтвердить доверие к рабочей директории. После этого всё настроено.
 
 ---
 
-## Starting a session
+## Запуск сессии
 
-On your computer, open a terminal and run:
+На компьютере откройте терминал и выполните:
 
 ```bash
 cd /path/to/your-vault
 claude remote-control --name "My Brain"
 ```
 
-This starts a local Claude Code session and displays:
-- A **session URL** you can open on your phone
-- A **QR code** you can scan (press spacebar to toggle it)
+Это запускает локальную сессию Claude Code и показывает:
+- **URL сессии**, который можно открыть на телефоне
+- **QR-код**, который можно отсканировать (нажмите пробел для переключения)
 
-The session stays running, waiting for connections. Keep this terminal open.
+Сессия остаётся запущенной, ожидая подключений. Не закрывайте терминал.
 
-### Alternative: enable on an existing session
+### Альтернатива: включить на существующей сессии
 
-If you already have Claude Code running, type this inside the session:
+Если Claude Code уже запущен, введите прямо в сессии:
 
 ```
 /remote-control My Brain
 ```
 
-This makes your current session accessible remotely without starting a new one.
+Это сделает текущую сессию доступной удалённо без запуска новой.
 
 ---
 
-## Connecting from your phone
+## Подключение с телефона
 
-You have three options:
+У вас три варианта:
 
-### Option 1: QR code (fastest)
-Press spacebar in the terminal to show the QR code. Scan it with your phone's camera or the Claude mobile app.
+### Вариант 1: QR-код (самый быстрый)
+Нажмите пробел в терминале для отображения QR-кода. Отсканируйте его камерой телефона или приложением Claude.
 
-### Option 2: Session URL
-Copy the URL shown in the terminal and open it in your phone's browser.
+### Вариант 2: URL сессии
+Скопируйте URL из терминала и откройте его в браузере телефона.
 
-### Option 3: Session list
-Go to [claude.ai/code](https://claude.ai/code) on your phone. Your session will appear in the list with a green indicator. Tap it to connect.
-
----
-
-## Using the Crew from your phone
-
-Once connected, you use the Crew exactly as you would on your computer. Just type (or use voice input) and the agents respond:
-
-- "Save this: had a great idea about reorganizing the team standup" (Scribe captures it)
-- "Check my email for anything urgent" (Postman scans Gmail)
-- "What's on my calendar tomorrow?" (Postman checks Google Calendar)
-- "Find my notes about the Henderson project" (Seeker searches your vault)
-
-Everything runs on your computer. Your phone is just the interface.
+### Вариант 3: Список сессий
+Перейдите на [claude.ai/code](https://claude.ai/code) с телефона. Ваша сессия появится в списке с зелёным индикатором. Нажмите на неё для подключения.
 
 ---
 
-## Tips for mobile use
+## Использование Crew с телефона
 
-- **Use voice input.** Most phones have built-in speech-to-text on the keyboard. Talking is faster than typing on a phone, and the Scribe handles messy voice input perfectly.
-- **Keep sessions short and focused.** Mobile is great for quick captures, grocery runs, and check-ins. Save deep work for your computer.
-- **Name your sessions.** The `--name` flag makes it easy to find the right session on `claude.ai/code` if you have multiple projects.
-- **Your computer must stay awake.** If it goes to sleep or loses internet for more than ~10 minutes, the session ends. Adjust your sleep settings before leaving.
-- **Works on mobile data.** WiFi is smoother, but cellular works fine for text-based interactions.
+После подключения вы используете Crew точно так же, как на компьютере. Просто пишите (или используйте голосовой ввод), и агенты отвечают:
+
+- «Сохрани: отличная идея о реорганизации стендапа» (Писарь захватит)
+- «Проверь почту на предмет срочного» (Почтальон сканирует Gmail)
+- «Что у меня в календаре завтра?» (Почтальон проверит Google Calendar)
+- «Найди мои заметки о проекте Хендерсон» (Искатель обыщет хранилище)
+
+Всё выполняется на вашем компьютере. Телефон — лишь интерфейс.
 
 ---
 
-## Troubleshooting
+## Советы для мобильного использования
 
-### "Remote Control is not yet enabled"
+- **Используйте голосовой ввод.** В большинстве телефонов есть встроенное распознавание речи на клавиатуре. Говорить быстрее, чем печатать на телефоне, а Писарь отлично справляется с сырым голосовым вводом.
+- **Держите сессии короткими и целенаправленными.** Мобильный режим отлично подходит для быстрых заметок, походов в магазин и проверок. Серьёзную работу оставьте для компьютера.
+- **Давайте имена сессиям.** Флаг `--name` упрощает поиск нужной сессии на `claude.ai/code`, если у вас несколько проектов.
+- **Компьютер должен оставаться включённым.** Если он уснёт или потеряет интернет более чем на ~10 минут, сессия завершится. Настройте параметры сна перед уходом.
+- **Работает через мобильный интернет.** Wi-Fi плавнее, но мобильная сеть вполне подходит для текстового взаимодействия.
 
-Make sure these environment variables are NOT set in your shell:
+---
+
+## Устранение неполадок
+
+### «Remote Control is not yet enabled»
+
+Убедитесь, что эти переменные окружения НЕ установлены в вашей оболочке:
 
 ```bash
 unset CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC
 unset DISABLE_TELEMETRY
 ```
 
-For Team/Enterprise accounts, ask your admin to enable Remote Control in the admin settings.
+Для аккаунтов Team/Enterprise попросите администратора включить Remote Control в настройках администратора.
 
-### Session disappears from the list
+### Сессия исчезает из списка
 
-Your computer probably went to sleep or lost internet. Go back to your computer, check the terminal, and restart the session if needed.
+Скорее всего, компьютер уснул или потерял интернет. Вернитесь к компьютеру, проверьте терминал и перезапустите сессию при необходимости.
 
-### Agents don't seem to activate
+### Агенты не активируются
 
-Make sure the terminal on your computer is running Claude Code **inside your vault folder**. If you started it in a different directory, the agents won't be loaded.
+Убедитесь, что терминал на компьютере запускает Claude Code **внутри папки хранилища**. Если вы запустили его в другой директории, агенты не будут загружены.
 
-### QR code won't scan
+### QR-код не сканируется
 
-Press spacebar to toggle the QR code display. If your terminal font is too small, try zooming in, or just copy the URL instead.
-
----
-
-## What this is NOT
-
-To be clear about limitations:
-
-- This is **not a standalone mobile app.** Your computer must be running Claude Code for it to work.
-- This does **not** sync your vault to the cloud. Everything stays local on your computer.
-- You **cannot** use this with terminal SSH apps (Termius, Blink, etc.). Remote Control works through the browser or Claude mobile app only.
-- If your computer is off, there is no session to connect to.
+Нажмите пробел для переключения отображения QR-кода. Если шрифт терминала слишком мелкий, попробуйте увеличить масштаб или просто скопируйте URL.
 
 ---
 
-## Further reading
+## Чем это НЕ является
 
-- [Claude Code Remote Control documentation](https://docs.anthropic.com/en/docs/claude-code/remote-control)
-- [Getting Started with the Crew](getting-started.md)
-- [Examples of daily usage](examples.md)
+Для ясности о существующих ограничениях:
+
+- Это **не автономное мобильное приложение.** Для работы на компьютере должен быть запущен Claude Code.
+- Это **не синхронизирует** хранилище в облако. Всё остаётся локально на вашем компьютере.
+- **Нельзя** использовать с терминальными SSH-приложениями (Termius, Blink и т.д.). Remote Control работает только через браузер или мобильное приложение Claude.
+- Если компьютер выключен — сессии для подключения нет.
+
+---
+
+## Дополнительные материалы
+
+- [Документация Remote Control в Claude Code](https://docs.anthropic.com/en/docs/claude-code/remote-control)
+- [Начало работы с Crew](getting-started.md)
+- [Примеры ежедневного использования](examples.md)

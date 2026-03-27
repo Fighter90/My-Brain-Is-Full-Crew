@@ -1,224 +1,224 @@
-# Getting Started with My Brain Is Full - Crew
+# Начало работы с My Brain Is Full — Crew
 
-A step-by-step guide for setting up your AI-powered vault. No technical background required.
-
----
-
-## What you need before starting
-
-### Required
-- **Obsidian**: A free note-taking app. Download it at [obsidian.md](https://obsidian.md)
-- **Claude Code**: Anthropic's coding assistant. You need a Claude Pro, Max, or Team subscription.
-- **An Obsidian vault**: This is just a folder on your computer where Obsidian stores your notes. If you don't have one yet, Obsidian will create one for you when you first open it.
-- **Git**: A tool to download the project. On Mac, the terminal will prompt you to install it automatically the first time you use it. On Windows, download it from [git-scm.com](https://git-scm.com).
-
-### Optional (but recommended)
-- **Gmail account**: If you want the Postman agent to process your emails
-- **Google Calendar**: If you want calendar integration
+Пошаговое руководство по настройке вашего хранилища с ИИ-поддержкой. Технический опыт не требуется.
 
 ---
 
-## Step 1: Install Obsidian
+## Что вам понадобится
 
-1. Go to [obsidian.md](https://obsidian.md) and download the app for your system (Mac, Windows, or Linux)
-2. Open Obsidian
-3. If this is your first time, click **"Create new vault"**
-4. Give it a name (e.g., "My Brain", "Second Brain", "Knowledge Base", whatever feels right)
-5. Choose where to save it on your computer
-6. Remember this location. You'll need it in Step 3
+### Обязательно
+- **Obsidian**: бесплатное приложение для заметок. Скачайте на [obsidian.md](https://obsidian.md)
+- **Claude Code**: ИИ-ассистент от Anthropic. Нужна подписка Claude Pro, Max или Team.
+- **Хранилище Obsidian**: это просто папка на вашем компьютере, где Obsidian хранит заметки. Если у вас его ещё нет — Obsidian создаст его при первом запуске.
+- **Git**: инструмент для скачивания проекта. На Mac терминал предложит установить его автоматически при первом использовании. На Windows скачайте с [git-scm.com](https://git-scm.com).
 
-### Install recommended plugins
-
-Inside Obsidian:
-1. Go to **Settings** (gear icon, bottom left)
-2. Click **Community plugins**
-3. Click **Browse**
-4. Search for and install these plugins:
-
-**Essential (install these first):**
-| Plugin | What it does |
-|--------|-------------|
-| **Templater** | Makes templates work with dynamic content (dates, etc.) |
-| **Dataview** | Lets you query your notes like a database |
-| **Calendar** | Visual calendar in the sidebar |
-| **Tasks** | Better task management with due dates and queries |
-
-**Recommended (install when ready):**
-| Plugin | What it does |
-|--------|-------------|
-| **QuickAdd** | Rapid note capture |
-| **Folder Notes** | Index notes for folders |
-| **Tag Wrangler** | Manage and rename tags in bulk |
-| **Periodic Notes** | Weekly and monthly review notes |
-| **Omnisearch** | Better search across your vault |
-
-Don't worry if this feels like a lot. The Architect agent will remind you about missing plugins during setup.
+### Необязательно (но рекомендуется)
+- **Аккаунт Gmail**: если хотите, чтобы агент Почтальон обрабатывал вашу почту
+- **Google Calendar**: если хотите интеграцию с календарём
 
 ---
 
-## Step 2: Install Claude Code
+## Шаг 1: Установите Obsidian
 
-1. Go to [claude.ai/code](https://claude.ai/code) and follow the instructions to install Claude Code
-2. You need a **Claude Pro**, **Max**, or **Team** subscription
-3. You can use either the **Desktop app** (Cowork) or the **CLI** (command-line interface). The Crew works on both
+1. Перейдите на [obsidian.md](https://obsidian.md) и скачайте приложение для вашей системы (Mac, Windows или Linux)
+2. Откройте Obsidian
+3. Если это ваш первый запуск, нажмите **«Create new vault»** (Создать новое хранилище)
+4. Дайте ему имя (например, «Мой мозг», «Второй мозг», «База знаний» — что вам ближе)
+5. Выберите, где сохранить на компьютере
+6. Запомните это расположение — оно понадобится на Шаге 3
+
+### Установите рекомендуемые плагины
+
+Внутри Obsidian:
+1. Зайдите в **Settings** (Настройки — иконка шестерёнки, внизу слева)
+2. Нажмите **Community plugins** (Сторонние плагины)
+3. Нажмите **Browse** (Обзор)
+4. Найдите и установите следующие плагины:
+
+**Обязательные (установите первыми):**
+| Плагин | Что делает |
+|--------|-----------|
+| **Templater** | Обеспечивает работу шаблонов с динамическим содержимым (даты и т.д.) |
+| **Dataview** | Позволяет делать запросы к заметкам как к базе данных |
+| **Calendar** | Визуальный календарь на боковой панели |
+| **Tasks** | Улучшенное управление задачами с датами и запросами |
+
+**Рекомендуемые (установите, когда будете готовы):**
+| Плагин | Что делает |
+|--------|-----------|
+| **QuickAdd** | Быстрый захват заметок |
+| **Folder Notes** | Индексные заметки для папок |
+| **Tag Wrangler** | Массовое управление и переименование тегов |
+| **Periodic Notes** | Еженедельные и ежемесячные обзорные заметки |
+| **Omnisearch** | Улучшенный поиск по хранилищу |
+
+Не переживайте, если кажется, что всего много. Агент Архитектор напомнит о недостающих плагинах во время настройки.
 
 ---
 
-## Step 3: Install the Crew
+## Шаг 2: Установите Claude Code
 
-Open your terminal and navigate to your Obsidian vault folder:
+1. Перейдите на [claude.ai/code](https://claude.ai/code) и следуйте инструкциям по установке Claude Code
+2. Вам нужна подписка **Claude Pro**, **Max** или **Team**
+3. Можно использовать как **Desktop-приложение** (Cowork), так и **CLI** (интерфейс командной строки). Crew работает на обоих
+
+---
+
+## Шаг 3: Установите Crew
+
+Откройте терминал и перейдите в папку вашего хранилища Obsidian:
 
 ```bash
 cd /path/to/your-vault
 ```
 
-> **Not sure how to open the terminal?** On Mac, press `Command + Space`, type "Terminal", and press Enter. On Windows, press `Windows + R`, type "cmd", and press Enter.
+> **Не знаете, как открыть терминал?** На Mac нажмите `Command + Space`, введите «Terminal» и нажмите Enter. На Windows нажмите `Windows + R`, введите «cmd» и нажмите Enter.
 
-Clone the repo inside your vault:
+Клонируйте репозиторий внутрь хранилища:
 
 ```bash
 git clone https://github.com/gnekt/My-Brain-Is-Full-Crew.git
 ```
 
-Run the installer:
+Запустите установщик:
 
 ```bash
 cd My-Brain-Is-Full-Crew
 bash scripts/launchme.sh
 ```
 
-The script will ask two quick questions:
-1. **Is this your vault folder?** Confirm or enter the correct path
-2. **Do you use Gmail or Google Calendar?** Choose yes to set up the Postman integration
+Скрипт задаст два быстрых вопроса:
+1. **Это папка вашего хранилища?** Подтвердите или введите правильный путь
+2. **Используете ли вы Gmail или Google Calendar?** Выберите «да» для настройки интеграции с Почтальоном
 
-When it's done, your vault will look like this:
+После завершения ваше хранилище будет выглядеть так:
 
 ```
 your-vault/
 ├── .claude/
-│   ├── agents/          ← 8 lightweight crew agents
-│   ├── skills/          ← 13 specialized skills for complex flows
-│   └── references/      ← shared docs the agents read
-├── CLAUDE.md            ← project instructions
-├── .mcp.json            ← Gmail + Calendar (only if you said yes)
-├── My-Brain-Is-Full-Crew/  ← the repo (for future updates)
-└── ... your Obsidian notes
+│   ├── agents/          ← 8 лёгких агентов команды
+│   ├── skills/          ← 13 специализированных навыков для сложных задач
+│   └── references/      ← общие документы для агентов
+├── CLAUDE.md            ← инструкции проекта
+├── .mcp.json            ← Gmail + Calendar (только если вы выбрали «да»)
+├── My-Brain-Is-Full-Crew/  ← репозиторий (для будущих обновлений)
+└── ... ваши заметки Obsidian
 ```
 
-> **Something went wrong?** The most common issue is that `git` isn't installed. On Mac, the terminal will prompt you to install it automatically. On Windows, download it from [git-scm.com](https://git-scm.com). If you're stuck, just show this page to a tech-savvy friend. It takes 60 seconds.
+> **Что-то пошло не так?** Самая частая проблема — не установлен `git`. На Mac терминал предложит установить его автоматически. На Windows скачайте с [git-scm.com](https://git-scm.com). Если застряли — просто покажите эту страницу знакомому, разбирающемуся в технике. Установка занимает 60 секунд.
 
 ---
 
-## Step 4: Connect your vault
+## Шаг 4: Подключите хранилище
 
-1. Open Claude Code (CLI or Desktop)
-2. Open it **inside your Obsidian vault folder**. This is important: Claude needs to be in your vault to read and write your notes.
+1. Откройте Claude Code (CLI или Desktop)
+2. Откройте его **внутри папки вашего хранилища Obsidian**. Это важно: Claude должен находиться в вашем хранилище, чтобы читать и записывать заметки.
 
-If you're using the CLI:
+Если используете CLI:
 ```bash
 cd /path/to/your-vault
 claude
 ```
 
-If you're using Claude Code Desktop (Cowork), open the vault folder as your working directory.
+Если используете Claude Code Desktop (Cowork), откройте папку хранилища как рабочую директорию.
 
 ---
 
-## Step 5: Initialize your vault
+## Шаг 5: Инициализируйте хранилище
 
-This is the fun part. Just type:
+Самая интересная часть. Просто напишите:
 
-> **"Initialize my vault"**
+> **«Инициализируй моё хранилище»**
 
-The `/onboarding` skill will kick in and the **Architect** will start a friendly conversation with you. It will ask:
+Навык `/onboarding` активируется, и **Архитектор** начнёт дружелюбный диалог с вами. Он спросит:
 
-### About you
-- What should I call you?
-- What's your preferred language?
-- What do you do? (student, professional, creative, researcher...)
-- What brought you here? (overwhelm, organization, health, productivity...)
+### О вас
+- Как к вам обращаться?
+- На каком языке вы предпочитаете общаться?
+- Чем вы занимаетесь? (студент, профессионал, творческий специалист, исследователь...)
+- Что вас сюда привело? (перегрузка, организация, здоровье, продуктивность...)
 
-### About your vault
-- Are you new to Obsidian, or migrating from an existing vault?
-- Do you want all 8 agents, or just some?
-- What areas of your life do you want to manage?
+### О вашем хранилище
+- Вы новичок в Obsidian или мигрируете с существующего хранилища?
+- Хотите всех 8 агентов или только некоторых?
+- Какие сферы жизни вы хотите упорядочить?
 
-### About integrations (optional)
-- Do you want email triage? (requires Gmail connection)
-- Do you want calendar integration? (requires Google Calendar connection)
+### Об интеграциях (необязательно)
+- Хотите разбор почты? (требуется подключение Gmail)
+- Хотите интеграцию с календарём? (требуется подключение Google Calendar)
 
-After the conversation, the Architect creates your entire vault structure, saves your profile, and leaves you a personalized welcome note.
+После диалога Архитектор создаёт полную структуру папок хранилища, сохраняет ваш профиль и оставляет персональную приветственную заметку.
 
-### Agent memory (Post-it)
+### Память агентов (Post-it)
 
-Every agent has a small "post-it" file in `Meta/states/` where it jots down notes for its next run. This means agents remember what they did last time: the Sorter knows which files it already triaged, the Scribe remembers what you were brainstorming about, the Architect knows which onboarding step you were on if the conversation was interrupted.
+У каждого агента есть небольшой файл-«стикер» в `Meta/states/`, куда он записывает заметки для следующего запуска. Это значит, что агенты помнят, что делали в прошлый раз: Сортировщик знает, какие файлы уже разобрал, Писарь помнит, о чём вы проводили мозговой штурм, Архитектор знает, на каком этапе онбординга вы остановились, если разговор был прерван.
 
-You don't need to manage these files — agents handle them automatically. Each post-it is limited to 30 lines, so they never grow out of control.
-
----
-
-## Step 6: Start using it
-
-From now on, you just talk to Claude. Here are some things to try on your first day:
-
-### Capture some thoughts
-> "Save this: I had an idea about reorganizing the team standup. Maybe we should do async updates on Mondays and only meet on Wednesdays"
-
-The **Scribe** will turn this into a clean note in your inbox.
-
-### Dump several things at once
-> "Quick notes: need to call the dentist, also Marco mentioned a book called Thinking Fast and Slow, and I should review the Q3 budget before Friday"
-
-The **Scribe** detects multiple items and creates separate notes for each.
-
-### Check your email
-> "Check my email for anything important"
-
-The `/email-triage` skill scans your Gmail, saves actionable emails, and gives you a summary.
-
-### File everything
-> "Triage my inbox"
-
-The `/inbox-triage` skill processes all notes in your inbox and files them to the right places.
-
-### Search your brain
-> "What do I know about the Henderson project?"
-
-The **Seeker** searches your vault and synthesizes an answer with source citations.
+Вам не нужно управлять этими файлами — агенты делают это автоматически. Каждый стикер ограничен 30 строками, поэтому они не разрастаются бесконтрольно.
 
 ---
 
-## Step 7: Build daily habits
+## Шаг 6: Начните использовать
 
-The Crew works best with simple daily routines:
+С этого момента вы просто разговариваете с Claude. Вот что можно попробовать в первый день:
 
-### Morning (2 minutes)
-> "Check my calendar for today" to see what's ahead
-> "Any messages from the crew?" to check if agents flagged anything
+### Зафиксируйте мысли
+> «Сохрани это: у меня идея — реорганизовать командный стендап. Может, перейдём на асинхронные обновления по понедельникам и будем встречаться только по средам»
 
-### Throughout the day
-> Just dump thoughts as they come. The Scribe handles the rest.
+**Писарь** превратит это в аккуратную заметку в папке входящих.
 
-### Evening (5 minutes)
-> "Triage my inbox" to let the Sorter file everything
+### Выгрузите несколько вещей разом
+> «Быстрые заметки: нужно позвонить стоматологу, ещё Марко упомянул книгу "Думай медленно... решай быстро", и надо проверить бюджет Q3 до пятницы»
 
-### Weekly (10 minutes)
-> "Weekly review" to run the `/vault-audit` skill for a full vault health check
+**Писарь** обнаружит несколько элементов и создаст отдельную заметку для каждого.
+
+### Проверьте почту
+> «Проверь мою почту на предмет важного»
+
+Навык `/email-triage` просканирует Gmail, сохранит письма, требующие действий, и выдаст сводку.
+
+### Разберите входящие
+> «Разбери входящие»
+
+Навык `/inbox-triage` обработает все заметки в папке входящих и разложит их по нужным местам.
+
+### Поищите в своём мозге
+> «Что я знаю о проекте Хендерсон?»
+
+**Искатель** обыщет хранилище и синтезирует ответ с указанием источников.
 
 ---
 
-## Troubleshooting
+## Шаг 7: Выработайте ежедневные привычки
 
-### "The agent doesn't seem to activate"
-Make sure Claude Code is open inside your vault folder (not a different directory). Verify agent files exist at `.claude/agents/` and skill files at `.claude/skills/` in your vault. Try saying the trigger phrase differently. Agents and skills understand natural language in multiple languages.
+Crew работает лучше всего с простыми ежедневными ритуалами:
 
-### "Gmail/Calendar isn't working"
-The Postman needs Gmail and Google Calendar MCP connectors. Run the installer again (`bash scripts/launchme.sh`) and answer **yes** to the Gmail/Calendar question, or manually copy `.mcp.json` from the repo to your vault root. Then authorize the connection when Claude Code prompts you.
+### Утро (2 минуты)
+> «Что у меня в календаре на сегодня?» — чтобы увидеть, что впереди
+> «Есть сообщения от команды?» — проверить, пометил ли что-нибудь какой-либо агент
 
-### "My vault structure looks different from the docs"
-The Architect customizes the structure based on your onboarding answers.
+### В течение дня
+> Просто выгружайте мысли по мере их появления. Писарь обработает остальное.
 
-### "How do I update to a new version?"
+### Вечер (5 минут)
+> «Разбери входящие» — пусть Сортировщик разложит всё по местам
+
+### Еженедельно (10 минут)
+> «Еженедельный обзор» — запуск навыка `/vault-audit` для полной проверки здоровья хранилища
+
+---
+
+## Устранение неполадок
+
+### «Агент не активируется»
+Убедитесь, что Claude Code открыт внутри папки хранилища (а не в другой директории). Проверьте, что файлы агентов находятся в `.claude/agents/`, а файлы навыков — в `.claude/skills/` вашего хранилища. Попробуйте перефразировать триггерную фразу. Агенты и навыки понимают естественный язык на нескольких языках.
+
+### «Gmail/Calendar не работает»
+Почтальону нужны MCP-коннекторы Gmail и Google Calendar. Запустите установщик повторно (`bash scripts/launchme.sh`) и ответьте **да** на вопрос о Gmail/Calendar, или вручную скопируйте `.mcp.json` из репозитория в корень хранилища. Затем авторизуйте подключение, когда Claude Code попросит.
+
+### «Структура хранилища отличается от документации»
+Архитектор настраивает структуру на основе ваших ответов при онбординге.
+
+### «Как обновиться до новой версии?»
 
 ```bash
 cd /path/to/your-vault/My-Brain-Is-Full-Crew
@@ -226,26 +226,26 @@ git pull
 bash scripts/updateme.sh
 ```
 
-Only changed files are updated. Your vault notes are never touched.
+Обновляются только изменённые файлы. Ваши заметки в хранилище не затрагиваются.
 
-### "An agent did something weird"
-Open an issue on GitHub with:
-1. What you asked
-2. What happened
-3. What you expected
+### «Агент сделал что-то странное»
+Создайте issue на GitHub, указав:
+1. Что вы попросили
+2. Что произошло
+3. Что вы ожидали
 
-### "I want to change my profile"
-> "Update my profile" and the Architect will help you modify your settings
-
----
-
-## Next steps
-
-- **[Examples](examples.md)**: See real-world usage scenarios
-- **[Mobile Access](mobile-access.md)**: Use the Crew from your phone
-- **[Meet the Agents](agents/)**: Deep-dive into each agent's capabilities
-- **[Contributing](../CONTRIBUTING.md)**: Help make the Crew better
+### «Хочу изменить профиль»
+> «Обнови мой профиль» — и Архитектор поможет вам изменить настройки
 
 ---
 
-*Remember: the best organizational system is the one you actually use. Start small. Talk to Claude. Let the Crew handle the rest.*
+## Дальнейшие шаги
+
+- **[Примеры](examples.md)**: реальные сценарии использования
+- **[Мобильный доступ](mobile-access.md)**: управление Crew с телефона
+- **[Знакомство с агентами](agents/)**: подробности о возможностях каждого агента
+- **[Участие в разработке](../CONTRIBUTING.md)**: помогите сделать Crew лучше
+
+---
+
+*Помните: лучшая система организации — та, которую вы реально используете. Начните с малого. Говорите с Claude. Пусть Crew позаботится об остальном.*

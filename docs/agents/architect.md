@@ -1,125 +1,125 @@
-# Architect
+# Архитектор (Architect)
 
-> Your vault's foundation, blueprint, and building code, all in one agent.
+> Фундамент, чертёж и строительные нормы вашего хранилища — всё в одном агенте.
 
-## What it does
+## Что он делает
 
-The Architect is the first agent you meet and the one that shapes everything else. When you start fresh, the Architect runs you through a friendly onboarding conversation. Not a boring form, but a real back-and-forth where it learns who you are, what you do, and what you need from your vault. Based on your answers, it builds a personalized folder structure, creates templates, sets up naming conventions, and establishes a tag system that every other agent follows.
+Архитектор — первый агент, с которым вы встречаетесь, и именно он определяет всё остальное. При первом запуске Архитектор проведёт вас через дружелюбный онбординг-диалог. Не скучную анкету, а настоящий разговор, в ходе которого он узнаёт, кто вы, чем занимаетесь и что вам нужно от хранилища. На основе ваших ответов он создаёт персонализированную структуру папок, шаблоны, соглашения об именовании и систему тегов, которой следуют все остальные агенты.
 
-Beyond onboarding, the Architect is your vault's structural authority. Whenever a new project needs a home, a new area of your life emerges, or your existing structure starts feeling cramped, the Architect steps in. It creates folders, designs templates, updates the rules, and makes sure every agent in the crew knows about the changes.
+Помимо онбординга, Архитектор — структурный авторитет вашего хранилища. Когда появляется новый проект, возникает новая сфера жизни или текущая структура начинает трещать по швам — Архитектор берёт дело в свои руки. Он создаёт папки, проектирует шаблоны, обновляет правила и следит, чтобы каждый агент в команде знал об изменениях.
 
-Think of it as the urban planner of your knowledge city. It decides where things go, how streets are named, and what the building codes are, so everyone else can do their job without chaos.
+Думайте о нём как о градостроителе вашего города знаний. Он решает, куда что ставить, как называть улицы и каковы строительные нормы, чтобы все остальные могли работать без хаоса.
 
-## Capabilities
+## Возможности
 
-The Architect agent handles reactive, single-shot structural operations. Several of its more complex, multi-step flows have been promoted to dedicated skills that run as guided conversations:
+Агент Архитектор обрабатывает реактивные одноразовые структурные операции. Несколько его более сложных многошаговых процессов выделены в отдельные навыки, работающие как управляемые диалоги:
 
-| Capability | Now handled by |
+| Возможность | Теперь обрабатывается |
 |---|---|
-| Full vault onboarding | `/onboarding` skill |
-| Vault defragmentation | `/defrag` skill |
-| Custom agent creation | `/create-agent` skill |
-| Custom agent management | `/manage-agent` skill |
+| Полный онбординг хранилища | навык `/onboarding` |
+| Дефрагментация хранилища | навык `/defrag` |
+| Создание пользовательских агентов | навык `/create-agent` |
+| Управление пользовательскими агентами | навык `/manage-agent` |
 
-What the Architect agent still does directly:
+Что агент Архитектор по-прежнему делает напрямую:
 
-- **Folder management**: creates, restructures, and archives folders as your life evolves
-- **Template management**: builds and maintains Templater-compatible templates for meetings, ideas, tasks, projects, people, daily notes, and more
-- **Tag taxonomy**: maintains the official tag list, enforces naming rules, and prevents tag sprawl
-- **Naming conventions**: defines and documents how files, folders, and tags are named
-- **MOC (Map of Content) creation**: creates index notes that tie related topics together
-- **Vault evolution**: detects when your structure needs to grow, split, or simplify, and proposes changes
-- **Profile updates**: updates your preferences anytime (new job, new language, activating a new agent)
-- **Plugin recommendations**: suggests essential and optional Obsidian plugins with clear reasons for each
-- **Multilingual support**: responds in whatever language you write in
+- **Управление папками**: создаёт, реструктурирует и архивирует папки по мере того, как ваша жизнь меняется
+- **Управление шаблонами**: создаёт и поддерживает Templater-совместимые шаблоны для совещаний, идей, задач, проектов, людей, ежедневных заметок и многого другого
+- **Таксономия тегов**: ведёт официальный список тегов, обеспечивает соблюдение правил именования и предотвращает разрастание тегов
+- **Соглашения об именовании**: определяет и документирует, как называются файлы, папки и теги
+- **Создание карт контента (MOC)**: создаёт индексные заметки, связывающие смежные темы
+- **Эволюция хранилища**: определяет, когда структуре нужно расти, разделяться или упрощаться, и предлагает изменения
+- **Обновление профиля**: обновляет ваши настройки в любой момент (новая работа, новый язык, активация нового агента)
+- **Рекомендации плагинов**: предлагает обязательные и необязательные плагины Obsidian с чёткими обоснованиями
+- **Многоязычная поддержка**: отвечает на том языке, на котором вы пишете
 
-## How to use it
+## Как использовать
 
-Start a conversation with any of these phrases (in any language). Some phrases invoke a dedicated skill instead of the agent directly:
+Начните разговор с любой из этих фраз (на любом языке). Некоторые фразы вызывают специализированный навык, а не агента напрямую:
 
-- "Initialize my vault" / "Set up the vault" / "Onboarding" --> invokes the `/onboarding` skill
-- "Create a new agent" / "I need a new agent" --> invokes the `/create-agent` skill
-- "Edit my agent" / "Remove agent" / "List agents" --> invokes the `/manage-agent` skill
-- "Defragment the vault" / "Weekly defrag" --> invokes the `/defrag` skill
-- "Create a new area for [topic]" --> invokes the Architect agent directly
-- "Create a new project folder for [name]" --> Architect agent
-- "Add a template for [type]" --> Architect agent
-- "Update the tag taxonomy" --> Architect agent
-- "Restructure my vault" --> Architect agent
-- "I changed jobs, update my profile" --> Architect agent
-- "Create a MOC for [topic]" --> Architect agent
+- «Инициализируй моё хранилище» / «Настрой хранилище» / «Онбординг» --> вызывает навык `/onboarding`
+- «Создай нового агента» / «Мне нужен новый агент» --> вызывает навык `/create-agent`
+- «Редактируй моего агента» / «Удали агента» / «Список агентов» --> вызывает навык `/manage-agent`
+- «Дефрагментируй хранилище» / «Еженедельная дефрагментация» --> вызывает навык `/defrag`
+- «Создай новую область для [темы]» --> вызывает агента Архитектор напрямую
+- «Создай папку проекта для [названия]» --> агент Архитектор
+- «Добавь шаблон для [типа]» --> агент Архитектор
+- «Обнови таксономию тегов» --> агент Архитектор
+- «Реструктурируй моё хранилище» --> агент Архитектор
+- «Я сменил работу, обнови мой профиль» --> агент Архитектор
+- «Создай карту контента для [темы]» --> агент Архитектор
 
-In Italian: "Inizializza il vault", "Nuovo progetto", "Configura il vault"
-In French: "Initialiser le vault", "Nouveau projet"
-In Spanish: "Inicializar el vault", "Nuevo proyecto"
-In German: "Vault initialisieren", "Neues Projekt"
+На итальянском: "Inizializza il vault", "Nuovo progetto", "Configura il vault"
+На французском: "Initialiser le vault", "Nouveau projet"
+На испанском: "Inicializar el vault", "Nuevo proyecto"
+На немецком: "Vault initialisieren", "Neues Projekt"
 
-## Example conversations
+## Примеры диалогов
 
-### First-time setup
+### Первоначальная настройка
 
-**You:** Initialize my vault
+**Вы:** Инициализируй моё хранилище
 
-**Architect:** Welcome! I am the Architect. I will help you build your personal knowledge vault from the ground up. Before I create any folders or files, I want to understand who you are and how you work. This will take about 5 minutes, and everything you tell me will be saved so every agent in the crew can serve you better.
+**Архитектор:** Добро пожаловать! Я Архитектор. Я помогу вам построить персональное хранилище знаний с нуля. Прежде чем создавать папки и файлы, я хочу понять, кто вы и как вы работаете. Это займёт около 5 минут, и всё, что вы расскажете, будет сохранено, чтобы каждый агент в команде мог служить вам лучше.
 
-Let's start with the basics. What should I call you?
+Начнём с основ. Как к вам обращаться?
 
-**You:** Call me Alex
+**Вы:** Зовите меня Алекс
 
-**Architect:** Nice to meet you, Alex. You are writing in English, so I will keep all our interactions in English. Do you speak any other languages you might use in your vault? Notes, meetings, or sources in other languages?
+**Архитектор:** Приятно познакомиться, Алекс. Вы пишете на русском, так что я буду продолжать на русском. Вы говорите на каких-нибудь других языках, которые можете использовать в хранилище? Заметки, совещания или источники на других языках?
 
-**You:** I sometimes take notes in Italian
+**Вы:** Иногда делаю заметки на английском
 
-**Architect:** Got it, English primary, Italian secondary. Now, what do you do? Are you a student, researcher, professional, creative...?
+**Архитектор:** Понял — русский основной, английский дополнительный. Чем вы занимаетесь? Студент, исследователь, специалист, творческая профессия...?
 
-*(The conversation continues through 5 phases, covering your role, motivation, which agents you want, health preferences if applicable, and integrations. At the end, the Architect creates your full vault structure.)*
-
----
-
-### Adding a new project
-
-**You:** Create a new project folder for Project Alpha
-
-**Architect:** I will create a folder for Project Alpha at `01-Projects/Alpha/`. Here is what I will set up:
-
-- `01-Projects/Alpha/` (main project folder)
-- A project index note using the Project template
-- An entry in the Projects MOC
-
-I will also update `Meta/vault-structure.md` and notify the Sorter that a new filing destination exists.
-
-Shall I proceed?
+*(Диалог продолжается через 5 фаз: ваша роль, мотивация, какие агенты вам нужны, настройки здоровья при желании и интеграции. В конце Архитектор создаёт полную структуру хранилища.)*
 
 ---
 
-### Evolving the vault
+### Добавление нового проекта
 
-**You:** Update the tag taxonomy. I keep seeing tags that don't make sense
+**Вы:** Создай папку проекта для Project Alpha
 
-**Architect:** Let me audit the current tag taxonomy. I found 3 issues:
+**Архитектор:** Я создам папку для Project Alpha по пути `01-Projects/Alpha/`. Вот что я настрою:
 
-1. Both `#ml` and `#machine-learning` are in use. I recommend keeping `#machine-learning` and replacing all instances of `#ml`
-2. `#misc` is used on 12 notes, which is too vague. I suggest reviewing those notes and assigning more specific tags
-3. `#meeting-notes` exists alongside `#meeting`. I recommend consolidating to `#meeting`
+- `01-Projects/Alpha/` (основная папка проекта)
+- Индексная заметка проекта на основе шаблона Project
+- Запись в карте контента Projects
 
-Want me to apply these changes?
+Я также обновлю `Meta/vault-structure.md` и уведомлю Сортировщика о появлении нового места для распределения файлов.
 
-## Works with
+Приступить?
 
-- **Every agent** reads the rules the Architect creates (naming conventions, tag taxonomy, vault structure)
-- **Scribe** uses the templates the Architect maintains
-- **Sorter** follows the folder structure for filing decisions
-- **Librarian** references all Meta files when auditing vault health
-- **Connector** uses the MOC structure for link suggestions
-- **Postman** checks your profile for integration settings (Gmail, Calendar)
+---
 
-## Tips
+### Эволюция хранилища
 
-- **Run onboarding first.** The Architect is designed to be the very first thing you use. Other agents depend on the structure and profile it creates.
-- **Ask for restructuring when things feel messy.** If you notice notes piling up in the wrong places or tags multiplying, ask the Architect to audit and evolve the structure.
-- **Update your profile when your life changes.** New job? New language? New goal? Tell the Architect so every agent stays in sync.
-- **Start small.** You do not need all 10 agents on day one. Start with the core (Architect, Scribe, Sorter, Seeker) and add more as your vault grows.
+**Вы:** Обнови таксономию тегов. Я постоянно вижу теги, которые не имеют смысла
 
-## What it remembers
+**Архитектор:** Провожу аудит текущей таксономии тегов. Найдено 3 проблемы:
 
-The Architect keeps a post-it in `Meta/states/architect.md` that tracks its progress across conversations. This is especially important during onboarding and custom agent creation: if the conversation is interrupted, the Architect picks up exactly where it left off. After a completed operation, it remembers what it did (folders created, structural issues detected) so it has context for next time.
+1. Используются и `#ml`, и `#machine-learning`. Рекомендую оставить `#machine-learning` и заменить все экземпляры `#ml`
+2. `#misc` используется на 12 заметках — это слишком расплывчато. Предлагаю пересмотреть эти заметки и назначить более конкретные теги
+3. Существуют `#meeting-notes` и `#meeting` одновременно. Рекомендую объединить в `#meeting`
+
+Применить эти изменения?
+
+## Взаимодействие с другими агентами
+
+- **Все агенты** читают правила, которые создаёт Архитектор (соглашения об именовании, таксономия тегов, структура хранилища)
+- **Писарь** использует шаблоны, которые поддерживает Архитектор
+- **Сортировщик** следует структуре папок при распределении файлов
+- **Библиотекарь** обращается ко всем файлам Meta при аудите здоровья хранилища
+- **Связующий** использует структуру карт контента для предложений по связям
+- **Почтальон** проверяет ваш профиль на наличие настроек интеграций (Gmail, Calendar)
+
+## Советы
+
+- **Сначала пройдите онбординг.** Архитектор задуман как самое первое, что вы используете. Другие агенты зависят от структуры и профиля, которые он создаёт.
+- **Просите реструктуризацию, когда чувствуете беспорядок.** Если заметки скапливаются не там или теги множатся — попросите Архитектора провести аудит и развить структуру.
+- **Обновляйте профиль при изменениях в жизни.** Новая работа? Новый язык? Новая цель? Расскажите Архитектору, чтобы все агенты оставались в курсе.
+- **Начните с малого.** Вам не нужны все 10 агентов в первый день. Начните с ядра (Архитектор, Писарь, Сортировщик, Искатель) и добавляйте по мере роста хранилища.
+
+## Что он запоминает
+
+Архитектор хранит стикер в `Meta/states/architect.md`, отслеживающий прогресс между разговорами. Это особенно важно во время онбординга и создания пользовательских агентов: если разговор прервётся, Архитектор продолжит ровно с того места, где остановился. После завершённой операции он запоминает, что сделал (созданные папки, обнаруженные структурные проблемы), чтобы иметь контекст для следующего раза.

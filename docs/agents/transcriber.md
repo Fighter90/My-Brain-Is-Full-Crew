@@ -1,140 +1,140 @@
-# Transcriber
+# Расшифровщик (Transcriber)
 
-> Turns raw recordings and transcripts into structured, actionable meeting intelligence.
+> Превращает сырые записи и транскрипты в структурированную, применимую информацию о совещаниях.
 
-## What it does
+## Что он делает
 
-All transcription processing is now handled by the `/transcribe` skill, which runs as a guided, multi-turn conversation. The skill takes raw audio transcripts (meetings, lectures, podcasts, interviews, voice memos) and transforms them into richly structured Obsidian notes. It does not just clean up text. It extracts the intelligence: decisions made, action items with owners and deadlines, key insights, emotional dynamics, and follow-up needs.
+Вся обработка транскрипций теперь выполняется навыком `/transcribe`, который работает как управляемый многошаговый диалог. Навык берёт сырые транскрипции (совещания, лекции, подкасты, интервью, голосовые заметки) и превращает их в богато структурированные заметки Obsidian. Он не просто чистит текст — он извлекает суть: принятые решения, задачи с ответственными и дедлайнами, ключевые инсайты, эмоциональную динамику и потребности в follow-up.
 
-Paste a messy Zoom transcript full of filler words and speaker labels, and the `/transcribe` skill will produce a polished meeting note with an executive summary, a decisions log, an action items table with confidence scores, and even a draft follow-up email you can send to attendees. Paste lecture notes, and it creates study-ready material with key concepts, definitions, and exam-relevant highlights.
+Вставьте сумбурную транскрипцию Zoom, полную слов-паразитов и меток говорящих, — и навык `/transcribe` создаст отполированную заметку совещания с резюме, журналом решений, таблицей задач с оценками уверенности и даже черновиком follow-up письма для отправки участникам. Вставьте конспект лекции — и он создаст материал, готовый к изучению, с ключевыми концепциями, определениями и экзаменационно важными выводами.
 
-The `/transcribe` skill works with whatever you give it, whether that is output from Whisper, Otter.ai, Google Meet auto-transcription, or your own handwritten notes from a call. It adapts its parsing to the source format and asks just enough context questions to produce the best possible output.
+Навык `/transcribe` работает с любым форматом: Whisper, Otter.ai, автоматическая транскрипция Google Meet или ваши собственные рукописные заметки с созвона. Он адаптирует парсинг к формату источника и задаёт ровно столько уточняющих вопросов, сколько нужно для лучшего результата.
 
-The Transcriber agent itself is kept for edge cases and direct follow-ups not covered by the skill.
+Сам агент Расшифровщик сохранён для крайних случаев и прямых follow-up, не покрываемых навыком.
 
-## Capabilities
+## Возможности
 
-All of the following capabilities are delivered through the `/transcribe` skill:
+Все следующие возможности реализованы через навык `/transcribe`:
 
-- **Meeting notes**: full meeting processing with executive summary, key points, decisions log, action items table (with confidence scores), detailed notes by topic, open questions, next steps, and a follow-up email draft
-- **Lecture notes**: structured academic notes with key concepts, definitions, exam-relevant points, and connections to previous material
-- **Podcast summaries**: TL;DR, numbered key insights, notable quotes, detailed breakdown by topic, and resources mentioned
-- **Interview extraction**: structured Q&A format, key takeaways, notable quotes, and follow-up questions
-- **Voice journal**: personal reflections with mood detection, structured themes, and insights
-- **General transcription**: clean transcript with executive summary and key points for anything that does not fit the above
-- **Multi-speaker detection**: identifies and labels different speakers throughout the transcript
-- **Action item extraction**: catches explicit, implicit, and conditional actions with confidence levels
-- **Sentiment analysis**: flags emotionally charged segments (heated debates, frustration, enthusiasm)
-- **Glossary generation**: extracts domain-specific terms and jargon into a glossary table
-- **Follow-up email generator**: creates a ready-to-send email summarizing meeting outcomes
+- **Заметки совещаний**: полная обработка с резюме, ключевыми тезисами, журналом решений, таблицей задач (с оценками уверенности), подробными заметками по темам, открытыми вопросами, следующими шагами и черновиком follow-up письма
+- **Конспекты лекций**: структурированные академические заметки с ключевыми концепциями, определениями, экзаменационно важными моментами и связями с предыдущим материалом
+- **Краткие содержания подкастов**: TL;DR, пронумерованные ключевые инсайты, примечательные цитаты, подробный разбор по темам и упомянутые ресурсы
+- **Извлечение из интервью**: структурированный формат Q&A, ключевые выводы, примечательные цитаты и вопросы для follow-up
+- **Голосовой дневник**: личные размышления с определением настроения, структурированными темами и инсайтами
+- **Общая транскрипция**: чистая транскрипция с резюме и ключевыми тезисами для всего, что не вписывается в вышеперечисленное
+- **Определение говорящих**: идентификация и маркировка разных говорящих по всей транскрипции
+- **Извлечение задач**: фиксация явных, неявных и условных задач с уровнями уверенности
+- **Анализ тональности**: пометка эмоционально заряженных сегментов (жаркие дебаты, фрустрация, энтузиазм)
+- **Генерация глоссария**: извлечение доменных терминов и жаргона в таблицу глоссария
+- **Генератор follow-up письма**: создание готового к отправке письма с итогами совещания
 
-## How to use it
+## Как использовать
 
-Paste a transcript or describe what you want to process. All of these phrases invoke the `/transcribe` skill:
+Вставьте транскрипцию или опишите, что хотите обработать. Все эти фразы вызывают навык `/transcribe`:
 
-- "Transcribe this meeting: [paste transcript]"
-- "Process these meeting notes"
-- "Summarize this podcast transcript"
-- "Create lecture notes from this: [paste]"
-- "Process my voice memo"
-- "What came out of the meeting? [paste]"
-- "Interview notes: [paste transcript]"
+- «Расшифруй это совещание: [вставьте транскрипцию]»
+- «Обработай эти заметки совещания»
+- «Сделай краткое содержание подкаста»
+- «Создай конспект лекции из этого: [вставка]»
+- «Обработай мою голосовую заметку»
+- «Что вышло из совещания? [вставка]»
+- «Заметки из интервью: [вставьте транскрипцию]»
 
-In Italian: "Trascrivi", "Sbobina", "Note del meeting", "Riassumi la call"
-In French: "Transcrire", "Notes de reunion", "Resume du podcast"
-In Spanish: "Transcribir", "Notas de reunion", "Resumen del podcast"
-In German: "Transkribieren", "Besprechungsnotizen", "Podcast-Zusammenfassung"
+На итальянском: "Trascrivi", "Sbobina", "Note del meeting", "Riassumi la call"
+На французском: "Transcrire", "Notes de réunion", "Résumé du podcast"
+На испанском: "Transcribir", "Notas de reunión", "Resumen del podcast"
+На немецком: "Transkribieren", "Besprechungsnotizen", "Podcast-Zusammenfassung"
 
-## Example conversations
+## Примеры диалогов
 
-### Meeting transcript processing
+### Обработка транскрипции совещания
 
-**You:** Process this meeting transcript: [pastes a 40-minute Zoom meeting transcript]
+**Вы:** Обработай эту транскрипцию совещания: [вставляете 40-минутную транскрипцию Zoom]
 
-**Transcriber:** Before I process this, let me gather some context:
+**Расшифровщик:** Прежде чем обработать, уточню контекст:
 
-1. Date of the meeting? (I will default to today if not specified)
-2. Can you confirm the participants? I detected 4 speakers: Marco, Sarah, you, and someone labeled "Speaker D"
-3. Does this relate to a specific project?
+1. Дата совещания? (по умолчанию — сегодня)
+2. Подтвердите участников? Я определил 4 говорящих: Марко, Сара, вы и кто-то обозначенный как «Speaker D»
+3. Это относится к конкретному проекту?
 
-**You:** Yesterday, Speaker D is Luca, it's about Project Alpha
+**Вы:** Вчера, Speaker D — это Лука, проект Alpha
 
-**Transcriber:** Got it. Here is the processed meeting note:
+**Расшифровщик:** Понял. Вот обработанная заметка совещания:
 
-**Sprint Planning, Project Alpha** (saved to `00-Inbox/`)
+**Sprint Planning, Project Alpha** (сохранено в `00-Inbox/`)
 
-- Executive Summary: 4-sentence overview of the meeting
-- 6 Key Points covering the main topics discussed
-- 3 Decisions Made (with who decided and rationale)
-- Action Items table:
+- Резюме: обзор совещания в 4 предложениях
+- 6 ключевых тезисов по основным темам обсуждения
+- 3 принятых решения (с указанием, кто решил и обоснованием)
+- Таблица задач:
 
-| Who | What | Deadline | Confidence |
-|-----|------|----------|------------|
-| You | Deliver pricing report | Friday | High |
-| Marco | Review API specs | Next Monday | High |
-| Sarah | Schedule client demo | TBD | Medium |
-| Luca | Investigate performance issue | This week | Low (inferred) |
+| Кто | Что | Дедлайн | Уверенность |
+|-----|-----|---------|------------|
+| Вы | Сдать отчёт по ценообразованию | Пятница | Высокая |
+| Марко | Проверить спецификации API | Следующий понедельник | Высокая |
+| Сара | Запланировать клиентское демо | Уточняется | Средняя |
+| Лука | Исследовать проблему производительности | Эта неделя | Низкая (выведено) |
 
-- Detailed notes broken into 4 topic sections with timestamps
-- 2 Open questions flagged for follow-up
-- Follow-up email draft ready to send to attendees
+- Подробные заметки, разбитые на 4 тематических раздела с таймкодами
+- 2 открытых вопроса для follow-up
+- Черновик follow-up письма, готовый к отправке участникам
 
-Want me to adjust anything?
+Хотите что-нибудь скорректировать?
 
 ---
 
-### Podcast summary
+### Краткое содержание подкаста
 
-**You:** Summarize this podcast transcript. It's the Tim Ferriss show, episode about deep work with Cal Newport
+**Вы:** Сделай краткое содержание этого подкаста. Это Tim Ferriss Show, выпуск о глубокой работе с Cal Newport
 
-**Transcriber:** Created `2026-03-21 - Podcast - Tim Ferriss on Deep Work.md`
+**Расшифровщик:** Создано `2026-03-21 - Podcast - Tim Ferriss on Deep Work.md`
 
-**TL;DR:** Cal Newport argues that deep work is becoming both rarer and more valuable in the knowledge economy. The key insight: scheduling deep work blocks is more effective than trying to "find time" for it.
+**TL;DR:** Cal Newport утверждает, что глубокая работа становится одновременно всё более редкой и ценной в экономике знаний. Ключевой инсайт: планирование блоков глубокой работы эффективнее, чем попытки «найти время» для неё.
 
-**Key Insights (7):**
-1. Deep work is a skill that atrophies without practice...
-2. The "any benefit" mindset for tools is the enemy of focus...
+**Ключевые инсайты (7):**
+1. Глубокая работа — навык, который атрофируется без практики...
+2. Менталитет «любая польза» в отношении инструментов — враг фокусировки...
 [...]
 
-**Notable Quotes:** 3 blockquotes captured with speaker attribution
+**Примечательные цитаты:** 3 блок-цитаты с указанием говорящего
 
-**Resources Mentioned:** 4 books and 2 tools referenced in the episode
+**Упомянутые ресурсы:** 4 книги и 2 инструмента, названные в выпуске
 
-I also noticed this connects to your notes on productivity systems in `03-Resources/`. Want me to flag it for the Connector?
+Я также заметил связь с вашими заметками о системах продуктивности в `03-Resources/`. Передать Связующему?
 
 ---
 
-### Voice journal
+### Голосовой дневник
 
-**You:** Process my voice memo: [pastes a personal reflection transcript]
+**Вы:** Обработай мою голосовую заметку: [вставляете транскрипцию личного размышления]
 
-**Transcriber:** Processed as a Voice Journal entry.
+**Расшифровщик:** Обработано как запись голосового дневника.
 
-**Detected mood:** Reflective, slightly anxious
-**Energy level:** Medium
+**Определённое настроение:** рефлексивное, с лёгкой тревожностью
+**Уровень энергии:** средний
 
-Core reflection: You are processing the tension between your desire to take on the new project and your concern about overcommitting, especially given recent burnout.
+Основное размышление: вы осмысливаете противоречие между желанием взять новый проект и опасением перегрузиться, особенно после недавнего выгорания.
 
-I structured your thoughts into 3 themes: work-life boundaries, the new project opportunity, and recovery from burnout.
+Я структурировал ваши мысли в 3 темы: баланс работы и жизни, возможность нового проекта и восстановление после выгорания.
 
-Saved as `2026-03-21 - Voice Journal - New Project Tensions.md`. Want to review it?
+Сохранено как `2026-03-21 - Voice Journal - New Project Tensions.md`. Хотите посмотреть?
 
-## Works with
+## Взаимодействие с другими агентами
 
-- **Sorter**: all transcription output lands in the Inbox for the Sorter to file
-- **Postman**: when a meeting note references email threads, the Transcriber flags the Postman to cross-link
-- **Architect**: when a meeting introduces a new project or area, the Transcriber notifies the Architect
-- **Connector**: meeting notes that reference past decisions are flagged for cross-linking
+- **Сортировщик**: все результаты расшифровки попадают во входящие для распределения Сортировщиком
+- **Почтальон**: когда заметка совещания ссылается на цепочки писем, Расшифровщик передаёт Почтальону для перекрёстной перелинковки
+- **Архитектор**: когда совещание вводит новый проект или область, Расшифровщик уведомляет Архитектора
+- **Связующий**: заметки совещаний, ссылающиеся на прошлые решения, передаются для перекрёстной перелинковки
 
-## Tips
+## Советы
 
-- **Provide participant names upfront.** The Transcriber asks for names, but giving them in your first message saves a round trip.
-- **Mention the project or area.** Context helps the Transcriber tag and link more accurately.
-- **Use the follow-up email draft.** For work meetings, the auto-generated email is a huge time saver. Review it and send.
-- **Check the confidence scores on action items.** "High" means someone explicitly said it. "Low" means the Transcriber inferred it from context, so verify these.
-- **Use voice journal mode for personal reflections.** It preserves your authentic voice instead of making everything sound corporate.
-- **Paste raw transcripts without cleanup.** The Transcriber handles filler words, broken sentences, and transcription artifacts. Do not waste time pre-editing.
+- **Указывайте имена участников сразу.** Расшифровщик спрашивает имена, но если дать их в первом сообщении — сэкономите один шаг.
+- **Укажите проект или область.** Контекст помогает Расшифровщику точнее тегировать и перелинковывать.
+- **Используйте черновик follow-up письма.** Для рабочих совещаний автоматически сгенерированное письмо — огромная экономия времени. Просмотрите и отправьте.
+- **Проверяйте оценки уверенности в задачах.** «Высокая» означает — кто-то явно это сказал. «Низкая» означает — Расшифровщик вывел из контекста, проверьте.
+- **Используйте режим голосового дневника для личных размышлений.** Он сохраняет ваш аутентичный голос, вместо того чтобы всё делать корпоративным.
+- **Вставляйте сырые транскрипции без очистки.** Расшифровщик справляется со словами-паразитами, оборванными фразами и артефактами распознавания. Не тратьте время на предварительное редактирование.
 
-## What it remembers
+## Что он запоминает
 
-The Transcriber keeps a post-it in `Meta/states/transcriber.md` with notes from its last transcription: speaker names and roles it learned, meeting series context, and domain terminology it discovered. This means it gets better at identifying speakers and jargon over time.
+Расшифровщик хранит стикер в `Meta/states/transcriber.md` с заметками от последней расшифровки: имена и роли говорящих, которые он узнал, контекст серии совещаний и обнаруженную доменную терминологию. Это значит, что со временем он лучше идентифицирует говорящих и жаргон.

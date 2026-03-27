@@ -1,196 +1,196 @@
 <h1 align="center">🧠 My Brain Is Full — Crew</h1>
 
 <p align="center">
-  <strong>A team of 8+ AI agents and 13 specialized skills that manage your Obsidian vault<br>so your brain doesn't have to.</strong>
+  <strong>Команда из 8+ ИИ-агентов и 13 специализированных навыков, которые управляют вашим хранилищем Obsidian,<br>чтобы вашему мозгу не приходилось этим заниматься.</strong>
 </p>
 
 <p align="center">
-  You talk. They organize, file, connect, search, transcribe, and triage your email. In any language.
+  Вы говорите. Они организуют, распределяют, связывают, ищут, расшифровывают и сортируют вашу почту. На любом языке.
 </p>
 
 <p align="center">
   <a href="https://discord.gg/EUnQmABw8s">
-    <img src="https://img.shields.io/badge/💬_Join_the_Community-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Join Discord" />
+    <img src="https://img.shields.io/badge/💬_Присоединяйтесь-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Присоединиться к Discord" />
   </a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Agents-8%2B-blueviolet?style=flat-square" alt="8+ Agents" />
-  <img src="https://img.shields.io/badge/Skills-13-blue?style=flat-square" alt="13 Skills" />
-  <img src="https://img.shields.io/badge/Language-Any-success?style=flat-square" alt="Any Language" />
-  <img src="https://img.shields.io/badge/Platform-Obsidian%20%2B%20Claude-blue?style=flat-square" alt="Obsidian + Claude" />
-  <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="MIT License" />
+  <img src="https://img.shields.io/badge/Агенты-8%2B-blueviolet?style=flat-square" alt="8+ агентов" />
+  <img src="https://img.shields.io/badge/Навыки-13-blue?style=flat-square" alt="13 навыков" />
+  <img src="https://img.shields.io/badge/Язык-Любой-success?style=flat-square" alt="Любой язык" />
+  <img src="https://img.shields.io/badge/Платформа-Obsidian%20%2B%20Claude-blue?style=flat-square" alt="Obsidian + Claude" />
+  <img src="https://img.shields.io/badge/Лицензия-MIT-yellow?style=flat-square" alt="Лицензия MIT" />
 </p>
 
 ---
 
-## The honest origin story
+## Честная история создания
 
-I'm a PhD researcher. I've spent years training my brain to hold enormous amounts of information: papers, ideas, deadlines, people, half-baked theories at 2am. And for a while, it worked.
+Я — аспирант (PhD). Годами я тренировал свой мозг удерживать огромные объёмы информации: статьи, идеи, дедлайны, люди, полусырые теории в два часа ночи. И какое-то время это работало.
 
-Then it didn't.
+А потом перестало.
 
-Memory started slipping. Not dramatically (no diagnosis, no crisis) just the slow, creeping realization that the mental budget was getting empty, and things were falling through the cracks. I'd forget what I'd read. Lose track of conversations. Feel constantly behind, constantly overwhelmed.
+Память начала подводить. Не драматично — никаких диагнозов, никакого кризиса — просто медленное, ползучее осознание того, что мыслительный ресурс исчерпывается, и всё больше вещей проваливается сквозь решето. Я забывал, что читал. Терял нить разговоров. Постоянное чувство отставания, постоянная перегрузка.
 
-I started looking for solutions. I found a lot of Obsidian + Claude setups online. They were mostly clever note-capture tools, glorified search engines for your second brain. Useful. But not what I needed.
+Я начал искать решения. Нашёл кучу связок «Obsidian + Claude» в интернете. В основном это были хитрые инструменты для захвата заметок — продвинутые поисковики для вашего «второго мозга». Полезно. Но не то, что мне было нужно.
 
-What I needed wasn't just a memory extension. I needed a **brain dump system**, something that could help me organize not just my knowledge, but my life: my overwhelmed mind, my wrecked physical health, the avalanche of emails and commitments and things I should have done last week.
+Мне нужен был не просто «расширитель памяти». Мне нужна была **система разгрузки мозга** — то, что поможет организовать не только знания, но и мою жизнь: перегруженный разум, разрушенное здоровье, лавину писем, обязательств и дел, которые нужно было сделать ещё на прошлой неделе.
 
-So I built this.
+Так я это создал.
 
 ---
 
-## What makes this different
+## Чем это отличается
 
-Most "AI + Obsidian" tools are built for **people who already have their life together** and want to optimize. This one is for people who are **drowning** and need a lifeline.
+Большинство инструментов «ИИ + Obsidian» созданы для **людей, у которых жизнь уже налажена** и которые хотят её оптимизировать. Этот — для тех, кто **тонет** и кому нужен спасательный круг.
 
-**1. The chat IS the interface.**
-I don't browse Obsidian. I don't drag files around. I don't maintain complex folder structures manually. I just talk to Claude. Everything else happens automatically.
+**1. Чат — это и есть интерфейс.**
+Я не листаю Obsidian. Не перетаскиваю файлы. Не поддерживаю сложную структуру папок вручную. Я просто разговариваю с Claude. Всё остальное происходит автоматически.
 
-**2. It speaks your language, literally.**
-The system works in any language. You shouldn't need to think in English to manage your brain. Just talk in Italian, French, German, Spanish, Japanese, whatever feels natural. The agents match you.
+**2. Система говорит на вашем языке. Буквально.**
+Система работает на любом языке. Вам не нужно думать на английском, чтобы управлять своим мозгом. Просто говорите на русском, итальянском, французском, немецком, испанском, японском — на любом языке, который вам удобен. Агенты подстроятся.
 
-**3. The agents coordinate through a dispatcher.**
-When the transcription agent processes a meeting and discovers a new project, the dispatcher automatically chains the Architect to create the folder structure. It's a crew, not a collection of isolated tools.
+**3. Агенты координируются через диспетчера.**
+Когда навык расшифровки обрабатывает совещание и обнаруживает новый проект, диспетчер автоматически подключает Архитектора для создания структуры папок. Это команда, а не набор изолированных инструментов.
 
-**4. 8 agents are just the starting point. Build your own.**
-The crew ships with 8 agents. But your life isn't generic, and your system shouldn't be either. Say "create a new agent" and the Architect walks you through a conversation to design one from scratch. No code, no config files, no templates to edit. You describe what you need, it builds it.
+**4. 8 агентов — это только начало. Создавайте своих.**
+В комплекте идут 8 агентов. Но ваша жизнь не стандартная, и ваша система тоже не должна быть такой. Скажите «создай нового агента» — и Архитектор проведёт вас через диалог, чтобы спроектировать агента с нуля. Без кода, без конфигурационных файлов, без шаблонов для редактирования. Вы описываете, что вам нужно — он это создаёт.
 
-| Your problem | Your agent |
+| Ваша проблема | Ваш агент |
 |---|---|
-| *"I can only spend 300 euros a month on groceries and I keep losing track"* | **budget-tracker**: monitors spending notes, flags when you're close to the limit |
-| *"My partner says I dress like I pick clothes with my eyes closed"* | **wardrobe-coach**: tracks what you own, suggests outfits from your notes, and gently stops you from wearing that shirt again |
-| *"I keep buying the same thing at IKEA because I forget what I already have at home"* | **home-inventory**: catalogs what you own room by room, saves you from your third identical cutting board |
-| *"I keep starting side projects and abandoning them"* | **project-pulse**: weekly check-in on all active projects, flags stale ones |
-| *"I have three freelance clients and I mix up their deadlines"* | **client-tracker**: aggregates deadlines per client from notes and calendar |
+| *«Я могу тратить только 300 евро в месяц на продукты, и я постоянно теряю счёт»* | **budget-tracker**: отслеживает заметки о тратах, предупреждает, когда приближаетесь к лимиту |
+| *«Мой партнёр говорит, что я одеваюсь так, будто выбираю одежду с закрытыми глазами»* | **wardrobe-coach**: отслеживает ваш гардероб, предлагает образы из заметок и мягко останавливает вас от того, чтобы надеть ту рубашку снова |
+| *«Я постоянно покупаю одно и то же в IKEA, потому что забываю, что уже есть дома»* | **home-inventory**: каталогизирует ваши вещи по комнатам, спасает от третьей одинаковой разделочной доски |
+| *«Я постоянно начинаю побочные проекты и бросаю их»* | **project-pulse**: еженедельная проверка всех активных проектов, пометка застоявшихся |
+| *«У меня три фриланс-клиента, и я путаю их дедлайны»* | **client-tracker**: собирает дедлайны по каждому клиенту из заметок и календаря |
 
-Custom agents coordinate with the core crew, get discovered automatically by Claude Code, and respond in your language. They just solve the problems that are specific to **your** life.
+Пользовательские агенты координируются с основной командой, автоматически обнаруживаются Claude Code и отвечают на вашем языке. Они просто решают проблемы, специфичные для **вашей** жизни.
 
-> **Your custom agents, your responsibility.** Custom agents are created by you and run on your data. The project provides no warranty on their behavior. See [Terms of Use](TERMS_OF_USE.md).
-
----
-
-## Who this is for
-
-- PhD students, researchers, academics drowning in papers and commitments
-- Anyone with **brain fog**, or just an overloaded working memory
-- Non-native English speakers who want a system that works in their language
-- Anyone who's tried Obsidian before and gave up because it felt like a second job
-
-If you've ever thought *"I need to get organized, but I'm too exhausted to get organized"*, this is for you.
+> **Ваши пользовательские агенты — ваша ответственность.** Пользовательские агенты создаются вами и работают с вашими данными. Проект не даёт никаких гарантий относительно их поведения. Смотрите [Условия использования](TERMS_OF_USE.md).
 
 ---
 
-## Important disclaimers
+## Для кого это
 
-> **Please read the [full disclaimers](docs/DISCLAIMERS.md) before using this project.**
+- Аспиранты, исследователи, учёные, тонущие в статьях и обязательствах
+- Все, у кого **мозговой туман** или просто перегруженная рабочая память
+- Люди, для которых английский — не родной язык, и которым нужна система, работающая на их языке
+- Все, кто пробовал Obsidian и бросил, потому что это ощущалось как вторая работа
 
-Key points:
-
-- **This software is for personal use on your own data.** You are responsible for GDPR/CCPA compliance if you process third-party data (e.g., emails containing other people's information).
-- **No warranty.** Provided "as is". Back up your vault. The author accepts no liability.
-- **No responsibility for forks or misuse.** This is a personal productivity tool. Malicious repurposing is explicitly condemned.
-
-> **By using this software, you agree to the [Terms of Use](TERMS_OF_USE.md).** During onboarding, the Architect will ask you to explicitly accept these terms before proceeding.
+Если вы когда-нибудь думали *«Мне нужно навести порядок, но я слишком измотан, чтобы наводить порядок»* — это для вас.
 
 ---
 
-## The Crew
+## Важные оговорки
 
-| # | Agent | Role | Superpower |
-|---|-------|------|------------|
-| 1 | **Architect** | Vault Structure & Setup | Designs your entire vault, runs onboarding, sets the rules everyone follows |
-| 2 | **Scribe** | Text Capture | Transforms your messy, typo-filled, stream-of-consciousness dumps into clean notes |
-| 3 | **Sorter** | Inbox Triage | Empties your inbox every evening and routes every note to its perfect home |
-| 4 | **Seeker** | Search & Intelligence | Finds anything in your vault, synthesizes answers across notes with citations |
-| 5 | **Connector** | Knowledge Graph | Discovers hidden links between your notes, even ones you'd never think of |
-| 6 | **Librarian** | Vault Maintenance | Weekly health checks, deduplication, broken link repair, growth analytics |
-| 7 | **Transcriber** | Audio & Meetings | Turns recordings and transcripts into rich, structured meeting notes |
-| 8 | **Postman** | Email & Calendar | Bridges Gmail and Google Calendar with your vault: deadline radar, meeting prep |
+> **Пожалуйста, прочитайте [полный текст оговорок](docs/DISCLAIMERS.md) перед использованием проекта.**
 
-> **Agents + Skills = the full system.** Each agent handles quick, reactive tasks. For complex multi-step workflows (like onboarding, email triage, or vault audits), the dispatcher routes to one of **13 specialized skills** that run as guided conversations. See the [Skills](#skills) section below.
+Ключевые моменты:
+
+- **Это ПО предназначено для личного использования с вашими собственными данными.** Вы несёте ответственность за соблюдение GDPR/CCPA, если обрабатываете данные третьих лиц (например, письма, содержащие информацию о других людях).
+- **Без гарантий.** Предоставляется «как есть». Делайте резервные копии хранилища. Автор не несёт ответственности.
+- **Без ответственности за форки или злоупотребления.** Это инструмент для личной продуктивности. Злонамеренное использование категорически осуждается.
+
+> **Используя это ПО, вы соглашаетесь с [Условиями использования](TERMS_OF_USE.md).** Во время онбординга Архитектор попросит вас явно принять эти условия перед продолжением.
 
 ---
 
-## Skills
+## Команда (The Crew)
 
-Skills handle the complex, multi-step workflows that need conversational context. While agents are great for quick, one-shot tasks, some operations — like onboarding or email triage — require a back-and-forth conversation. Skills run in the main conversation context, so they can ask questions, wait for answers, and maintain state naturally.
+| # | Агент | Роль | Суперспособность |
+|---|-------|------|-----------------|
+| 1 | **Архитектор (Architect)** | Структура хранилища и настройка | Проектирует всё хранилище, проводит онбординг, устанавливает правила для остальных |
+| 2 | **Писарь (Scribe)** | Захват текста | Превращает ваши сумбурные, полные опечаток потоки сознания в чистые заметки |
+| 3 | **Сортировщик (Sorter)** | Разбор входящих | Каждый вечер очищает папку входящих и направляет каждую заметку на своё место |
+| 4 | **Искатель (Seeker)** | Поиск и аналитика | Найдёт что угодно в хранилище, синтезирует ответы из заметок с указанием источников |
+| 5 | **Связующий (Connector)** | Граф знаний | Обнаруживает скрытые связи между заметками — даже те, о которых вы бы не подумали |
+| 6 | **Библиотекарь (Librarian)** | Обслуживание хранилища | Еженедельные проверки здоровья, дедупликация, починка битых ссылок, аналитика роста |
+| 7 | **Расшифровщик (Transcriber)** | Аудио и совещания | Превращает записи и транскрипты в подробные, структурированные заметки совещаний |
+| 8 | **Почтальон (Postman)** | Почта и календарь | Связывает Gmail и Google Calendar с хранилищем: радар дедлайнов, подготовка к встречам |
 
-The dispatcher automatically routes your message to the right skill or agent. You don't need to remember which is which.
-
-| Skill | What it does | Extracted from |
-|-------|-------------|----------------|
-| `/onboarding` | Full vault setup conversation | Architect |
-| `/create-agent` | Design a custom agent step by step | Architect |
-| `/manage-agent` | Edit, remove, or list custom agents | Architect |
-| `/defrag` | Weekly vault defragmentation (5 phases) | Architect |
-| `/email-triage` | Scan and prioritize unread emails | Postman |
-| `/meeting-prep` | Comprehensive meeting brief | Postman |
-| `/weekly-agenda` | Day-by-day week overview | Postman |
-| `/deadline-radar` | Unified deadline timeline | Postman |
-| `/transcribe` | Process recordings into structured notes | Transcriber |
-| `/vault-audit` | Full 7-phase vault audit | Librarian |
-| `/deep-clean` | Extended vault cleanup | Librarian |
-| `/tag-garden` | Tag analysis and cleanup | Librarian |
-| `/inbox-triage` | Process and route inbox notes | Sorter |
+> **Агенты + Навыки = полная система.** Каждый агент выполняет быстрые, реактивные задачи. Для сложных многошаговых процессов (вроде онбординга, разбора почты или аудита хранилища) диспетчер направляет запрос одному из **13 специализированных навыков**, которые работают в формате управляемого диалога. Смотрите раздел [Навыки](#навыки-skills) ниже.
 
 ---
 
-## How it works
+## Навыки (Skills)
+
+Навыки обрабатывают сложные многошаговые процессы, требующие диалогового контекста. Агенты хороши для быстрых одноразовых задач, но некоторые операции — вроде онбординга или разбора почты — требуют диалога с вопросами и ответами. Навыки работают в основном контексте разговора, поэтому они могут задавать вопросы, ждать ответов и естественно сохранять состояние.
+
+Диспетчер автоматически направляет ваше сообщение нужному навыку или агенту. Вам не нужно запоминать, что есть что.
+
+| Навык | Что делает | Извлечён из |
+|-------|-----------|-------------|
+| `/onboarding` | Полный диалог настройки хранилища | Архитектор |
+| `/create-agent` | Пошаговое проектирование пользовательского агента | Архитектор |
+| `/manage-agent` | Редактирование, удаление или просмотр пользовательских агентов | Архитектор |
+| `/defrag` | Еженедельная дефрагментация хранилища (5 фаз) | Архитектор |
+| `/email-triage` | Сканирование и приоритизация непрочитанных писем | Почтальон |
+| `/meeting-prep` | Комплексная подготовка к встрече | Почтальон |
+| `/weekly-agenda` | Обзор недели по дням | Почтальон |
+| `/deadline-radar` | Единая шкала дедлайнов | Почтальон |
+| `/transcribe` | Обработка записей в структурированные заметки | Расшифровщик |
+| `/vault-audit` | Полный 7-фазный аудит хранилища | Библиотекарь |
+| `/deep-clean` | Расширенная чистка хранилища | Библиотекарь |
+| `/tag-garden` | Анализ и чистка тегов | Библиотекарь |
+| `/inbox-triage` | Обработка и маршрутизация заметок из входящих | Сортировщик |
+
+---
+
+## Как это работает
 
 ```
-You talk to Claude  →  Dispatcher checks skills first  →  If match: invokes skill
-                                                         →  If no match: invokes agent  →  Your vault gets updated
+Вы говорите с Claude  →  Диспетчер сначала проверяет навыки  →  Совпадение: запускает навык
+                                                               →  Нет совпадения: запускает агента  →  Хранилище обновляется
 ```
 
-The dispatcher has two delegation mechanisms. **Skills** handle complex, multi-step conversational flows (onboarding, email triage, vault audits). **Agents** handle quick, reactive single-shot operations (capture a note, search the vault, create a folder). Skills are checked first because they cover the most involved workflows. If no skill matches, the dispatcher falls through to agents.
+У диспетчера два механизма делегирования. **Навыки** обрабатывают сложные многошаговые диалоговые процессы (онбординг, разбор почты, аудит хранилища). **Агенты** выполняют быстрые реактивные одноразовые операции (сохранить заметку, поиск в хранилище, создать папку). Навыки проверяются первыми, потому что охватывают наиболее масштабные рабочие процессы. Если навык не найден, диспетчер передаёт управление агентам.
 
-Each crew member is an isolated AI with its own system prompt, tool restrictions, and model assignment. You clone the repo into your vault, run a setup script, and from that moment on you manage everything through conversation. No GUI, no drag-and-drop, no manual file management.
+Каждый член команды — это изолированный ИИ со своим системным промптом, ограничениями инструментов и назначенной моделью. Вы клонируете репозиторий в хранилище, запускаете скрипт установки, и с этого момента управляете всем через разговор. Никакого графического интерфейса, перетаскиваний, ручного управления файлами.
 
-### Architecture
+### Архитектура
 
 ```mermaid
 graph TB
-    User((You))
-    Claude["Claude Code\nDispatcher"]
+    User((Вы))
+    Claude["Claude Code\nДиспетчер"]
 
-    User -->|"talk naturally"| Claude
-    Claude -->|"skill match?\ninvoke skill"| Skills
-    Claude -->|"no skill match?\ninvoke agent"| Agents
-    Claude -->|"chains agents when needed"| Agents
+    User -->|"говорите естественно"| Claude
+    Claude -->|"навык найден?\nзапуск навыка"| Skills
+    Claude -->|"навык не найден?\nзапуск агента"| Agents
+    Claude -->|"цепочка агентов при необходимости"| Agents
 
-    subgraph Skills["Specialized Skills (13)"]
+    subgraph Skills["Специализированные навыки (13)"]
         direction TB
         Onboarding["/onboarding"]
         EmailTriage["/email-triage"]
         Transcribe["/transcribe"]
         InboxTriage["/inbox-triage"]
         VaultAudit["/vault-audit"]
-        MoreSkills["... +8 more"]
+        MoreSkills["... ещё 8"]
     end
 
-    subgraph Agents["The Crew (8 agents)"]
+    subgraph Agents["Команда (8 агентов)"]
         direction TB
 
-        subgraph Core["Core: Knowledge Management"]
-            Architect["Architect\nVault Setup"]
-            Scribe["Scribe\nNote Capture"]
-            Sorter["Sorter\nInbox Triage"]
-            Seeker["Seeker\nSearch"]
-            Connector["Connector\nKnowledge Graph"]
-            Librarian["Librarian\nVault Health"]
+        subgraph Core["Ядро: управление знаниями"]
+            Architect["Архитектор\nНастройка хранилища"]
+            Scribe["Писарь\nЗахват заметок"]
+            Sorter["Сортировщик\nРазбор входящих"]
+            Seeker["Искатель\nПоиск"]
+            Connector["Связующий\nГраф знаний"]
+            Librarian["Библиотекарь\nЗдоровье хранилища"]
         end
 
-        subgraph External["Integrations"]
-            Transcriber["Transcriber\nAudio & Meetings"]
-            Postman["Postman\nEmail & Calendar"]
+        subgraph External["Интеграции"]
+            Transcriber["Расшифровщик\nАудио и совещания"]
+            Postman["Почтальон\nПочта и календарь"]
         end
     end
 
-    Skills <-->|"read & write"| Vault
-    Agents <-->|"read & write"| Vault
+    Skills <-->|"чтение и запись"| Vault
+    Agents <-->|"чтение и запись"| Vault
 
-    subgraph Vault["Your Obsidian Vault"]
+    subgraph Vault["Ваше хранилище Obsidian"]
         direction LR
         Inbox["00-Inbox"]
         Projects["01-Projects"]
@@ -207,165 +207,166 @@ graph TB
     style External fill:#dbeafe,stroke:#60a5fa
 ```
 
-### Agent & Skill Coordination Flow
+### Координация агентов и навыков
 
 ```mermaid
 sequenceDiagram
-    participant U as You
-    participant D as Dispatcher
-    participant TS as /transcribe skill
-    participant A as Architect agent
-    participant ES as /email-triage skill
-    participant S as Sorter agent
+    participant U as Вы
+    participant D as Диспетчер
+    participant TS as /transcribe навык
+    participant A as Архитектор агент
+    participant ES as /email-triage навык
+    participant S as Сортировщик агент
 
-    U->>D: "Process my meeting recording"
-    D->>TS: invokes /transcribe skill
-    TS->>TS: multi-step conversation:<br/>asks questions, transcribes,<br/>creates structured note
-    TS-->>D: "Suggested next agent: Architect<br/>(new project mentioned)"
-    D->>A: chains Architect agent
-    A->>A: creates folder structure
+    U->>D: "Обработай запись моего совещания"
+    D->>TS: запускает навык /transcribe
+    TS->>TS: многошаговый диалог:<br/>задаёт вопросы, расшифровывает,<br/>создаёт структурированную заметку
+    TS-->>D: "Рекомендуемый следующий агент: Архитектор<br/>(упомянут новый проект)"
+    D->>A: подключает агента Архитектор
+    A->>A: создаёт структуру папок
 
-    U->>D: "Check my email"
-    D->>ES: invokes /email-triage skill
-    ES->>ES: scans Gmail, scores priority,<br/>saves important emails as notes
-    ES-->>D: "Suggested next agent: Sorter<br/>(deadline notes in Inbox)"
-    D->>S: chains Sorter agent
-    S->>S: files notes to correct locations
+    U->>D: "Проверь мою почту"
+    D->>ES: запускает навык /email-triage
+    ES->>ES: сканирует Gmail, оценивает приоритет,<br/>сохраняет важные письма как заметки
+    ES-->>D: "Рекомендуемый следующий агент: Сортировщик<br/>(заметки с дедлайнами во входящих)"
+    D->>S: подключает агента Сортировщик
+    S->>S: распределяет заметки по нужным папкам
 ```
 
-### Works on both Claude Code CLI and Claude Code Desktop (Cowork)
+### Работает и в CLI, и в Claude Code Desktop (Cowork)
 
-The installer sets up **two parallel layers** so the Crew works everywhere:
+Установщик настраивает **два параллельных слоя**, чтобы Команда работала везде:
 
-| Layer | Location | Purpose |
-|-------|----------|---------|
-| **Agents** | `.claude/agents/` | Lightweight reactive agents for single-shot tasks (capture, search, create) |
-| **Skills** | `.claude/skills/` | Specialized multi-step flows for complex tasks (onboarding, triage, audits) |
+| Слой | Расположение | Назначение |
+|------|-------------|-----------|
+| **Агенты** | `.claude/agents/` | Лёгкие реактивные агенты для одноразовых задач (захват, поиск, создание) |
+| **Навыки** | `.claude/skills/` | Специализированные многошаговые процессы для сложных задач (онбординг, разбор, аудит) |
 
-Both layers work on CLI and Desktop. `launchme.sh` installs both automatically. The dispatcher decides whether to invoke a skill or an agent based on your message.
+Оба слоя работают в CLI и Desktop. `launchme.sh` устанавливает оба автоматически. Диспетчер решает, запустить навык или агента, на основе вашего сообщения.
 
-Your vault follows a hybrid **PARA + Zettelkasten** structure:
+Ваше хранилище следует гибридной структуре **PARA + Zettelkasten**:
 
 ```
-00-Inbox/          Capture everything here first
-01-Projects/       Active projects with deadlines
-02-Areas/          Ongoing responsibilities
-03-Resources/      Reference material, guides, how-tos
-04-Archive/        Completed or historical content
-05-People/         Your personal CRM
-06-Meetings/       Timestamped meeting notes
-07-Daily/          Daily notes and journals
-MOC/               Maps of Content (thematic indexes)
-Templates/         Obsidian note templates
-Meta/              Vault config, agent logs, health reports
+00-Inbox/          Сначала всё попадает сюда
+01-Projects/       Активные проекты с дедлайнами
+02-Areas/          Текущие зоны ответственности
+03-Resources/      Справочные материалы, руководства, инструкции
+04-Archive/        Завершённый или исторический контент
+05-People/         Ваша персональная CRM
+06-Meetings/       Заметки совещаний с временными метками
+07-Daily/          Ежедневные заметки и дневники
+MOC/               Карты контента (тематические указатели)
+Templates/         Шаблоны заметок Obsidian
+Meta/              Конфигурация хранилища, логи агентов, отчёты о здоровье
 ```
 
 ---
 
-## Quick start
+## Быстрый старт
 
-> **Prerequisite**: You need [Claude Code](https://claude.ai/code) with a Claude Pro, Max, or Team subscription, and [Obsidian](https://obsidian.md) (free).
+> **Предварительное условие**: вам нужен [Claude Code](https://claude.ai/code) с подпиской Claude Pro, Max или Team, а также [Obsidian](https://obsidian.md) (бесплатный).
 
-### 1. Create your Obsidian vault
+### 1. Создайте хранилище Obsidian
 
-Open Obsidian and create a new vault (or use an existing one).
+Откройте Obsidian и создайте новое хранилище (или используйте существующее).
 
-### 2. Clone the repo inside your vault
+### 2. Клонируйте репозиторий внутрь хранилища
 
 ```bash
 cd /path/to/your-vault
 git clone https://github.com/gnekt/My-Brain-Is-Full-Crew.git
 ```
 
-### 3. Run the installer
+### 3. Запустите установщик
 
 ```bash
 cd My-Brain-Is-Full-Crew
 bash scripts/launchme.sh
 ```
 
-The script asks a couple of questions and copies the agents and skills into your vault's `.claude/` directory. That's it. When Claude Code is open in your vault folder, the agents activate automatically. When you're in any other project, they don't.
+Скрипт задаст пару вопросов и скопирует агентов и навыки в директорию `.claude/` вашего хранилища. Вот и всё. Когда Claude Code открыт в папке вашего хранилища, агенты активируются автоматически. Когда вы работаете в другом проекте — они не мешают.
 
-> **Never used a terminal before?** See the [step-by-step guide for beginners](docs/getting-started.md). It walks you through everything, or just show this page to a tech-savvy friend. It takes 60 seconds.
+> **Никогда не работали с терминалом?** Смотрите [пошаговое руководство для начинающих](docs/getting-started.md). Там расписано всё по шагам, или просто покажите эту страницу знакомому, разбирающемуся в технике. Установка занимает 60 секунд.
 
-### 4. Initialize
+### 4. Инициализация
 
-Open Claude Code **inside your vault folder** and say:
+Откройте Claude Code **внутри папки вашего хранилища** и скажите:
 
-> **"Initialize my vault"**
+> **«Инициализируй моё хранилище»**
 
-The `/onboarding` skill starts a friendly guided conversation:
+Навык `/onboarding` начнёт дружелюбный управляемый диалог:
 
-1. **Who are you?** Name, language, role, what brought you here
-2. **What do you need?** Which agents to activate, which areas of life to manage
-3. **Integrations** Gmail and Google Calendar connections
+1. **Кто вы?** Имя, язык, род деятельности, что привело сюда
+2. **Что вам нужно?** Какие агенты активировать, какие сферы жизни управлять
+3. **Интеграции** Подключение Gmail и Google Calendar
 
-After onboarding, the Architect creates your entire vault folder structure, saves your profile, leaves you a welcome note, and you're ready to go.
+После онбординга Архитектор создаёт полную структуру папок хранилища, сохраняет ваш профиль, оставляет приветственную заметку — и вы готовы к работе.
 
-### 5. Start using it
+### 5. Начните использовать
 
-| You say | What happens |
-|---------|-------------|
-| *"Save this: meeting with Marco about the Q3 budget, he wants the report by Friday"* | **Scribe** agent captures it as a clean note with tasks, wikilinks, and deadline |
-| *"Triage my inbox"* | `/inbox-triage` skill files everything, updates MOCs, gives you a summary |
-| *"What did we decide about the pricing strategy?"* | **Seeker** agent searches your vault, synthesizes the answer with source citations |
-| *"Check my email"* | `/email-triage` skill scans Gmail, saves important emails, flags deadlines |
-| *"Weekly review"* | `/vault-audit` skill runs a full vault audit: broken links, duplicates, health score |
-| *"Find connections for my latest note"* | **Connector** agent discovers hidden links to other notes in your vault |
+| Вы говорите | Что происходит |
+|------------|---------------|
+| *«Сохрани: встреча с Марко по бюджету Q3, он хочет отчёт к пятнице»* | Агент **Писарь** сохраняет это как аккуратную заметку с задачами, вики-ссылками и дедлайном |
+| *«Разбери входящие»* | Навык `/inbox-triage` раскладывает всё по местам, обновляет карты контента, выдаёт сводку |
+| *«Что мы решили по стратегии ценообразования?»* | Агент **Искатель** ищет в хранилище, синтезирует ответ с указанием источников |
+| *«Проверь мою почту»* | Навык `/email-triage` сканирует Gmail, сохраняет важные письма, отмечает дедлайны |
+| *«Еженедельный обзор»* | Навык `/vault-audit` запускает полный аудит хранилища: битые ссылки, дубликаты, оценка здоровья |
+| *«Найди связи для моей последней заметки»* | Агент **Связующий** обнаруживает скрытые связи с другими заметками в хранилище |
 
 ---
 
-## Works in any language
+## Работает на любом языке
 
-The Crew is built in English but **responds in whatever language you write in**. Italian, French, Spanish, German, Portuguese, Japanese: just talk, and the agents match you.
+Команда создана на английском, но **отвечает на том языке, на котором вы пишете**. Русский, итальянский, французский, испанский, немецкий, португальский, японский — просто говорите, и агенты подстроятся.
 
 ```
-"Salva questa nota veloce..."          → Scribe responds in Italian
-"Vérifie mon email..."                 → Postman responds in French
-"Was habe ich diese Woche geplant?"    → Seeker responds in German
-"Check my inbox"                       → Sorter responds in English
+"Сохрани быструю заметку..."              → Писарь отвечает на русском
+"Salva questa nota veloce..."             → Писарь отвечает на итальянском
+"Vérifie mon email..."                    → Почтальон отвечает на французском
+"Was habe ich diese Woche geplant?"       → Искатель отвечает на немецком
+"Check my inbox"                          → Сортировщик отвечает на английском
 ```
 
-No translations to install. No language packs. It just works.
+Никаких переводов для установки. Никаких языковых пакетов. Просто работает.
 
 ---
 
-## Works from your phone too
+## Работает и с телефона
 
-You can control the Crew from your phone using Claude Code's **Remote Control** feature. Your computer runs Claude Code locally (with full vault and agent access), and your phone acts as a remote interface through the browser or the Claude mobile app.
+Вы можете управлять Командой с телефона через функцию **Remote Control** в Claude Code. Ваш компьютер запускает Claude Code локально (с полным доступом к хранилищу и агентам), а телефон выступает удалённым интерфейсом через браузер или мобильное приложение Claude.
 
-Capture a quick thought on a walk. Check your email from the couch. Search your vault from the supermarket. Everything runs on your computer; your phone is just the remote.
+Запишите быструю мысль на прогулке. Проверьте почту с дивана. Поищите в хранилище из супермаркета. Всё выполняется на вашем компьютере — телефон лишь пульт управления.
 
-> **[Full setup guide](docs/mobile-access.md)** (takes 2 minutes)
-
----
-
-## Agent coordination
-
-Agents coordinate through a dispatcher-driven orchestration system. When an agent or skill finishes its task and detects work for another agent, it signals the dispatcher via a `### Suggested next agent` section in its output. The dispatcher reads this and automatically chains the next agent:
-
-- The `/transcribe` skill processes a meeting that introduces a new project -- the dispatcher chains the **Architect** to create the folder structure
-- The `/email-triage` skill finds emails about deadlines -- the dispatcher chains the **Sorter** to file them
-- The **Connector** finds orphan notes -- the dispatcher chains the **Librarian** to investigate
-- The **Sorter** finds notes that belong to a new area -- the dispatcher chains the **Architect** to build it
-
-No agent works in isolation. The crew is greater than the sum of its parts.
+> **[Полное руководство по настройке](docs/mobile-access.md)** (занимает 2 минуты)
 
 ---
 
-## Required integrations
+## Координация агентов
 
-The **Postman** agent (and its related skills: `/email-triage`, `/meeting-prep`, `/weekly-agenda`, `/deadline-radar`) requires:
-- **Gmail** MCP connector (to read and process your inbox)
-- **Google Calendar** MCP connector (to import events and manage your schedule)
+Агенты координируются через систему оркестрации, управляемую диспетчером. Когда агент или навык завершает задачу и обнаруживает работу для другого агента, он сигнализирует диспетчеру через раздел `### Suggested next agent` в своём ответе. Диспетчер считывает это и автоматически подключает следующего агента:
 
-The `launchme.sh` script offers to set up `.mcp.json` in your vault automatically. You just need to authorize them when prompted by Claude Code.
+- Навык `/transcribe` обрабатывает совещание, на котором упоминается новый проект — диспетчер подключает **Архитектора** для создания структуры папок
+- Навык `/email-triage` находит письма с дедлайнами — диспетчер подключает **Сортировщика** для их распределения
+- **Связующий** находит осиротевшие заметки — диспетчер подключает **Библиотекаря** для расследования
+- **Сортировщик** находит заметки, относящиеся к новой области — диспетчер подключает **Архитектора** для её создания
 
-All other agents and skills work with just your local Obsidian vault. No integrations needed.
+Ни один агент не работает изолированно. Команда — это больше, чем сумма её частей.
 
-### Updating
+---
 
-After pulling new changes from the repo:
+## Необходимые интеграции
+
+Агент **Почтальон** (и связанные навыки: `/email-triage`, `/meeting-prep`, `/weekly-agenda`, `/deadline-radar`) требует:
+- **Gmail** MCP-коннектор (для чтения и обработки входящих)
+- **Google Calendar** MCP-коннектор (для импорта событий и управления расписанием)
+
+Скрипт `launchme.sh` предложит автоматически настроить `.mcp.json` в вашем хранилище. Вам нужно лишь авторизоваться, когда Claude Code попросит.
+
+Все остальные агенты и навыки работают только с вашим локальным хранилищем Obsidian. Никаких интеграций не требуется.
+
+### Обновление
+
+После загрузки новых изменений из репозитория:
 
 ```bash
 cd /path/to/your-vault/My-Brain-Is-Full-Crew
@@ -373,124 +374,124 @@ git pull
 bash scripts/updateme.sh
 ```
 
-Only changed files are updated. Your vault notes are never touched.
+Обновляются только изменённые файлы. Ваши заметки в хранилище не затрагиваются.
 
 ---
 
-## Recommended Obsidian plugins
+## Рекомендуемые плагины Obsidian
 
-**Essential:** Templater, Dataview, Calendar, Tasks
+**Обязательные:** Templater, Dataview, Calendar, Tasks
 
-**Recommended:** QuickAdd, Folder Notes, Tag Wrangler, Natural Language Dates, Periodic Notes, Omnisearch, Linter
+**Рекомендуемые:** QuickAdd, Folder Notes, Tag Wrangler, Natural Language Dates, Periodic Notes, Omnisearch, Linter
 
 ---
 
-## Project structure
+## Структура проекта
 
 ```
-My-Brain-Is-Full-Crew/               ← cloned inside your vault
-├── agents/                          The 8 core agents
-│   ├── architect.md                   Vault setup & onboarding
-│   ├── scribe.md                      Text capture & note creation
-│   ├── sorter.md                      Inbox triage & filing
-│   ├── seeker.md                      Search & knowledge retrieval
-│   ├── connector.md                   Knowledge graph & link analysis
-│   ├── librarian.md                   Vault health & maintenance
-│   ├── transcriber.md                 Audio & meeting transcription
-│   └── postman.md                     Email & calendar integration
-├── skills/                          The 13 specialized skills
-│   ├── onboarding/SKILL.md            Full vault setup conversation
-│   ├── create-agent/SKILL.md          Design a custom agent step by step
-│   ├── manage-agent/SKILL.md          Edit, remove, or list custom agents
-│   ├── defrag/SKILL.md                Weekly vault defragmentation
-│   ├── email-triage/SKILL.md          Scan and prioritize unread emails
-│   ├── meeting-prep/SKILL.md          Comprehensive meeting brief
-│   ├── weekly-agenda/SKILL.md         Day-by-day week overview
-│   ├── deadline-radar/SKILL.md        Unified deadline timeline
-│   ├── transcribe/SKILL.md            Process recordings into structured notes
-│   ├── vault-audit/SKILL.md           Full 7-phase vault audit
-│   ├── deep-clean/SKILL.md            Extended vault cleanup
-│   ├── tag-garden/SKILL.md            Tag analysis and cleanup
-│   └── inbox-triage/SKILL.md          Process and route inbox notes
-├── references/                      Shared agent documentation
+My-Brain-Is-Full-Crew/               ← клонирован внутрь хранилища
+├── agents/                          8 основных агентов
+│   ├── architect.md                   Настройка хранилища и онбординг
+│   ├── scribe.md                      Захват текста и создание заметок
+│   ├── sorter.md                      Разбор входящих и распределение
+│   ├── seeker.md                      Поиск и извлечение знаний
+│   ├── connector.md                   Граф знаний и анализ связей
+│   ├── librarian.md                   Здоровье и обслуживание хранилища
+│   ├── transcriber.md                 Расшифровка аудио и совещаний
+│   └── postman.md                     Интеграция с почтой и календарём
+├── skills/                          13 специализированных навыков
+│   ├── onboarding/SKILL.md            Полный диалог настройки хранилища
+│   ├── create-agent/SKILL.md          Пошаговое проектирование агента
+│   ├── manage-agent/SKILL.md          Редактирование, удаление, просмотр агентов
+│   ├── defrag/SKILL.md                Еженедельная дефрагментация хранилища
+│   ├── email-triage/SKILL.md          Сканирование и приоритизация почты
+│   ├── meeting-prep/SKILL.md          Комплексная подготовка к встрече
+│   ├── weekly-agenda/SKILL.md         Обзор недели по дням
+│   ├── deadline-radar/SKILL.md        Единая шкала дедлайнов
+│   ├── transcribe/SKILL.md            Обработка записей в структурированные заметки
+│   ├── vault-audit/SKILL.md           Полный 7-фазный аудит хранилища
+│   ├── deep-clean/SKILL.md            Расширенная чистка хранилища
+│   ├── tag-garden/SKILL.md            Анализ и чистка тегов
+│   └── inbox-triage/SKILL.md          Обработка и маршрутизация входящих заметок
+├── references/                      Общая документация для агентов
 ├── scripts/
-│   ├── launchme.sh                    First-time installer
-│   └── updateme.sh                    Post-pull updater
-├── docs/                            User-facing documentation
-│   ├── getting-started.md             Step-by-step setup guide
-│   ├── examples.md                    Real-world usage examples
-│   └── agents/                        Deep-dive into each agent
-├── .mcp.json                        MCP servers (Gmail, Google Calendar)
-├── .claude-plugin/plugin.json       Plugin manifest (for --plugin-dir)
+│   ├── launchme.sh                    Установщик первого запуска
+│   └── updateme.sh                    Обновление после git pull
+├── docs/                            Пользовательская документация
+│   ├── getting-started.md             Пошаговое руководство по установке
+│   ├── examples.md                    Примеры реального использования
+│   └── agents/                        Подробно о каждом агенте
+├── .mcp.json                        MCP-серверы (Gmail, Google Calendar)
+├── .claude-plugin/plugin.json       Манифест плагина (для --plugin-dir)
 ├── LICENSE
-├── README.md                        You are here
+├── README.md                        Вы здесь
 └── CONTRIBUTING.md
 ```
 
-After running `launchme.sh`, your vault looks like:
+После запуска `launchme.sh` ваше хранилище выглядит так:
 
 ```
 your-vault/
 ├── .claude/
-│   ├── agents/          ← lightweight reactive agents
-│   ├── skills/          ← specialized multi-step skills
-│   └── references/      ← shared docs
-├── CLAUDE.md            ← project instructions (dispatcher routing)
-├── .mcp.json            ← Gmail + Calendar (if enabled)
-├── My-Brain-Is-Full-Crew/  ← the repo (for updates)
-└── ... your Obsidian notes
+│   ├── agents/          ← лёгкие реактивные агенты
+│   ├── skills/          ← специализированные многошаговые навыки
+│   └── references/      ← общие документы
+├── CLAUDE.md            ← инструкции проекта (маршрутизация диспетчера)
+├── .mcp.json            ← Gmail + Calendar (если включено)
+├── My-Brain-Is-Full-Crew/  ← репозиторий (для обновлений)
+└── ... ваши заметки Obsidian
 ```
 
 ---
 
-## Contributing (seriously, please help)
+## Участие в разработке (серьёзно, помогите)
 
-This started as one person's survival tool. I'm sharing it because I think it can help others, but **I know it can be much better**, and I need help from people who know Claude Code, prompt engineering, and Obsidian better than I do.
+Это начиналось как инструмент выживания одного человека. Я делюсь им, потому что верю, что он может помочь другим, но **я знаю, что его можно сделать намного лучше**, и мне нужна помощь людей, которые разбираются в Claude Code, промпт-инжиниринге и Obsidian лучше меня.
 
-**Every single PR is welcome.** I mean it. If you see something that could be improved (a better prompt structure, a smarter agent behavior, a more elegant architecture) please submit it. I won't be precious about my code. The goal is to help people, not to protect my ego.
+**Каждый PR приветствуется.** Я серьёзно. Если вы видите что-то, что можно улучшить — лучшую структуру промптов, более умное поведение агента, более элегантную архитектуру — пожалуйста, отправляйте. Я не буду цепляться за свой код. Цель — помогать людям, а не защищать своё эго.
 
-If you want to:
-- **Improve an agent or skill**: make it smarter, add a mode, fix edge cases
-- **Fix my prompts**: if you know better patterns, teach me
-- **Propose a new crew member**: a new agent or skill for a new domain
-- **Report a bug**: something an agent does wrong
-- **Add examples**: share how you use the Crew
-- **Just tell me what I'm doing wrong**: I'll listen
+Если вы хотите:
+- **Улучшить агента или навык**: сделать умнее, добавить режим, исправить крайние случаи
+- **Исправить мои промпты**: если вы знаете лучшие паттерны — научите меня
+- **Предложить нового члена команды**: нового агента или навык для новой области
+- **Сообщить об ошибке**: что-то, что агент делает неправильно
+- **Добавить примеры**: поделиться тем, как вы используете Команду
+- **Просто сказать, что я делаю не так**: я выслушаю
 
-...PRs, issues, and honest feedback are all welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
-
----
-
-## Philosophy
-
-> *"The best organizational system is the one you actually use."*
-
-The Crew is designed for people who are overwhelmed, not for people who enjoy organizing. Every design decision prioritizes **minimum friction**:
-
-- **Chat is the interface**: no manual file management
-- **Skills handle the heavy lifting**: multi-step workflows run as guided conversations
-- **Agents handle the quick stuff**: filing, linking, capturing, searching
-- **Any language, any time**: your brain shouldn't have to switch languages to stay organized
-- **Conservative by default**: agents never delete, always archive. They ask before making big decisions.
+...PR, issues и честная обратная связь — всё приветствуется. Смотрите [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
-## Star this repo
+## Философия
 
-If the Crew helps you, or if you just think it's a cool idea, consider starring this repo. It helps others find it, and it motivates continued development.
+> *«Лучшая система организации — та, которую вы реально используете.»*
+
+Команда создана для людей, которые перегружены, а не для тех, кто наслаждается организацией. Каждое проектное решение отдаёт приоритет **минимальному трению**:
+
+- **Чат — это интерфейс**: никакого ручного управления файлами
+- **Навыки берут на себя тяжёлую работу**: многошаговые процессы проходят как управляемые диалоги
+- **Агенты берут на себя мелочи**: распределение, связывание, захват, поиск
+- **Любой язык, в любое время**: вашему мозгу не нужно переключать язык, чтобы оставаться организованным
+- **Консервативность по умолчанию**: агенты никогда не удаляют, всегда архивируют. Они спрашивают, прежде чем принимать серьёзные решения.
 
 ---
 
-## License
+## Поставьте звезду
 
-MIT: use it, modify it, share it. Just keep the attribution.
+Если Команда помогла вам, или вам просто кажется, что это крутая идея — поставьте звезду этому репозиторию. Это помогает другим найти его и мотивирует дальнейшую разработку.
 
-**THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.** The authors are not liable for any claim, damages, or other liability arising from the use of this software. See the [MIT License](LICENSE) for full terms.
+---
+
+## Лицензия
+
+MIT: используйте, модифицируйте, делитесь. Просто сохраните указание авторства.
+
+**ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ПРЕДОСТАВЛЯЕТСЯ «КАК ЕСТЬ», БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ, ЯВНЫХ ИЛИ ПОДРАЗУМЕВАЕМЫХ.** Авторы не несут ответственности за любые претензии, убытки или иную ответственность, возникающую в связи с использованием данного ПО. Полный текст лицензии смотрите в [MIT License](LICENSE).
 
 ---
 
 <p align="center">
-  <i>Built by someone who got tired of forgetting things.</i>
+  <i>Создано тем, кто устал забывать вещи.</i>
   <br><br>
-  <a href="docs/getting-started.md"><strong>Get Started</strong></a> · <a href="docs/examples.md"><strong>Examples</strong></a> · <a href="docs/agents/architect.md"><strong>Meet the Agents</strong></a> · <a href="CONTRIBUTING.md"><strong>Contribute</strong></a>
+  <a href="docs/getting-started.md"><strong>Начать работу</strong></a> · <a href="docs/examples.md"><strong>Примеры</strong></a> · <a href="docs/agents/architect.md"><strong>Познакомиться с агентами</strong></a> · <a href="CONTRIBUTING.md"><strong>Участвовать</strong></a>
 </p>

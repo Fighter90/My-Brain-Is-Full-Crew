@@ -1,139 +1,139 @@
-# Sorter
+# Сортировщик (Sorter)
 
-> Inbox zero for your vault. Every note in the right place, every time.
+> Inbox zero для вашего хранилища. Каждая заметка на своём месте, каждый раз.
 
-## What it does
+## Что он делает
 
-The Sorter is your vault's filing system. Notes pile up in your Inbox throughout the day: quick captures from the Scribe, email imports from the Postman, meeting notes from the Transcriber. The Sorter processes them all, figures out where each note belongs, moves it to the right folder, updates the Maps of Content, creates wikilinks, and gives you a clean summary of what went where.
+Сортировщик — система распределения файлов вашего хранилища. Заметки накапливаются в папке входящих в течение дня: быстрые захваты от Писаря, импорт почты от Почтальона, заметки совещаний от Расшифровщика. Сортировщик обрабатывает их все, определяет, куда какая заметка относится, перемещает в нужную папку, обновляет карты контента, создаёт вики-ссылки и выдаёт чёткую сводку о том, что куда попало.
 
-It does not just look at metadata. The Sorter reads the full content of every note, detects mentioned people and projects, understands temporal context, and makes intelligent filing decisions. When something is ambiguous, it asks. When a destination folder does not exist yet, it either creates a minor subfolder or flags the Architect for a bigger structural decision.
+Он не ограничивается метаданными. Сортировщик читает полное содержимое каждой заметки, обнаруживает упомянутых людей и проекты, учитывает временной контекст и принимает осмысленные решения о распределении. Когда что-то неоднозначно — спрашивает. Когда папка назначения не существует — либо создаёт подпапку, либо сигнализирует Архитектору для более масштабного структурного решения.
 
-Run the Sorter daily (or whenever your Inbox feels cluttered) and your vault stays organized without you having to think about where things go.
+Запускайте Сортировщика ежедневно (или когда входящие начинают переполняться), и ваше хранилище остаётся организованным без необходимости думать, куда что класть.
 
-## Capabilities
+## Возможности
 
-Standard inbox triage has been promoted to a dedicated skill:
+Стандартный разбор входящих выделен в отдельный навык:
 
-| Capability | Now handled by |
+| Возможность | Теперь обрабатывается |
 |---|---|
-| Standard inbox triage (classify, route, update MOCs, extract actions) | `/inbox-triage` skill |
+| Стандартный разбор входящих (классификация, маршрутизация, обновление MOC, извлечение действий) | навык `/inbox-triage` |
 
-What the Sorter agent still does directly:
+Что агент Сортировщик по-прежнему делает напрямую:
 
-- **Smart batch mode**: groups related notes by project, topic, or date before filing, so related notes end up cross-linked
-- **Priority triage**: scans the inbox and ranks notes by urgency (critical, high, normal, low), filing the most important ones first
-- **Project pulse**: generates an activity report showing which projects received the most new notes and which have gone quiet
-- **MOC updates**: automatically adds filed notes to the relevant Map of Content
-- **Duplicate detection**: checks for existing notes with similar content before filing
-- **Action item extraction**: pulls tasks out of notes and ensures they are captured in daily or project notes
-- **Archive suggestions**: flags notes not touched in 30+ days as candidates for archiving
-- **Wikilink creation**: links people to `05-People/`, projects to `01-Projects/`, and related notes to each other
-- **Health-aware filing**: routes nutrition, diet, and therapy-related notes to the appropriate Health subfolders
+- **Умная пакетная обработка**: группирует связанные заметки по проекту, теме или дате перед распределением, обеспечивая перекрёстные ссылки
+- **Приоритетный разбор**: сканирует входящие и ранжирует заметки по срочности (критично, высокий, обычный, низкий), распределяя самые важные первыми
+- **Пульс проектов**: генерирует отчёт об активности, показывающий, какие проекты получили больше всего новых заметок и какие затихли
+- **Обновление карт контента**: автоматически добавляет распределённые заметки в соответствующие карты контента
+- **Обнаружение дубликатов**: проверяет наличие существующих заметок с аналогичным содержимым перед распределением
+- **Извлечение задач**: выделяет задачи из заметок и обеспечивает их фиксацию в ежедневных или проектных заметках
+- **Предложения по архивированию**: помечает заметки, не затронутые более 30 дней, как кандидатов на архивирование
+- **Создание вики-ссылок**: связывает людей с `05-People/`, проекты с `01-Projects/` и заметки друг с другом
+- **Распределение заметок о здоровье**: направляет заметки о питании, диете и терапии в соответствующие подпапки Health
 
-## How to use it
+## Как использовать
 
-Trigger the Sorter when your Inbox has accumulated notes. Some phrases invoke a dedicated skill instead of the agent:
+Запускайте Сортировщика, когда в папке входящих накопились заметки. Некоторые фразы вызывают навык, а не агента:
 
-- "Triage my inbox" / "Process inbox" / "File my notes" --> invokes the `/inbox-triage` skill
-- "Batch sort" / "Smart batch" (for 10+ notes) --> Sorter agent
-- "Priority triage" / "Urgent first" / "What needs attention?" --> Sorter agent
-- "Project pulse" / "Which projects are active?" --> Sorter agent
-- "Evening triage" / "Daily digest" --> Sorter agent
+- «Разбери входящие» / «Обработай входящие» / «Разложи заметки» --> навык `/inbox-triage`
+- «Пакетная сортировка» / «Умная группировка» (для 10+ заметок) --> агент Сортировщик
+- «Приоритетный разбор» / «Срочное первым» / «Что требует внимания?» --> агент Сортировщик
+- «Пульс проектов» / «Какие проекты активны?» --> агент Сортировщик
+- «Вечерний разбор» / «Дневной дайджест» --> агент Сортировщик
 
-In Italian: "Smista la inbox", "Pulisci la inbox", "Svuota inbox"
-In French: "Trie la boite de reception", "Range mes notes"
-In Spanish: "Ordena la bandeja", "Triaje"
-In German: "Sortiere den Eingang", "Posteingang aufraumen"
+На итальянском: "Smista la inbox", "Pulisci la inbox", "Svuota inbox"
+На французском: "Trie la boîte de réception", "Range mes notes"
+На испанском: "Ordena la bandeja", "Triaje"
+На немецком: "Sortiere den Eingang", "Posteingang aufräumen"
 
-## Example conversations
+## Примеры диалогов
 
-### Standard triage
+### Стандартный разбор
 
-**You:** Triage my inbox
+**Вы:** Разбери входящие
 
-**Sorter:** Inbox: 6 notes to process
+**Сортировщик:** Входящие: 6 заметок к обработке
 
-1. [Meeting] 2026-03-18, Sprint Planning Q2
-2. [Idea] 2026-03-19, New Onboarding Approach
-3. [Task] 2026-03-20, Call Supplier by Wednesday
-4. [Note] 2026-03-20, Client Feedback on Pricing
-5. [Quote] 2026-03-21, Seneca on Time Management
+1. [Совещание] 2026-03-18, Sprint Planning Q2
+2. [Идея] 2026-03-19, New Onboarding Approach
+3. [Задача] 2026-03-20, Call Supplier by Wednesday
+4. [Заметка] 2026-03-20, Client Feedback on Pricing
+5. [Цитата] 2026-03-21, Seneca on Time Management
 6. [Email] 2026-03-21, Proposal Request From Luca
 
-Here is my filing plan:
+Вот мой план распределения:
 
-- Sprint Planning Q2 --> `06-Meetings/2026/03/` (linked to [[01-Projects/Product]])
-- New Onboarding Approach --> `01-Projects/Rebrand/` (matches active project)
-- Call Supplier --> extracted as task in today's daily note
-- Client Feedback on Pricing --> `02-Areas/Sales/` (linked to [[05-People/Marco]])
+- Sprint Planning Q2 --> `06-Meetings/2026/03/` (связана с [[01-Projects/Product]])
+- New Onboarding Approach --> `01-Projects/Rebrand/` (соответствует активному проекту)
+- Call Supplier --> извлечена как задача в сегодняшней ежедневной заметке
+- Client Feedback on Pricing --> `02-Areas/Sales/` (связана с [[05-People/Marco]])
 - Seneca on Time Management --> `03-Resources/Quotes/`
-- Proposal Request From Luca --> `01-Projects/Consulting/` (action required, high priority)
+- Proposal Request From Luca --> `01-Projects/Consulting/` (требуется действие, высокий приоритет)
 
-Shall I proceed?
-
----
-
-### Priority triage
-
-**You:** What needs attention?
-
-**Sorter:** Priority scan of 8 inbox notes:
-
-**Critical (act today):**
-- "Call Supplier by Wednesday" (deadline is tomorrow)
-- "Proposal Request From Luca" (client waiting for response)
-
-**High (this week):**
-- "Sprint Planning Q2" (meeting notes with 3 unresolved action items)
-- "Client Feedback on Pricing" (relates to active project decision)
-
-**Normal:**
-- "New Onboarding Approach" (idea, no deadline)
-- "Reading Notes, Atomic Habits Ch3"
-
-**Low:**
-- "Seneca on Time Management" (quote, archivable)
-- "Random Bookmarks List"
-
-Want me to file the critical items first?
+Приступить?
 
 ---
 
-### Project pulse
+### Приоритетный разбор
 
-**You:** Project pulse
+**Вы:** Что требует внимания?
 
-**Sorter:** Project Pulse, 2026-03-21
+**Сортировщик:** Приоритетное сканирование 8 заметок во входящих:
 
-Most Active:
-1. **Rebrand**: 7 new notes this week (3 meetings, 2 ideas, 2 tasks)
-2. **Consulting**: 4 new notes (2 emails, 1 meeting, 1 task)
+**Критично (действовать сегодня):**
+- «Call Supplier by Wednesday» (дедлайн завтра)
+- «Proposal Request From Luca» (клиент ждёт ответа)
 
-Quiet (no new notes in 7+ days):
-- **Beta Launch**: last note on 2026-03-10
-- **Internal Tools**: last note on 2026-03-05
+**Высокий (на этой неделе):**
+- «Sprint Planning Q2» (заметка совещания с 3 нерешёнными задачами)
+- «Client Feedback on Pricing» (относится к активному решению по проекту)
 
-Emerging Topics (not yet a project/area):
-- "AI automation" mentioned in 4 recent notes. Consider creating a dedicated area?
+**Обычный:**
+- «New Onboarding Approach» (идея, без дедлайна)
+- «Reading Notes, Atomic Habits Ch3»
 
-## Works with
+**Низкий:**
+- «Seneca on Time Management» (цитата, можно архивировать)
+- «Random Bookmarks List»
 
-- **Scribe**: most notes in the Inbox come from the Scribe
-- **Postman**: email and calendar imports land in the Inbox for the Sorter to process
-- **Transcriber**: meeting transcriptions arrive in the Inbox
-- **Architect**: when notes do not fit any existing folder, the Sorter flags the Architect to create new structure
-- **Connector**: after filing a batch, the Sorter can flag notes for the Connector to cross-link
-- **Librarian**: the Sorter reports duplicates and broken links it finds during triage
+Разложить сначала критичные?
 
-## Tips
+---
 
-- **Run it daily.** A small inbox is fast to process. A huge inbox takes longer and produces worse results because context fades.
-- **Use smart batch when you have 10+ notes.** The Sorter will group related notes together, which produces better cross-links than one-by-one processing.
-- **Trust the filing plan.** The Sorter always shows you where it intends to file before moving anything. Review the plan, approve, and move on.
-- **Check the archive suggestions.** At the end of every triage, the Sorter flags stale notes. Archiving keeps your active areas lean.
-- **Use project pulse weekly.** It is a quick way to see where your energy is actually going versus where you think it is going.
-- **Never delete notes.** The Sorter follows a strict no-deletion policy. Notes are moved, archived, or merged, never destroyed.
+### Пульс проектов
 
-## What it remembers
+**Вы:** Пульс проектов
 
-The Sorter keeps a post-it in `Meta/states/sorter.md` with notes from its last triage: files still in the inbox, ambiguous notes it deferred, and filing patterns it noticed. This helps it pick up where it left off and avoid re-processing notes it already handled.
+**Сортировщик:** Пульс проектов, 2026-03-21
+
+Наиболее активные:
+1. **Rebrand**: 7 новых заметок за неделю (3 совещания, 2 идеи, 2 задачи)
+2. **Consulting**: 4 новых заметки (2 письма, 1 совещание, 1 задача)
+
+Затихшие (нет новых заметок 7+ дней):
+- **Beta Launch**: последняя заметка 2026-03-10
+- **Internal Tools**: последняя заметка 2026-03-05
+
+Формирующиеся темы (ещё не проект/область):
+- «AI automation» упоминается в 4 недавних заметках. Создать выделенную область?
+
+## Взаимодействие с другими агентами
+
+- **Писарь**: большинство заметок во входящих поступает от Писаря
+- **Почтальон**: импорт почты и календаря попадает во входящие для обработки Сортировщиком
+- **Расшифровщик**: расшифровки совещаний поступают во входящие
+- **Архитектор**: когда заметки не вписываются ни в одну существующую папку, Сортировщик сигнализирует Архитектору создать новую структуру
+- **Связующий**: после пакетного распределения Сортировщик может передать заметки Связующему для перекрёстных ссылок
+- **Библиотекарь**: Сортировщик сообщает о дубликатах и битых ссылках, обнаруженных во время разбора
+
+## Советы
+
+- **Запускайте ежедневно.** Маленькая папка входящих обрабатывается быстро. Огромная — дольше и с худшими результатами, потому что контекст размывается.
+- **Используйте умную пакетную обработку при 10+ заметках.** Сортировщик сгруппирует связанные заметки, что даёт лучшие перекрёстные ссылки, чем обработка поодиночке.
+- **Доверяйте плану распределения.** Сортировщик всегда показывает, куда планирует отправить файлы, прежде чем что-то перемещать. Просмотрите план, одобрите и двигайтесь дальше.
+- **Проверяйте предложения по архивированию.** После каждого разбора Сортировщик помечает застоявшиеся заметки. Архивирование поддерживает рабочие области чистыми.
+- **Используйте пульс проектов еженедельно.** Это быстрый способ увидеть, куда реально уходит ваша энергия — в сравнении с тем, куда вы думаете, что она уходит.
+- **Никогда не удаляйте заметки.** Сортировщик следует строгой политике без удалений. Заметки перемещаются, архивируются или объединяются — никогда не уничтожаются.
+
+## Что он запоминает
+
+Сортировщик хранит стикер в `Meta/states/sorter.md` с заметками от последнего разбора: файлы, оставшиеся во входящих, неоднозначные заметки, которые он отложил, и замеченные паттерны распределения. Это помогает ему продолжить с того места, где остановился, и не обрабатывать повторно уже обработанные заметки.

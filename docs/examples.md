@@ -1,173 +1,173 @@
-# Real-World Usage Examples
+# Примеры использования в реальной жизни
 
-Practical scenarios showing how the Crew works in daily life. Each example shows what you say and what happens behind the scenes.
-
----
-
-## Scenario 1: The Brain Dump
-
-**Situation**: You just got out of a meeting and your head is full of scattered thoughts.
-
-**You say:**
-> "Quick dump: Marco wants the API docs by Thursday, Lisa mentioned the budget is getting cut by 15%, I had an idea about using webhooks instead of polling for the notification system, and I need to book a dentist appointment"
-
-**What happens:**
-1. **Scribe** detects 4 distinct items
-2. Creates 4 separate notes:
-   - `Task: API Docs for Marco.md` (with deadline: Thursday, linked to `[[Marco]]`)
-   - `Note: Budget Cut 15 Percent.md` (tagged with #budget, linked to `[[Lisa]]`)
-   - `Idea: Webhooks for Notifications.md` (tagged with #architecture, #notifications)
-   - `Task: Book Dentist Appointment.md` (tagged with #personal, #health)
-3. All notes land in `00-Inbox/` with proper frontmatter
-4. Scribe reports: *"Captured 4 notes: 2 tasks, 1 idea, 1 informational note. Shall I save them?"*
+Практические сценарии, показывающие, как Crew работает в повседневной жизни. Каждый пример демонстрирует, что вы говорите и что происходит за кулисами.
 
 ---
 
-## Scenario 2: Evening Inbox Triage
+## Сценарий 1: Выгрузка из головы
 
-**Situation**: End of the day. Your inbox has accumulated 12 notes.
+**Ситуация**: Вы только что вышли с совещания, и голова забита разрозненными мыслями.
 
-**You say:**
-> "Triage my inbox"
+**Вы говорите:**
+> «Быстрая выгрузка: Марко хочет документацию по API к четвергу, Лиза упомянула, что бюджет урезают на 15%, у меня идея — использовать вебхуки вместо поллинга для системы уведомлений, и ещё надо записаться к стоматологу»
 
-**What happens:**
-1. The `/inbox-triage` skill scans all 12 notes in `00-Inbox/`
-2. Reads each note's content and frontmatter
-3. Files them:
-   - 3 meeting notes go to `06-Meetings/2026/03/`
-   - 2 project tasks go to `01-Projects/Rebrand/`
-   - 1 person note goes to `05-People/`
-   - 2 ideas go to `03-Resources/Ideas/`
-   - 2 ambiguous notes are kept in inbox with questions for you
-4. Updates 3 MOCs that gained new entries
-5. Leaves a message for **Connector** to check new links
-6. Reports the full summary with a clear breakdown
+**Что происходит:**
+1. **Писарь** обнаруживает 4 отдельных элемента
+2. Создаёт 4 отдельные заметки:
+   - `Задача: Документация API для Марко.md` (с дедлайном: четверг, привязана к `[[Марко]]`)
+   - `Заметка: Урезание бюджета 15 процентов.md` (тег #бюджет, привязана к `[[Лиза]]`)
+   - `Идея: Вебхуки для уведомлений.md` (теги #архитектура, #уведомления)
+   - `Задача: Записаться к стоматологу.md` (теги #личное, #здоровье)
+3. Все заметки попадают в `00-Inbox/` с правильным фронтматтером
+4. Писарь сообщает: *«Захвачено 4 заметки: 2 задачи, 1 идея, 1 информационная заметка. Сохранить?»*
 
 ---
 
-## Scenario 3: Meeting Transcription
+## Сценарий 2: Вечерний разбор входящих
 
-**Situation**: You recorded a 45-minute sprint planning meeting and pasted the raw transcript.
+**Ситуация**: Конец дня. В папке входящих накопилось 12 заметок.
 
-**You say:**
-> "Transcribe this meeting, it was the Q2 sprint planning with Marco, Lisa, and Ahmed. We met today at 10am."
+**Вы говорите:**
+> «Разбери входящие»
 
-*[pastes raw transcript]*
-
-**What happens:**
-1. The `/transcribe` skill processes the raw text
-2. Identifies speakers from context
-3. Generates:
-   - Executive summary (4 sentences)
-   - 8 key discussion points
-   - 3 decisions made (with who decided and conditions)
-   - Action items table (6 tasks, assigned to specific people, with deadlines)
-   - Detailed notes organized by topic
-   - 2 open questions for follow-up
-4. Creates wikilinks to all participants: `[[Marco]]`, `[[Lisa]]`, `[[Ahmed]]`
-5. Saves to `00-Inbox/` as `2026-03-21, Meeting, Q2 Sprint Planning.md`
-6. Leaves message for **Postman**: "Check if there were pre-meeting emails about Q2 planning"
+**Что происходит:**
+1. Навык `/inbox-triage` сканирует все 12 заметок в `00-Inbox/`
+2. Читает содержимое и фронтматтер каждой заметки
+3. Распределяет их:
+   - 3 заметки совещаний → `06-Meetings/2026/03/`
+   - 2 задачи по проектам → `01-Projects/Rebrand/`
+   - 1 заметка о человеке → `05-People/`
+   - 2 идеи → `03-Resources/Ideas/`
+   - 2 неоднозначные заметки остаются во входящих с вопросами к вам
+4. Обновляет 3 карты контента, в которые добавились новые записи
+5. Оставляет сообщение для **Связующего** — проверить новые связи
+6. Выдаёт полную сводку с чётким разбором
 
 ---
 
-## Scenario 4: Email Triage
+## Сценарий 3: Расшифровка совещания
 
-**Situation**: Monday morning. You want to know what's important in your email.
+**Ситуация**: Вы записали 45-минутное совещание по планированию спринта и вставили сырую транскрипцию.
 
-**You say:**
-> "Check my email for anything urgent"
+**Вы говорите:**
+> «Расшифруй это совещание — планирование спринта Q2 с Марко, Лизой и Ахмедом. Встречались сегодня в 10 утра.»
 
-**What happens:**
-1. The `/email-triage` skill scans your Gmail inbox (last 48 hours)
-2. Reads 34 emails
-3. Filters:
-   - 22 newsletters/promos/notifications are ignored
-   - 3 action requests are saved as notes with tasks
-   - 2 deadline reminders are saved with deadline tags
-   - 4 informational emails from key contacts are saved as reference notes
-   - 1 meeting invitation is saved and flagged for calendar sync
-   - 2 ambiguous emails are summarized for your decision
-4. All notes land in `00-Inbox/`
-5. Creates wikilinks to people in `05-People/`
-6. Reports: *"34 emails scanned. 10 saved to vault (3 urgent, 2 deadlines, 4 info, 1 meeting). 22 filtered out. 2 need your input."*
+*[вставляете сырую транскрипцию]*
 
----
-
-## Scenario 7: Knowledge Discovery
-
-**Situation**: You're writing a proposal and need context from your notes.
-
-**You say:**
-> "What do I know about microservices architecture? I need to write a proposal."
-
-**What happens:**
-1. **Seeker** searches your entire vault
-2. Finds 7 relevant notes across different areas:
-   - 2 meeting notes where architecture was discussed
-   - 1 resource note on microservices patterns
-   - 3 project notes that reference architectural decisions
-   - 1 archived note from a past project
-3. Synthesizes: *"Based on your notes, here's what you've documented about microservices..."*
-4. Provides a structured summary with source citations (`[[Meeting: Architecture Review]]`, etc.)
-5. Identifies a gap: *"Note: your vault has no notes on service mesh or container orchestration. You might want to add these to your proposal research."*
+**Что происходит:**
+1. Навык `/transcribe` обрабатывает сырой текст
+2. Определяет говорящих по контексту
+3. Генерирует:
+   - Резюме (4 предложения)
+   - 8 ключевых тем обсуждения
+   - 3 принятых решения (с указанием, кто решил и при каких условиях)
+   - Таблицу задач (6 задач, назначенных конкретным людям, с дедлайнами)
+   - Подробные заметки, организованные по темам
+   - 2 открытых вопроса для дальнейшего обсуждения
+4. Создаёт вики-ссылки на всех участников: `[[Марко]]`, `[[Лиза]]`, `[[Ахмед]]`
+5. Сохраняет в `00-Inbox/` как `2026-03-21, Meeting, Q2 Sprint Planning.md`
+6. Оставляет сообщение для **Почтальона**: «Проверить, были ли письма о планировании Q2 перед совещанием»
 
 ---
 
-## Scenario 8: Weekly Review
+## Сценарий 4: Разбор почты
 
-**Situation**: Sunday morning. Time for your weekly vault check-up.
+**Ситуация**: Утро понедельника. Вы хотите узнать, что важного в почте.
 
-**You say:**
-> "Run the weekly review"
+**Вы говорите:**
+> «Проверь почту на предмет срочного»
 
-**What happens:**
-1. The `/vault-audit` skill runs a multi-phase audit:
-   - Structure scan: all folders intact
-   - Duplicate detection: found 1 near-duplicate
-   - Link integrity: 3 broken links fixed automatically, 2 orphan notes flagged
-   - Frontmatter audit: 5 notes missing tags (auto-fixed)
-   - MOC review: 2 MOCs updated with new entries
-   - Growth analytics: 23 notes added this week, vault health score: 94%
-2. Generates a health report saved to `Meta/health-reports/`
-3. Reports: *"Your vault is in great shape! 1 duplicate needs your decision, 2 orphan notes might need homes. Everything else is handled."*
-
----
-
-## Scenario 10: Graph Intelligence
-
-**Situation**: You want to understand how your knowledge connects.
-
-**You say:**
-> "Analyze my vault graph and find missing connections"
-
-**What happens:**
-1. **Connector** runs a full graph audit
-2. Reports:
-   - 247 notes, 412 links, average 1.7 links per note
-   - 18 orphan notes (7%, under the 10% target)
-   - 3 isolated clusters
-   - Top connected note: your MOC/Engineering with 23 links
-3. Discovers 12 suggested connections:
-   - 4 strong (should definitely be linked)
-   - 5 medium (probably useful)
-   - 3 serendipitous (unexpected but interesting)
-4. Presents each with explanation: *"Your note on 'Team Communication Patterns' should link to 'Sprint Retrospective Q1', because both discuss the same communication breakdown from different angles."*
+**Что происходит:**
+1. Навык `/email-triage` сканирует ваш ящик Gmail (за последние 48 часов)
+2. Читает 34 письма
+3. Фильтрует:
+   - 22 рассылки/промо/уведомления — проигнорированы
+   - 3 запроса на действие — сохранены как заметки с задачами
+   - 2 напоминания о дедлайнах — сохранены с тегами дедлайнов
+   - 4 информационных письма от ключевых контактов — сохранены как справочные заметки
+   - 1 приглашение на встречу — сохранено и отмечено для синхронизации с календарём
+   - 2 неоднозначных письма — кратко изложены для вашего решения
+4. Все заметки попадают в `00-Inbox/`
+5. Создаёт вики-ссылки на людей в `05-People/`
+6. Отчёт: *«34 письма отсканировано. 10 сохранено в хранилище (3 срочных, 2 дедлайна, 4 инфо, 1 встреча). 22 отфильтровано. 2 требуют вашего участия.»*
 
 ---
 
-## Daily Workflow Cheat Sheet
+## Сценарий 7: Поиск знаний
 
-| Time | What to say | Skill/Agent |
-|------|------------|-------------|
-| Morning | "What's on my calendar today?" | Postman agent |
-| Morning | "Check my email" | `/email-triage` skill |
-| Any time | "Save this: [thought]" | Scribe agent |
-| After meeting | "Transcribe this meeting: [paste]" | `/transcribe` skill |
-| Evening | "Triage my inbox" | `/inbox-triage` skill |
-| Weekly | "Weekly review" | `/vault-audit` skill |
-| When lost | "Find [topic]" | Seeker agent |
-| When stuck | "Find connections for [note]" | Connector agent |
+**Ситуация**: Вы пишете предложение и нуждаетесь в контексте из своих заметок.
+
+**Вы говорите:**
+> «Что я знаю о микросервисной архитектуре? Мне нужно написать предложение.»
+
+**Что происходит:**
+1. **Искатель** обыскивает всё хранилище
+2. Находит 7 релевантных заметок из разных областей:
+   - 2 заметки совещаний, где обсуждалась архитектура
+   - 1 справочная заметка о паттернах микросервисов
+   - 3 заметки проектов, ссылающиеся на архитектурные решения
+   - 1 архивная заметка из прошлого проекта
+3. Синтезирует: *«На основе ваших заметок, вот что вы задокументировали о микросервисах...»*
+4. Выдаёт структурированную сводку с указанием источников (`[[Meeting: Architecture Review]]` и т.д.)
+5. Определяет пробел: *«Замечание: в вашем хранилище нет заметок о service mesh или оркестрации контейнеров. Возможно, стоит добавить это в исследование для предложения.»*
 
 ---
 
-*These are just examples. The beauty of the Crew is that you don't need to memorize commands. Just talk naturally, and the right agent will pick it up.*
+## Сценарий 8: Еженедельный обзор
+
+**Ситуация**: Воскресное утро. Время для еженедельной проверки хранилища.
+
+**Вы говорите:**
+> «Еженедельный обзор»
+
+**Что происходит:**
+1. Навык `/vault-audit` запускает многофазный аудит:
+   - Сканирование структуры: все папки на месте
+   - Обнаружение дубликатов: найден 1 почти-дубликат
+   - Целостность ссылок: 3 битые ссылки исправлены автоматически, 2 осиротевшие заметки помечены
+   - Аудит фронтматтера: 5 заметок без тегов (исправлено автоматически)
+   - Проверка карт контента: 2 карты обновлены новыми записями
+   - Аналитика роста: 23 заметки добавлено за неделю, оценка здоровья хранилища: 94%
+2. Генерирует отчёт о здоровье и сохраняет в `Meta/health-reports/`
+3. Сообщает: *«Ваше хранилище в отличной форме! 1 дубликат требует вашего решения, 2 осиротевшие заметки, возможно, нуждаются в месте. Всё остальное обработано.»*
+
+---
+
+## Сценарий 10: Анализ графа знаний
+
+**Ситуация**: Вы хотите понять, как связаны ваши знания.
+
+**Вы говорите:**
+> «Проанализируй граф моего хранилища и найди недостающие связи»
+
+**Что происходит:**
+1. **Связующий** запускает полный аудит графа
+2. Отчитывается:
+   - 247 заметок, 412 связей, в среднем 1.7 связей на заметку
+   - 18 осиротевших заметок (7%, ниже целевых 10%)
+   - 3 изолированных кластера
+   - Самая связанная заметка: ваша MOC/Engineering с 23 связями
+3. Обнаруживает 12 предлагаемых связей:
+   - 4 сильных (определённо нужно связать)
+   - 5 средних (вероятно, полезных)
+   - 3 неожиданных (удивительные, но интересные)
+4. Представляет каждую с объяснением: *«Ваша заметка "Паттерны коммуникации в команде" должна быть связана со "Ретроспектива спринта Q1", потому что обе обсуждают одну и ту же проблему коммуникации с разных сторон.»*
+
+---
+
+## Ежедневная шпаргалка
+
+| Время | Что сказать | Навык/агент |
+|-------|------------|-------------|
+| Утро | «Что у меня в календаре сегодня?» | Агент Почтальон |
+| Утро | «Проверь мою почту» | Навык `/email-triage` |
+| В любое время | «Сохрани это: [мысль]» | Агент Писарь |
+| После совещания | «Расшифруй это совещание: [вставка]» | Навык `/transcribe` |
+| Вечер | «Разбери входящие» | Навык `/inbox-triage` |
+| Еженедельно | «Еженедельный обзор» | Навык `/vault-audit` |
+| Когда потерялись | «Найди [тему]» | Агент Искатель |
+| Когда застряли | «Найди связи для [заметки]» | Агент Связующий |
+
+---
+
+*Это лишь примеры. Главное преимущество Crew — вам не нужно запоминать команды. Просто говорите естественно, и нужный агент подхватит.*

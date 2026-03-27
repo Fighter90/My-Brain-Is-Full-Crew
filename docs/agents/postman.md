@@ -1,138 +1,138 @@
-# Postman
+# Почтальон (Postman)
 
-> Your bridge between Gmail, Google Calendar, and your vault.
+> Мост между Gmail, Google Calendar и вашим хранилищем.
 
-## What it does
+## Что он делает
 
-The Postman connects your email and calendar to your Obsidian vault. It scans your Gmail inbox, identifies what actually matters (action requests, deadlines, important information), and saves it as structured notes. It imports Google Calendar events as meeting prep notes. It can even create new calendar events from your vault content.
+Почтальон связывает вашу почту и календарь с хранилищем Obsidian. Он сканирует Gmail, определяет, что действительно важно (запросы на действие, дедлайны, ключевая информация), и сохраняет в виде структурированных заметок. Он импортирует события Google Calendar как заметки для подготовки к встречам. Может даже создавать новые события календаря из содержимого хранилища.
 
-The Postman is a smart filter, not a bulk importer. It knows the difference between a critical email from a client requesting a proposal and a marketing newsletter. It recognizes deadlines, extracts action items, and creates notes with the right priority level. Everything it skips, it tells you about, so you stay informed without your vault getting flooded with noise.
+Почтальон — умный фильтр, а не массовый импортёр. Он различает критическое письмо от клиента с запросом предложения и маркетинговую рассылку. Он распознаёт дедлайны, извлекает задачи и создаёт заметки с правильным уровнем приоритета. Обо всём, что он пропускает, он сообщает — вы остаётесь в курсе, а хранилище не засоряется шумом.
 
-It works in four modes: email triage (scan and save important emails), calendar import (bring upcoming events into your vault), event creation (schedule something from a note or request), and targeted search (find specific emails or events on a topic).
+Работает в четырёх режимах: разбор почты (сканирование и сохранение важных писем), импорт календаря (перенос предстоящих событий в хранилище), создание событий (планирование из заметки или запроса) и целевой поиск (поиск конкретных писем или событий по теме).
 
-## Capabilities
+## Возможности
 
-Several of the Postman's more complex, multi-step flows have been promoted to dedicated skills that run as guided conversations:
+Несколько наиболее сложных многошаговых процессов Почтальона выделены в отдельные навыки:
 
-| Capability | Now handled by |
+| Возможность | Теперь обрабатывается |
 |---|---|
-| Email triage (scan and process unread emails) | `/email-triage` skill |
-| Meeting prep (comprehensive meeting brief) | `/meeting-prep` skill |
-| Weekly agenda (day-by-day week overview) | `/weekly-agenda` skill |
-| Deadline radar (unified deadline timeline) | `/deadline-radar` skill |
+| Разбор почты (сканирование и обработка непрочитанных писем) | навык `/email-triage` |
+| Подготовка к встрече (комплексный брифинг) | навык `/meeting-prep` |
+| Еженедельная повестка (обзор недели по дням) | навык `/weekly-agenda` |
+| Радар дедлайнов (единая шкала дедлайнов) | навык `/deadline-radar` |
 
-What the Postman agent still does directly:
+Что агент Почтальон по-прежнему делает напрямую:
 
-- **Calendar import**: pulls upcoming Google Calendar events into the vault as meeting prep notes with participant lists and agenda
-- **Event creation**: creates Google Calendar events from your requests or from deadlines found in vault notes
-- **Targeted search**: searches Gmail or Calendar for specific topics, people, or date ranges
-- **VIP filter**: prioritizes emails from important contacts (colleagues, clients, key people)
-- **Email drafting**: drafts reply emails based on vault context
-- **Travel mode**: when it detects travel-related events (flights, hotels, conferences), creates a consolidated travel itinerary note
-- **Thread intelligence**: reads entire email threads and synthesizes key points and latest developments
-- **Attachment awareness**: flags emails with attachments (cannot process them, but notes their existence)
+- **Импорт календаря**: переносит предстоящие события Google Calendar в хранилище в виде заметок для подготовки со списком участников и повесткой
+- **Создание событий**: создаёт события Google Calendar по вашим запросам или из дедлайнов в заметках хранилища
+- **Целевой поиск**: ищет в Gmail или Calendar по конкретным темам, людям или диапазонам дат
+- **VIP-фильтр**: приоритизирует письма от важных контактов (коллеги, клиенты, ключевые люди)
+- **Черновики писем**: составляет ответные письма на основе контекста хранилища
+- **Режим путешествий**: при обнаружении событий, связанных с поездками (перелёты, отели, конференции), создаёт сводную заметку с маршрутом
+- **Анализ цепочек**: читает целые цепочки писем и синтезирует ключевые моменты и последние события
+- **Отслеживание вложений**: помечает письма с вложениями (не может их обработать, но фиксирует их наличие)
 
-## How to use it
+## Как использовать
 
-Trigger the Postman for calendar and targeted email tasks. Some phrases invoke a dedicated skill instead of the agent:
+Обращайтесь к Почтальону для работы с календарём и целевого поиска по почте. Некоторые фразы вызывают навык:
 
-- "Check my email" / "Triage my inbox" --> invokes the `/email-triage` skill
-- "Prepare me for tomorrow's meetings" --> invokes the `/meeting-prep` skill
-- "Weekly agenda" / "Plan my week" --> invokes the `/weekly-agenda` skill
-- "What deadlines are coming up?" --> invokes the `/deadline-radar` skill
-- "What's on my calendar this week?" --> Postman agent
-- "Create an event for Friday at 3pm" --> Postman agent
-- "Import this week's meetings" --> Postman agent
-- "Find emails about [topic]" --> Postman agent
-- "Draft a reply to [person]" --> Postman agent
+- «Проверь мою почту» / «Разбери почту» --> навык `/email-triage`
+- «Подготовь меня к завтрашним встречам» --> навык `/meeting-prep`
+- «Еженедельная повестка» / «Спланируй неделю» --> навык `/weekly-agenda`
+- «Какие дедлайны приближаются?» --> навык `/deadline-radar`
+- «Что у меня в календаре на этой неделе?» --> агент Почтальон
+- «Создай событие на пятницу в 15:00» --> агент Почтальон
+- «Импортируй встречи этой недели» --> агент Почтальон
+- «Найди письма о [теме]» --> агент Почтальон
+- «Напиши ответ [человеку]» --> агент Почтальон
 
-In Italian: "Controlla la mail", "Cosa ho in inbox", "Crea evento", "Cosa ho in calendario"
-In French: "Verifie mes emails", "Qu'est-ce que j'ai au calendrier"
-In Spanish: "Revisa mi correo", "Que hay en mi calendario"
-In German: "Prufe meine Emails", "Was steht im Kalender"
+На итальянском: "Controlla la mail", "Cosa ho in inbox", "Crea evento", "Cosa ho in calendario"
+На французском: "Vérifie mes emails", "Qu'est-ce que j'ai au calendrier"
+На испанском: "Revisa mi correo", "Qué hay en mi calendario"
+На немецком: "Prüfe meine Emails", "Was steht im Kalender"
 
-## Example conversations
+## Примеры диалогов
 
-### Email triage
+### Разбор почты
 
-**You:** Check my email
+**Вы:** Проверь мою почту
 
-**Postman:** Scanning your Gmail inbox... Found 28 unread messages.
+**Почтальон:** Сканирую ваш Gmail... Найдено 28 непрочитанных сообщений.
 
-Saved to vault (3):
-- **"Proposal Request From Luca"**: action required, high priority. Luca needs a project proposal by next Wednesday. Saved with action items and deadline.
-- **"Contract Renewal Deadline April 15"**: deadline alert. Saved with the date flagged.
-- **"Sprint Demo Feedback from Client"**: contains key decisions about the product direction. Saved as informational note.
+Сохранено в хранилище (3):
+- **«Proposal Request From Luca»**: требуется действие, высокий приоритет. Лука просит предложение по проекту к следующей среде. Сохранено с задачами и дедлайном.
+- **«Contract Renewal Deadline April 15»**: предупреждение о дедлайне. Сохранено с отмеченной датой.
+- **«Sprint Demo Feedback from Client»**: содержит ключевые решения о направлении продукта. Сохранено как информационная заметка.
 
-Ignored (25):
-- 12 newsletters and mailing lists
-- 5 automated notifications (GitHub, Jira)
-- 4 purchase receipts
-- 3 system notifications (2FA, password resets)
-- 1 CC-only thread with no action required
+Проигнорировано (25):
+- 12 рассылок и подписок
+- 5 автоматических уведомлений (GitHub, Jira)
+- 4 чека о покупках
+- 3 системных уведомления (2FA, сброс паролей)
+- 1 цепочка с копией без необходимости действий
 
-Needs your input (1):
-- Email from an unknown sender about "partnership opportunity." Cannot determine relevance. Want me to save it?
-
----
-
-### Calendar import with meeting prep
-
-**You:** What's on my calendar this week?
-
-**Postman:** Your week ahead (March 22-28):
-
-**Monday March 22:**
-- 10:00-11:00, Sprint Planning with Marco, Sarah, Luca (Google Meet)
-- 14:00-14:30, 1:1 with Manager
-
-**Wednesday March 24:**
-- 09:00-10:30, Client Demo (Zoom, external participants)
-- 16:00-17:00, Team Retrospective
-
-**Friday March 26:**
-- 11:00-12:00, Budget Review (in person, Room 3B)
-
-I can create meeting prep notes for any of these. For the Client Demo, I found 2 related notes in your vault that might be useful for preparation. Want me to import all events as vault notes?
+Требуется ваше участие (1):
+- Письмо от неизвестного отправителя о «partnership opportunity». Не могу определить релевантность. Сохранить?
 
 ---
 
-### Event creation
+### Импорт календаря с подготовкой к встречам
 
-**You:** Create an event for the proposal review, next Thursday at 2pm, invite Marco and Luca, one hour, on Zoom
+**Вы:** Что у меня в календаре на этой неделе?
 
-**Postman:** Here is what I will create:
+**Почтальон:** Ваша неделя (22–28 марта):
 
-- **Title:** Proposal Review
-- **Date:** Thursday, March 27, 2026
-- **Time:** 14:00 - 15:00
-- **Location:** Zoom (I will add the link if you have a default Zoom room)
-- **Attendees:** Marco, Luca
+**Понедельник, 22 марта:**
+- 10:00–11:00, Sprint Planning с Марко, Сарой, Лукой (Google Meet)
+- 14:00–14:30, 1:1 с руководителем
 
-Shall I proceed?
+**Среда, 24 марта:**
+- 09:00–10:30, Client Demo (Zoom, внешние участники)
+- 16:00–17:00, Team Retrospective
 
-**You:** Yes, go ahead
+**Пятница, 26 марта:**
+- 11:00–12:00, Budget Review (очно, комната 3B)
 
-**Postman:** Event created on Google Calendar. I also created a meeting prep note in `00-Inbox/` linked to the related proposal notes in your vault.
+Могу создать заметки подготовки для любой из встреч. Для Client Demo я нашёл 2 связанные заметки в хранилище, которые могут быть полезны. Импортировать все события как заметки?
 
-## Works with
+---
 
-- **Sorter**: all notes created by the Postman land in `00-Inbox/` for the Sorter to file
-- **Architect**: when emails or events reveal a new project, the Postman flags the Architect to create the folder structure
-- **Transcriber**: when a calendar event has a recording link (Zoom, Meet), the Postman flags it for the Transcriber
-- **Connector**: email threads that reference vault notes are flagged for cross-linking
-- **Seeker**: if a contact is not found in the vault, the Postman suggests searching with the Seeker
+### Создание события
 
-## Tips
+**Вы:** Создай событие для обзора предложения, в следующий четверг в 14:00, пригласи Марко и Луку, один час, в Zoom
 
-- **Run email triage daily.** A quick scan takes under a minute and catches deadlines before they sneak up on you.
-- **Use "deadline radar" on Mondays.** Start your week knowing every deadline that is coming from your emails.
-- **Create meeting prep notes before important meetings.** The Postman pulls participant info from your People folder and links relevant vault notes.
-- **Let it create calendar events from notes.** If a note contains a deadline or meeting plan, tell the Postman to schedule it. Saves you switching to Google Calendar.
-- **Trust the noise filter.** The Postman is aggressive about filtering newsletters, notifications, and receipts. If it ever filters something important, tell it. It learns from your corrections.
-- **Check "needs your input" items.** The Postman flags ambiguous emails rather than guessing. These are usually worth a quick look.
-- **Make sure Gmail and Google Calendar are connected.** The Postman needs API access to your accounts. Check `Meta/user-profile.md` to verify integrations are enabled, or ask the Architect during onboarding.
+**Почтальон:** Вот что я создам:
 
-## What it remembers
+- **Название:** Proposal Review
+- **Дата:** четверг, 27 марта 2026
+- **Время:** 14:00 – 15:00
+- **Место:** Zoom (добавлю ссылку, если у вас есть комната по умолчанию)
+- **Участники:** Марко, Лука
 
-The Postman keeps a post-it in `Meta/states/postman.md` with notes from its last run: when it last scanned the inbox, emails it saved to the vault, pending follow-ups, and upcoming deadlines it detected. This prevents re-processing the same emails and keeps deadline tracking continuous.
+Приступить?
+
+**Вы:** Да, давай
+
+**Почтальон:** Событие создано в Google Calendar. Также создана заметка подготовки к встрече в `00-Inbox/` со ссылками на связанные заметки о предложении в хранилище.
+
+## Взаимодействие с другими агентами
+
+- **Сортировщик**: все заметки, созданные Почтальоном, попадают в `00-Inbox/` для распределения Сортировщиком
+- **Архитектор**: когда письма или события выявляют новый проект, Почтальон сигнализирует Архитектору создать структуру папок
+- **Расшифровщик**: когда у события календаря есть ссылка на запись (Zoom, Meet), Почтальон передаёт это Расшифровщику
+- **Связующий**: цепочки писем, ссылающиеся на заметки хранилища, передаются для перекрёстной перелинковки
+- **Искатель**: если контакт не найден в хранилище, Почтальон предлагает поискать через Искателя
+
+## Советы
+
+- **Запускайте разбор почты ежедневно.** Быстрое сканирование занимает меньше минуты и ловит дедлайны до того, как они подкрадутся.
+- **Используйте «радар дедлайнов» по понедельникам.** Начните неделю, зная каждый приближающийся дедлайн из почты.
+- **Создавайте заметки подготовки перед важными встречами.** Почтальон подтягивает информацию об участниках из папки People и ссылается на релевантные заметки хранилища.
+- **Позволяйте ему создавать события из заметок.** Если заметка содержит дедлайн или план встречи — скажите Почтальону запланировать. Не нужно переключаться на Google Calendar.
+- **Доверяйте фильтру шума.** Почтальон агрессивно фильтрует рассылки, уведомления и чеки. Если он когда-нибудь отфильтрует важное — скажите ему. Он учится на ваших исправлениях.
+- **Проверяйте пункты «требуется ваше участие».** Почтальон помечает неоднозначные письма вместо угадывания. Они обычно заслуживают быстрого просмотра.
+- **Убедитесь, что Gmail и Google Calendar подключены.** Почтальону нужен API-доступ к вашим аккаунтам. Проверьте `Meta/user-profile.md` на наличие включённых интеграций или спросите Архитектора при онбординге.
+
+## Что он запоминает
+
+Почтальон хранит стикер в `Meta/states/postman.md` с заметками от последнего запуска: когда последний раз сканировал почту, какие письма сохранил, ожидающие follow-up и обнаруженные дедлайны. Это предотвращает повторную обработку тех же писем и поддерживает непрерывное отслеживание дедлайнов.

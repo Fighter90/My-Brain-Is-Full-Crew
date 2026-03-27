@@ -1,142 +1,142 @@
-# Librarian
+# Библиотекарь (Librarian)
 
-> The quality inspector that keeps your vault healthy, consistent, and trustworthy.
+> Инспектор качества, поддерживающий хранилище здоровым, согласованным и надёжным.
 
-## What it does
+## Что он делает
 
-The Librarian is your vault's maintenance crew. While other agents create and organize notes, the Librarian checks that everything stays clean, consistent, and structurally sound over time. Think of it as a weekly health checkup for your entire knowledge base.
+Библиотекарь — служба обслуживания вашего хранилища. Пока другие агенты создают и организуют заметки, Библиотекарь следит за тем, чтобы всё оставалось чистым, согласованным и структурно целостным со временем. Думайте о нём как о еженедельном медосмотре для всей базы знаний.
 
-Run it once a week (or whenever things feel off), and it performs a thorough 6-phase audit: scanning folder structure, hunting duplicates, verifying every wikilink, auditing frontmatter consistency, reviewing Maps of Content, and generating a detailed health report. It finds the problems you would never notice on your own. That broken link from two months ago, the two nearly identical notes in different folders, the 15 notes still tagged `status: inbox` even though they were filed weeks ago.
+Запускайте его раз в неделю (или когда чувствуете, что что-то не так), и он проведёт тщательный 6-фазный аудит: сканирование структуры папок, поиск дубликатов, проверку каждой вики-ссылки, аудит согласованности фронтматтера, ревизию карт контента и генерацию подробного отчёта о здоровье. Он находит проблемы, которые вы сами бы никогда не заметили. Та битая ссылка двухмесячной давности, две почти идентичные заметки в разных папках, 15 заметок со статусом `status: inbox`, хотя они были распределены неделю назад.
 
-The Librarian is conservative by design. It never deletes anything, only archives. It never auto-merges duplicates. Instead, it shows you both versions and asks. Every change is logged and transparent.
+Библиотекарь консервативен по замыслу. Он никогда ничего не удаляет — только архивирует. Никогда не объединяет дубликаты автоматически — показывает оба варианта и спрашивает. Каждое изменение логируется и прозрачно.
 
-## Capabilities
+## Возможности
 
-Several of the Librarian's more complex, multi-step flows have been promoted to dedicated skills that run as guided conversations:
+Несколько наиболее сложных многошаговых процессов Библиотекаря выделены в отдельные навыки:
 
-| Capability | Now handled by |
+| Возможность | Теперь обрабатывается |
 |---|---|
-| Full 7-phase vault audit | `/vault-audit` skill |
-| Deep clean (extended cleanup) | `/deep-clean` skill |
-| Tag garden (tag analysis and cleanup) | `/tag-garden` skill |
+| Полный 7-фазный аудит хранилища | навык `/vault-audit` |
+| Глубокая чистка (расширенная очистка) | навык `/deep-clean` |
+| Сад тегов (анализ и чистка тегов) | навык `/tag-garden` |
 
-What the Librarian agent still does directly:
+Что агент Библиотекарь по-прежнему делает напрямую:
 
-- **Quick health check**: a lighter version focusing on the most common issues (broken links, inbox stragglers, recent duplicates)
-- **Consistency report**: shows exactly what is wrong and what was fixed, with counts and percentages
-- **Growth analytics**: tracks your vault's growth over time (notes per week, links per note, health score trends)
-- **Stale content detector**: identifies notes not touched in 30, 60, or 90 days across active areas
-- **Duplicate detection**: finds exact filename matches, "(copy)" variants, sync conflicts, and content-similar notes
-- **Broken link repair**: identifies wikilinks pointing to non-existent notes and fixes or flags them
-- **Orphan note rescue**: finds notes with zero incoming links and suggests where they should be connected
-- **Frontmatter consistency**: checks that every note has required fields (type, date, tags, status) and fixes format issues automatically
-- **Message archive cleanup**: archives resolved agent messages older than 7 days
+- **Быстрая проверка здоровья**: облегчённая версия, фокусирующаяся на самых частых проблемах (битые ссылки, застрявшие во входящих заметки, свежие дубликаты)
+- **Отчёт о согласованности**: показывает, что именно не так и что было исправлено, с цифрами и процентами
+- **Аналитика роста**: отслеживает рост хранилища (заметки в неделю, ссылки на заметку, тренды оценки здоровья)
+- **Детектор устаревшего контента**: определяет заметки, не затронутые 30, 60 или 90 дней в активных областях
+- **Обнаружение дубликатов**: находит точные совпадения имён файлов, варианты «(копия)», конфликты синхронизации и заметки с похожим содержимым
+- **Починка битых ссылок**: определяет вики-ссылки, ведущие к несуществующим заметкам, и чинит или помечает их
+- **Спасение осиротевших заметок**: находит заметки с нулём входящих ссылок и предлагает, куда их подключить
+- **Согласованность фронтматтера**: проверяет наличие обязательных полей (type, date, tags, status) и автоматически исправляет проблемы формата
+- **Архивация сообщений**: архивирует обработанные сообщения агентов старше 7 дней
 
-## How to use it
+## Как использовать
 
-Run the Librarian periodically to maintain vault quality. Some phrases invoke a dedicated skill instead of the agent:
+Запускайте Библиотекаря периодически для поддержания качества хранилища. Некоторые фразы вызывают навык, а не агента:
 
-- "Weekly review" / "Run the weekly audit" / "Vault audit" --> invokes the `/vault-audit` skill
-- "Deep clean the vault" --> invokes the `/deep-clean` skill
-- "Clean up the tags" / "Tag garden" --> invokes the `/tag-garden` skill
-- "Check vault health" / "Quick health check" --> Librarian agent
-- "Are there any duplicates?" --> Librarian agent
-- "Fix broken links" --> Librarian agent
-- "Show me orphan notes" --> Librarian agent
-- "Consistency report" --> Librarian agent
-- "How has my vault grown?" --> Librarian agent
+- «Еженедельный обзор» / «Аудит хранилища» --> навык `/vault-audit`
+- «Глубокая чистка хранилища» --> навык `/deep-clean`
+- «Почисти теги» / «Сад тегов» --> навык `/tag-garden`
+- «Проверь здоровье хранилища» / «Быстрая проверка» --> агент Библиотекарь
+- «Есть дубликаты?» --> агент Библиотекарь
+- «Почини битые ссылки» --> агент Библиотекарь
+- «Покажи осиротевшие заметки» --> агент Библиотекарь
+- «Отчёт о согласованности» --> агент Библиотекарь
+- «Как росло моё хранилище?» --> агент Библиотекарь
 
-In Italian: "Review settimanale", "Controlla il vault", "Ci sono duplicati?", "Pulizia"
-In French: "Revision hebdomadaire", "Verifier le vault"
-In Spanish: "Revision semanal", "Verificar el vault"
-In German: "Wochentliche Uberprufung", "Vault-Gesundheit"
+На итальянском: "Review settimanale", "Controlla il vault", "Ci sono duplicati?", "Pulizia"
+На французском: "Révision hebdomadaire", "Vérifier le vault"
+На испанском: "Revisión semanal", "Verificar el vault"
+На немецком: "Wöchentliche Überprüfung", "Vault-Gesundheit"
 
-## Example conversations
+## Примеры диалогов
 
-### Weekly review
+### Еженедельный обзор
 
-**You:** Weekly review
+**Вы:** Еженедельный обзор
 
-**Librarian:** Running full 6-phase audit...
+**Библиотекарь:** Запускаю полный 6-фазный аудит...
 
-**Phase 1, Structure:** Folders OK (12/12 match the canonical structure). 1 empty folder found: `04-Archive/2024/`. Consider removing?
+**Фаза 1 — Структура:** Папки в порядке (12/12 соответствуют канонической структуре). Найдена 1 пустая папка: `04-Archive/2024/`. Удалить?
 
-**Phase 2, Duplicates:** Found 2 potential duplicates:
-- "Project Plan.md" (01-Projects/) vs "Project Plan (updated).md" (01-Projects/). The updated version contains everything from the original plus 17 new lines. Recommendation: keep the updated version, archive the original.
+**Фаза 2 — Дубликаты:** Найдено 2 потенциальных дубликата:
+- «Project Plan.md» (01-Projects/) и «Project Plan (updated).md» (01-Projects/). Обновлённая версия содержит всё из оригинала плюс 17 новых строк. Рекомендация: оставить обновлённую, архивировать оригинал.
 
-**Phase 3, Links:** 3 broken wikilinks found and fixed:
-- `[[Sprint Planning]]` updated to `[[Sprint Planning Q2]]` (file was renamed)
-- `[[Marco]]` updated to `[[05-People/Marco Rossi]]` (path corrected)
-- `[[Old RFC]]`: target does not exist. Should I create a stub note or remove the link?
+**Фаза 3 — Ссылки:** 3 битые вики-ссылки найдены и исправлены:
+- `[[Sprint Planning]]` обновлена на `[[Sprint Planning Q2]]` (файл был переименован)
+- `[[Marco]]` обновлена на `[[05-People/Marco Rossi]]` (путь исправлен)
+- `[[Old RFC]]`: цель не существует. Создать заглушку или удалить ссылку?
 
-**Phase 4, Frontmatter:** 8 notes had format issues:
-- 5 notes had dates in non-standard format (auto-fixed to YYYY-MM-DD)
-- 3 notes were missing `status` field (added based on file location)
+**Фаза 4 — Фронтматтер:** 8 заметок с проблемами формата:
+- 5 заметок с датами в нестандартном формате (автоисправлено на YYYY-MM-DD)
+- 3 заметки без поля `status` (добавлено на основе расположения файла)
 
-**Phase 5, MOCs:** 2 MOCs are stale (not updated in 30+ days with new notes available). Updated both with 4 new entries total.
+**Фаза 5 — Карты контента:** 2 карты устарели (не обновлялись 30+ дней при наличии новых заметок). Обе обновлены — добавлено 4 записи.
 
-**Phase 6, Health Report:** Saved to `Meta/health-reports/2026-03-21 - Vault Health.md`
+**Фаза 6 — Отчёт о здоровье:** Сохранён в `Meta/health-reports/2026-03-21 - Vault Health.md`
 
-Health Score: 87% (up from 82% last week)
-Notes: 147 total, 12 new this week
-Orphan notes: 18 (down from 23 after Connector work)
-
----
-
-### Quick duplicate check
-
-**You:** Are there any duplicates?
-
-**Librarian:** Scanned 147 notes for duplicates. Found 3 issues:
-
-1. **Exact duplicate:** "Meeting Notes March 10.md" exists in both `00-Inbox/` and `06-Meetings/2026/03/`. The Inbox version is older. Recommendation: delete the Inbox copy.
-
-2. **Near-duplicate (85% overlap):** "API Design Notes.md" and "API Architecture Draft.md" cover the same topic with different titles. The Architecture Draft is more complete. Recommendation: merge and archive the older one.
-
-3. **Sync conflict:** "Daily 2026-03-15 (conflict).md" is a sync conflict from Obsidian Sync. The conflict version has 2 extra lines. Recommendation: merge the extra lines into the main version.
-
-Want me to handle any of these?
+Оценка здоровья: 87% (рост с 82% на прошлой неделе)
+Заметок: 147 всего, 12 новых за неделю
+Осиротевших заметок: 18 (снижение с 23 после работы Связующего)
 
 ---
 
-### Growth analytics
+### Быстрая проверка дубликатов
 
-**You:** How has my vault grown this month?
+**Вы:** Есть дубликаты?
 
-**Librarian:** Vault Growth, March 2026
+**Библиотекарь:** Просканировано 147 заметок на дубликаты. Найдено 3 проблемы:
 
-- Notes created: 42 (up 15% from February)
-- Average per week: 10.5
-- Most active areas: Projects (18 notes), Meetings (12 notes), Resources (7 notes)
-- Links created: 89 new links this month
-- Link density trend: 2.1 links/note (up from 1.8 in February)
-- Health score trend: 82% -> 85% -> 87% (improving steadily)
+1. **Точный дубликат:** «Meeting Notes March 10.md» существует и в `00-Inbox/`, и в `06-Meetings/2026/03/`. Версия во входящих старше. Рекомендация: удалить копию из входящих.
 
-Top contributors (by agent):
-- Scribe: 22 notes
-- Transcriber: 12 notes
-- Postman: 8 notes
+2. **Почти-дубликат (85% совпадения):** «API Design Notes.md» и «API Architecture Draft.md» покрывают одну тему с разными названиями. Architecture Draft полнее. Рекомендация: объединить и архивировать старую.
 
-Your vault is growing healthily. The link density improvement is a good sign. The Connector has been doing solid work.
+3. **Конфликт синхронизации:** «Daily 2026-03-15 (conflict).md» — конфликт от Obsidian Sync. В конфликтной версии 2 дополнительных строки. Рекомендация: перенести дополнительные строки в основную версию.
 
-## Works with
+Обработать что-нибудь из этого?
 
-- **Architect**: when the Librarian finds structural inconsistencies that need a design decision (overlapping areas, drifting taxonomy), it flags the Architect
-- **Sorter**: misplaced notes found during audits are reported to the Sorter for re-filing
-- **Connector**: orphan notes that need linking are flagged for the Connector
-- **Seeker**: when the Librarian finds conflicting information in duplicate notes, it asks the Seeker for content-level verification
-- **Scribe**: malformed notes in the Health area are sent back to the Scribe for reformatting
-- **All agents**: the Librarian cleans up the shared message board by archiving resolved messages older than 7 days
+---
 
-## Tips
+### Аналитика роста
 
-- **Run it weekly.** A weekly audit catches small issues before they compound. Monthly audits find too much to fix at once.
-- **Start with quick health checks.** If you are new to the vault, a quick check is less overwhelming than a full 6-phase audit.
-- **Let it auto-fix the safe stuff.** Date format normalization, tag casing, and missing status fields are safe to fix automatically. The Librarian always asks before doing anything destructive.
-- **Pay attention to the health score.** It is a single number that tells you how well-maintained your vault is. Aim for 85%+.
-- **Use growth analytics for motivation.** Seeing your vault grow in notes, links, and quality is surprisingly satisfying and helps you stay consistent.
-- **Act on archive suggestions.** Stale content in active areas adds noise. Archiving old notes keeps your working areas focused.
+**Вы:** Как росло хранилище в этом месяце?
 
-## What it remembers
+**Библиотекарь:** Рост хранилища, март 2026
 
-The Librarian keeps a post-it in `Meta/states/librarian.md` with notes from its last audit: issues found, problems fixed, and recurring problems across audits. This lets it track whether vault health is improving or degrading over time.
+- Создано заметок: 42 (рост 15% по сравнению с февралём)
+- В среднем за неделю: 10.5
+- Самые активные области: Projects (18 заметок), Meetings (12 заметок), Resources (7 заметок)
+- Создано ссылок: 89 новых за месяц
+- Тренд плотности ссылок: 2.1 ссылки/заметку (рост с 1.8 в феврале)
+- Тренд оценки здоровья: 82% → 85% → 87% (стабильное улучшение)
+
+Лидеры по вкладу (по агентам):
+- Писарь: 22 заметки
+- Расшифровщик: 12 заметок
+- Почтальон: 8 заметок
+
+Хранилище растёт здорово. Рост плотности ссылок — хороший знак. Связующий работает отлично.
+
+## Взаимодействие с другими агентами
+
+- **Архитектор**: когда Библиотекарь находит структурные несогласованности, требующие проектного решения (пересекающиеся области, дрейфующая таксономия), он сигнализирует Архитектору
+- **Сортировщик**: неправильно размещённые заметки, найденные при аудите, передаются Сортировщику для перераспределения
+- **Связующий**: осиротевшие заметки, нуждающиеся в ссылках, передаются Связующему
+- **Искатель**: при обнаружении противоречивой информации в дубликатах Библиотекарь просит Искателя проверить содержимое
+- **Писарь**: неправильно оформленные заметки в области Health отправляются Писарю на переформатирование
+- **Все агенты**: Библиотекарь очищает общую доску сообщений, архивируя обработанные сообщения старше 7 дней
+
+## Советы
+
+- **Запускайте еженедельно.** Еженедельный аудит ловит мелкие проблемы до того, как они накопятся. Ежемесячный находит слишком много для одного раза.
+- **Начните с быстрых проверок.** Если вы новичок в хранилище, быстрая проверка менее перегружает, чем полный 6-фазный аудит.
+- **Позволяйте автоисправлять безопасное.** Нормализация формата дат, регистр тегов и недостающие поля статуса — безопасно для автоисправления. Библиотекарь всегда спрашивает перед деструктивными действиями.
+- **Следите за оценкой здоровья.** Это единственное число, показывающее, насколько хорошо поддерживается хранилище. Целевой показатель — 85%+.
+- **Используйте аналитику роста для мотивации.** Видеть, как хранилище растёт в заметках, ссылках и качестве — удивительно приятно и помогает поддерживать постоянство.
+- **Реагируйте на предложения по архивированию.** Устаревший контент в активных областях создаёт шум. Архивирование старых заметок поддерживает рабочие области сфокусированными.
+
+## Что он запоминает
+
+Библиотекарь хранит стикер в `Meta/states/librarian.md` с заметками от последнего аудита: найденные проблемы, исправленные ошибки и повторяющиеся проблемы между аудитами. Это позволяет отслеживать, улучшается здоровье хранилища или ухудшается со временем.
