@@ -9,12 +9,6 @@
 </p>
 
 <p align="center">
-  <a href="https://discord.gg/EUnQmABw8s">
-    <img src="https://img.shields.io/badge/💬_Присоединяйтесь-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Присоединиться к Discord" />
-  </a>
-</p>
-
-<p align="center">
   <img src="https://img.shields.io/badge/Агенты-8%2B-blueviolet?style=flat-square" alt="8+ агентов" />
   <img src="https://img.shields.io/badge/Навыки-13-blue?style=flat-square" alt="13 навыков" />
   <img src="https://img.shields.io/badge/Язык-Любой-success?style=flat-square" alt="Любой язык" />
