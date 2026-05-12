@@ -64,11 +64,27 @@ jobs:
           fi
 
           TAG="$BASE_TAG"
+          PREV_TAG=""
           COUNTER=1
           while git rev-parse "refs/tags/$TAG" >/dev/null 2>&1; do
+            PREV_TAG="$TAG"
             COUNTER=$((COUNTER+1))
             TAG="${BASE_TAG}-r${COUNTER}"
           done
+
+          # If this is a retry (the same CHANGELOG section was already released
+          # under PREV_TAG), append commits between PREV_TAG and HEAD so this
+          # release has distinct, commit-level release notes — not a duplicate
+          # of the previous release body.
+          if [ -n "$PREV_TAG" ]; then
+            COMMIT_LIST=$(git log --format='- %h %s' "${PREV_TAG}..HEAD" 2>/dev/null || true)
+            SEP=$'\n\n---\n\n'
+            if [ -n "$COMMIT_LIST" ]; then
+              BODY="${BODY}${SEP}### Commits since \`${PREV_TAG}\`${SEP}${COMMIT_LIST}"
+            else
+              BODY="${BODY}${SEP}> Retry of \`${PREV_TAG}\` — no new commits. CHANGELOG section content unchanged; this release exists because the previous workflow run did not complete successfully."
+            fi
+          fi
 
           echo "tag=$TAG"   >> "$GITHUB_OUTPUT"
           echo "date=$DATE" >> "$GITHUB_OUTPUT"
