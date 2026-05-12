@@ -107,3 +107,30 @@ jobs:
           body: ${{ steps.parse.outputs.body }}
           files: ${{ env.BUNDLE }}
           make_latest: 'true'
+
+      - name: Setup Node (for GitHub Packages npm publish)
+        if: steps.parse.outputs.skip != 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@fighter90'
+
+      - name: Sync package.json version with release tag
+        if: steps.parse.outputs.skip != 'true'
+        run: |
+          set -euo pipefail
+          # Strip leading 'v' and any '-rN' suffix; convert YYYY.MM.DD style to semver
+          RAW="${{ steps.parse.outputs.tag }}"
+          VER="${RAW#v}"
+          VER="${VER%-r*}"
+          # If it's a date-style tag (YYYY.MM.DD), npm accepts it as-is; ensure no leading zeros
+          VER=$(echo "$VER" | awk -F. '{printf "%d.%d.%d", $1, $2, $3}')
+          echo "Publishing version: $VER"
+          node -e "const fs=require('fs');const p=require('./package.json');p.version='$VER';fs.writeFileSync('package.json',JSON.stringify(p,null,2)+'\n');"
+
+      - name: Publish to GitHub Packages npm
+        if: steps.parse.outputs.skip != 'true'
+        run: npm publish --access restricted
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

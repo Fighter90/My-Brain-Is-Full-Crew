@@ -1,0 +1,39 @@
+{
+  "name": "@fighter90/my-brain-is-full-crew",
+  "version": "2026.5.12",
+  "description": "Fighter90 fork of My-Brain-Is-Full-Crew — 8 Claude Code agents + 14 skills + premortem capability + vault path tokenization for Obsidian.",
+  "keywords": [
+    "obsidian",
+    "claude-code",
+    "agents",
+    "skills",
+    "premortem",
+    "second-brain",
+    "para"
+  ],
+  "homepage": "https://github.com/Fighter90/My-Brain-Is-Full-Crew#readme",
+  "bugs": {
+    "url": "https://github.com/Fighter90/My-Brain-Is-Full-Crew/issues"
+  },
+  "license": "MIT",
+  "author": "Sergey Emelyanov (Fighter90)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fighter90/My-Brain-Is-Full-Crew.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "agents/",
+    "references/",
+    "scripts/",
+    "adapters/",
+    "mcp/",
+    "docs/",
+    "README.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "LICENSE"
+  ]
+}
