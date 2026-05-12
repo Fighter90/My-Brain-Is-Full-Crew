@@ -77,24 +77,18 @@ jobs:
           # release has distinct, commit-level release notes — not a duplicate
           # of the previous release body.
           if [ -n "$PREV_TAG" ]; then
+            # This is a retry/follow-up to PREV_TAG. Don't copy the entire
+            # CHANGELOG section (PREV_TAG already has it) — that would make
+            # every retry visually identical to the prior release.
+            # Instead: build a short body containing only what differentiates
+            # THIS release — commits since PREV_TAG.
             COMMIT_LIST=$(git log --format='- %h %s' "${PREV_TAG}..HEAD" 2>/dev/null || true)
-            # Strip trailing horizontal-rule + whitespace from BODY so we don't
-            # double-print '---' (CHANGELOG sections already end with one).
-            # Pure-awk implementation — portable across BSD/GNU.
-            BODY=$(printf '%s' "$BODY" | awk '
-              { lines[NR] = $0 }
-              END {
-                n = NR
-                while (n > 0 && (lines[n] ~ /^[[:space:]-]*$/)) n--
-                for (i = 1; i <= n; i++) print lines[i]
-              }
-            ')
-            SEP_BEFORE=$'\n\n---\n\n'
-            SEP_INNER=$'\n\n'
+            REPO_URL="https://github.com/${GITHUB_REPOSITORY}"
+            NL=$'\n'
             if [ -n "$COMMIT_LIST" ]; then
-              BODY="${BODY}${SEP_BEFORE}### Commits since \`${PREV_TAG}\`${SEP_INNER}${COMMIT_LIST}"
+              BODY="## ${TAG} — follow-up to \`${PREV_TAG}\`${NL}${NL}### Commits since \`${PREV_TAG}\`${NL}${NL}${COMMIT_LIST}${NL}${NL}---${NL}${NL}Full CHANGELOG context: see [${PREV_TAG}](${REPO_URL}/releases/tag/${PREV_TAG}).${NL}${NL}[Diff with ${PREV_TAG}](${REPO_URL}/compare/${PREV_TAG}...${TAG})"
             else
-              BODY="${BODY}${SEP_BEFORE}> Retry of \`${PREV_TAG}\` — no new commits. CHANGELOG section content unchanged; this release exists because the previous workflow run did not complete successfully."
+              BODY="## ${TAG} — retry of \`${PREV_TAG}\`${NL}${NL}> Manual retry — no new commits since [${PREV_TAG}](${REPO_URL}/releases/tag/${PREV_TAG}). This release exists because the previous workflow run did not complete (typically a transient CI failure on a non-blocking step). Content is identical to ${PREV_TAG}.${NL}${NL}Full release notes: see [${PREV_TAG}](${REPO_URL}/releases/tag/${PREV_TAG})."
             fi
           fi
 
