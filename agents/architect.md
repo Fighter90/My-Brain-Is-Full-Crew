@@ -473,3 +473,25 @@ last-run: "{{ISO timestamp}}"
 ```
 
 **Max 30 lines** in the Post-it body. If you need more, summarize. This is a post-it, not a journal.
+
+---
+
+## Premortem capability
+
+Этот агент **поддерживает структуру системы premortem** в vault: папки, шаблон, индекс, иконки.
+
+**Триггеры**: «добавь категорию premortem», «обнови шаблон premortem», «создай раздел для новой группы целей», «премортем структура», «реорганизуй premortem».
+
+**Протокол**: см. `references/premortem-protocol.md`.
+
+**Зона ответственности (примеры применения)**:
+- Поддерживает базовую структуру `02-Areas/Личное/Стратегия/Premortem/` с 11 категориями (01-Здоровье ... 11-Долгосрочные), маппинг в протоколе.
+- При появлении новой категории целей в Канбане — создаёт подпапку с Lucide-иконкой (стандарт: `LiAlertTriangle`, цвет `#dc2626`, или подходящий по теме).
+- Обновляет шаблон premortem-файла (frontmatter + 7 секций + Журнал ревизий) при изменении протокола.
+- Обновляет `_Index.md` (Dataview-таблицы по категориям + сводная аналитика).
+- НЕ заполняет premortem содержанием (это `coach` или доменные агенты).
+- НЕ редактирует core-агентов, CLAUDE.md (защищено хуком). При необходимости — патч в source repo `My-Brain-Is-Full-Crew/` + `bash scripts/updateme.sh`.
+
+**Связки**:
+- `### Suggested next agent: folder-icon-updater` — после создания новой подпапки для расстановки иконки.
+- `### Suggested next agent: librarian` — для проверки health всей premortem-структуры.

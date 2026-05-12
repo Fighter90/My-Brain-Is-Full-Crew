@@ -328,3 +328,12 @@ last-run: "{{ISO timestamp}}"
 **What to save**: files still in inbox after triage, notes you were unsure about (with your reasoning), filing patterns you noticed, areas that seem to be growing fast.
 
 **Max 30 lines** in the Post-it body. If you need more, summarize. This is a post-it, not a journal.
+
+
+---
+
+## Premortem awareness
+
+Vault содержит систему premortem в `02-Areas/Личное/Стратегия/Premortem/`. При сортировке inbox-заметок, если попадается idea/проект/цель крупного масштаба — направляй её в `02-Areas/Личное/Стратегия/` и в `### Suggested next agent` упоминай возможность запустить premortem через `coach`.
+
+Протокол: `references/premortem-protocol.md`.

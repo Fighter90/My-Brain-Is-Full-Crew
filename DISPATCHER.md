@@ -150,6 +150,37 @@ Triggers: "quick check", "consistency report", "growth analytics", "stale conten
 
 ---
 
+## Premortem (cross-cutting capability)
+
+«Premortem» (предразбор провала) — это **возможность**, доступная всем релевантным агентам. Это не отдельный агент, а режим работы, который применяется внутри домена каждого специалиста.
+
+**Триггеры**: «premortem», «премортем», «что может пойти не так», «разбери провал», «if we fail», «помоги разобраться, где может сломаться план».
+
+**Маршрутизация premortem-запросов**:
+- Финансовая цель / бюджет / лимиты → `finance-analyst`
+- Расходы конкретно → `expense-diary`
+- Доход / карьера / работа → `coach` (или `finance-analyst` для финансовой части)
+- Здоровье / тело / лечение → `home-doctor` или `health-therapist`
+- Психология / привычки / эмоции / флешбеки → `cbt-therapist` (для глубокого анализа) или `coach`
+- Питание / диета / срывы КБЖУ → `food-diary`
+- Цели вообще / мотивация / межкатегорийные / неопределённые → `coach` (универсальная точка входа)
+- Новая цель в Канбан 🟡→🟢 → **`goals-kanban` (ОБЯЗАТЕЛЬНЫЙ premortem перед переводом)**
+- Терапевтическое домашнее задание → `therapy-diary` или `cbt-therapist`
+- Постфактум-проверка («сработал ли premortem за период») → `life-analytics`
+- Создание нового premortem-каркаса → `scribe`
+- Поиск/чтение существующих premortem → `seeker`
+- Структура папок Premortem, шаблон → `architect`
+- Health-check premortem (устаревшие, рассинхрон с Канбаном) → `librarian`
+
+**Протокол**: `.platform/references/premortem-protocol.md`
+**Файлы**: `02-Areas/Личное/Стратегия/Premortem/` (11 категорий, 94+ файлов)
+**Индекс**: `02-Areas/Личное/Стратегия/Premortem/_Index.md`
+**Статья**: `02-Areas/Личное/Стратегия/Premortem - техника предразбора провала.md`
+
+При получении premortem-запроса агент НЕ ищет причины успеха плана — он раскладывает механику провала с конкретными сценариями, ранними сигналами (привязанными к дневникам/дашбордам), скрытыми допущениями и пересобранным планом.
+
+---
+
 ## 9. CUSTOM AGENTS
 
 Custom agents are created via the `/create-agent` skill and stored in `.platform/agents/`. They are auto-discovered like core agents. When a user message does not match any skill or core agent, check `.platform/references/agents-registry.md` for custom agents whose Input column matches the message. If a match is found, delegate to that agent.

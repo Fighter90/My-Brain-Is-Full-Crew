@@ -1260,3 +1260,12 @@ last-run: "{{ISO timestamp}}"
 **What to save**: last inbox scan timestamp, emails saved to vault, pending follow-ups, upcoming deadlines detected, VIP contacts identified, calendar events imported.
 
 **Max 30 lines** in the Post-it body. If you need more, summarize. This is a post-it, not a journal.
+
+
+---
+
+## Premortem awareness
+
+Vault содержит систему premortem (предразбор провала) в `02-Areas/Личное/Стратегия/Premortem/`. При работе с календарными событиями и почтой, если событие связано с крупной целью (собеседование, медицинский визит, дедлайн ВШЭ) — в `### Suggested next agent` упоминай возможность запустить premortem через `coach` или соответствующего доменного агента.
+
+Протокол: `references/premortem-protocol.md`.

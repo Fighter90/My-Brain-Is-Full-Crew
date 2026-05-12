@@ -6,13 +6,40 @@ This reference is shared across all agents. Every agent knows the others, their 
 
 ## Agent Registry
 
-For the definitive list of agents with capabilities, inputs, outputs, and status, see `.platform/references/agents-registry.md`. That file is the single source of truth — it supports both core and custom agents.
+For the definitive list of agents with capabilities, inputs, outputs, and status, see `.claude/references/agents-registry.md`. That file is the single source of truth — it supports both core and custom agents.
 
 ---
 
 ## Language Rule
 
 **All agents respond in the user's language.** Match the language the user writes in. If the user switches languages mid-conversation, switch with them.
+
+---
+
+## Premortem — cross-cutting capability
+
+**Premortem (предразбор провала)** — это не отдельный агент, а **режим работы**, доступный всем релевантным агентам крю.
+
+- **Полный протокол**: `.claude/references/premortem-protocol.md`
+- **Файлы**: `02-Areas/Личное/Стратегия/Premortem/<11 категорий>/<цель>.md`
+- **Индекс**: `02-Areas/Личное/Стратегия/Premortem/_Index.md`
+
+**Маршрутизация premortem-запросов**:
+
+| Запрос пользователя | Целевой агент |
+|---|---|
+| Финансовая цель / доход / бюджет | `finance-analyst` |
+| Здоровье / симптом / препарат | `home-doctor` или `health-therapist` |
+| Психология / привычки / тревога | `cbt-therapist` или `coach` |
+| Бюджетная дисциплина / расходы | `expense-diary` |
+| Питание / КБЖУ / диета | `food-diary` |
+| Универсальный / новая цель / мотивация | `coach` |
+| Перевод цели 🟡 → 🟢 в Канбане | `goals-kanban` (обязательный premortem) |
+| Создать каркас premortem | `scribe` |
+| Найти существующие premortem | `seeker` |
+| Постфактум-проверка за период | `life-analytics` |
+
+Уровни вовлечения агентов: **full** (создаёт и разворачивает premortem), **awareness** (знает о системе, может предложить). См. колонку Premortem в `.claude/references/agents-registry.md`.
 
 ---
 
@@ -128,7 +155,7 @@ The dispatcher routes triggers to skills FIRST, then falls through to agents.
 
 ## Quick Reference: When to Suggest Another Agent
 
-When an agent detects work for another agent, it includes a `### Suggested next agent` section in its output. The dispatcher reads this and decides whether to chain the next agent. See `.platform/references/agent-orchestration.md` for the full protocol.
+When an agent detects work for another agent, it includes a `### Suggested next agent` section in its output. The dispatcher reads this and decides whether to chain the next agent. See `.claude/references/agent-orchestration.md` for the full protocol.
 
 | Situation | Suggest |
 |-----------|---------|
@@ -151,11 +178,40 @@ When an agent detects work for another agent, it includes a `### Suggested next 
 
 ## Custom Agents
 
-Custom agents are created by the Architect and live in `.platform/agents/` alongside the core agents. They follow the same conventions: YAML frontmatter, trigger phrases written in the user's language, inter-agent coordination sections, and dispatcher-driven orchestration.
+Custom agents are created by the Architect and live in `.claude/agents/` alongside the core agents. They follow the same conventions: YAML frontmatter, trigger phrases written in the user's language, inter-agent coordination sections, and dispatcher-driven orchestration.
 
-For the definitive list of all agents (core + custom) with capabilities, inputs, outputs, and status, see `.platform/references/agents-registry.md`.
+For the definitive list of all agents (core + custom) with capabilities, inputs, outputs, and status, see `.claude/references/agents-registry.md`.
 
 <!-- MBIFC:CUSTOM_AGENTS_START -->
+| Skill | Source Agent | Purpose |
+| `/onboarding` | Architect | Full vault setup conversation |
+| `/create-agent` | Architect | Custom agent creation (6-phase interview) |
+| `/manage-agent` | Architect | Edit, remove, list custom agents |
+| `/defrag` | Architect | Weekly vault defragmentation |
+| `/email-triage` | Postman | Email scanning and prioritization |
+| `/meeting-prep` | Postman | Meeting brief preparation |
+| `/weekly-agenda` | Postman | Week-at-a-glance overview |
+| `/deadline-radar` | Postman | Deadline timeline from all sources |
+| `/transcribe` | Transcriber | Audio/transcript processing |
+| `/vault-audit` | Librarian | Full 7-phase vault audit |
+| `/deep-clean` | Librarian | Extended vault cleanup |
+| `/tag-garden` | Librarian | Tag analysis and gardening |
+| `/inbox-triage` | Sorter | Inbox note processing and routing |
+| Situation | Suggest |
+| "Don't know where to file this note" | Architect |
+| "This area/folder doesn't exist" | Architect |
+| "Tag doesn't exist in taxonomy" | Architect |
+| "Template is missing or wrong" | Architect |
+| "User wants to update their profile" | Architect |
+| "Found a duplicate note" | Librarian |
+| "Found a broken link" | Librarian |
+| "Note has wrong frontmatter" | Librarian |
+| "Vault structure seems inconsistent" | Librarian |
+| "This note should link to others" | Connector |
+| "Found related but unlinked notes" | Connector |
+| "Need to find an existing note" | Seeker |
+| "Cross-reference this with email" | Postman |
+| "This came from a meeting recording" | Transcriber |
 <!-- MBIFC:CUSTOM_AGENTS_END -->
 
 ### How Custom Agents Coordinate

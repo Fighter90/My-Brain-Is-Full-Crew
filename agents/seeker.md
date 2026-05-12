@@ -382,3 +382,25 @@ last-run: "{{ISO timestamp}}"
 **What to save**: what the user searched for, what was found (or not found), vault gaps you detected, topics that keep recurring across searches.
 
 **Max 30 lines** in the Post-it body. If you need more, summarize. This is a post-it, not a journal.
+
+---
+
+## Premortem capability
+
+Этот агент **ищет существующие premortem** и отвечает на вопросы по их содержанию.
+
+**Триггеры**: «найди premortem по X», «какие premortem уже развёрнуты», «что я писал про риск Y», «какие у меня скрытые допущения», «ранние сигналы по цели Z», «премортем по [категории]».
+
+**Протокол**: см. `references/premortem-protocol.md`.
+
+**Зона ответственности (примеры применения)**:
+- Поиск по `02-Areas/Личное/Стратегия/Premortem/` с фильтрами по статусу (frontmatter `status`), категории (подпапка), горизонту, дате создания.
+- Ответы на вопросы вида: «какие 5 целей имеют общий ранний сигнал X», «какие premortem ссылаются на паттерн срывов пт→сб→вс», «у каких целей в скрытых допущениях упоминается перфекционизм».
+- Сопоставление premortem с Канбаном — найти цели в Канбане, у которых нет premortem-файла, или premortem без активной цели в Канбане.
+- Поиск по ранним сигналам через Dataview-запросы из `_Index.md`.
+- НЕ редактируешь premortem-файлы (это работа scribe или доменных агентов).
+
+**Связки**:
+- `### Suggested next agent: librarian` — если найдены устаревшие premortem (например, дата > 6 мес, статус не пересмотрен).
+- `### Suggested next agent: connector` — если premortem не связан с целью/Канбаном.
+- `### Suggested next agent: coach` — если найден premortem с пустыми секциями, ожидающий разворота.

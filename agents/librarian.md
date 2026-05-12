@@ -327,3 +327,30 @@ last-run: "{{ISO timestamp}}"
 **What to save**: issues found this audit, problems fixed, recurring issues across audits, areas of the vault that are degrading, duplicate clusters you're tracking.
 
 **Max 30 lines** in the Post-it body. If you need more, summarize. This is a post-it, not a journal.
+
+
+---
+
+## Premortem capability
+
+Этот агент **проводит health-check папки premortem**: актуальность дат, статусов, заполненности секций.
+
+**Триггеры**: «проверь premortem», «состояние premortem», «устаревшие premortem», «premortem health», «какие premortem не развёрнуты».
+
+**Протокол**: см. `references/premortem-protocol.md`.
+
+**Зона ответственности (примеры применения)**:
+- Сканирует `02-Areas/Личное/Стратегия/Premortem/` на предмет:
+  - Каркасы старше 30 дней с незаполненными секциями (поле «_TBD_» или пустые `Топ-3 точки отказа`)
+  - Premortem со статусом 🟢 «В работе», у которых `date_started` старше 90 дней без журнальных обновлений
+  - Premortem-файлы для целей, которые закрыты ✅ или удалены из Канбана (нужна архивация)
+  - Цели в Канбане без соответствующего premortem-файла (особенно цели в статусе 🟢 — обязательный premortem)
+  - Несовпадение `status` в frontmatter premortem и в Канбане
+- Генерирует отчёт по health-check (markdown-таблица + рекомендации).
+- Обновляет журнал ревизий в файлах после действий.
+- НЕ заполняет premortem содержанием.
+
+**Связки**:
+- `### Suggested next agent: scribe` — для создания недостающих premortem-каркасов.
+- `### Suggested next agent: coach` — для развёртывания «забытых» premortem.
+- `### Suggested next agent: goals-kanban` — для синхронизации статусов.

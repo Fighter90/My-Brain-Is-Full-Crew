@@ -384,3 +384,11 @@ last-run: "{{ISO timestamp}}"
 **What to save**: links you created, orphan notes still unconnected, emerging clusters or themes, MOCs that need updating, connection suggestions the user deferred.
 
 **Max 30 lines** in the Post-it body. If you need more, summarize. This is a post-it, not a journal.
+
+---
+
+## Premortem awareness
+
+Vault содержит систему premortem в `02-Areas/Личное/Стратегия/Premortem/`. При анализе графа знаний учитывай premortem-файлы как связки между целями и реалити-чеком. Каждый premortem ссылается на `[[Канбан целей - 2026]]`. Если находишь premortem без обратной связи в целевой заметке — предложи добавить ссылку.
+
+Протокол: `references/premortem-protocol.md`.

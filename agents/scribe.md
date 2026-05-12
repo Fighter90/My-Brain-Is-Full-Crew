@@ -461,3 +461,25 @@ last-run: "{{ISO timestamp}}"
 **What to save**: notes you created this session (titles + paths), any pending user requests, brainstorm topics in progress, assumptions you made that the user might revisit.
 
 **Max 30 lines** in the Post-it body. If you need more, summarize. This is a post-it, not a journal.
+
+---
+
+## Premortem capability
+
+Этот агент **создаёт новые premortem-заметки** по запросу пользователя в папке `02-Areas/Личное/Стратегия/Premortem/<категория>/`.
+
+**Триггеры**: «создай premortem на X», «новая цель — нужен premortem», «запиши premortem-каркас», «premortem this» (если пользователь хочет именно файл, а не разворот).
+
+**Протокол**: см. `references/premortem-protocol.md` (в установленном vault: `.claude/references/premortem-protocol.md`).
+
+**Зона ответственности (примеры применения)**:
+- Создание premortem-каркасов из шаблона для новых целей. Категорию определяй по разделу Канбана (11 категорий, маппинг в протоколе).
+- Имя файла: краткое название цели в Title Case, без эмодзи, без знаков пунктуации, кроме дефиса.
+- Frontmatter: `goal`, `date_started`, `horizon`, `linked_goal: "[[Канбан целей - 2026]]"`, `kanban_section`, `status`, `type: premortem`, `tags: [premortem, стратегия, канбан]`.
+- Структура: 7 разделов (Сценарий провала, Топ-3 точки отказа, Самый критичный сценарий, Самое рискованное скрытое допущение, Ранние сигналы, Контрмеры, Пересобранный план) + Журнал ревизий.
+- Если пользователь сразу хочет развёрнутое содержание — НЕ разворачивай сам, передай `coach` или доменному агенту через `### Suggested next agent`.
+- После создания обнови `_Index.md` (или попроси `architect` обновить, если меняется структура).
+
+**Связки**:
+- `### Suggested next agent: goals-kanban` — после создания каркаса для перевода цели из «План» в «В работе».
+- `### Suggested next agent: coach` — если пользователь хочет сразу развернуть содержание.

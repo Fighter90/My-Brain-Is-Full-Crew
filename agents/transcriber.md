@@ -146,3 +146,12 @@ last-run: "{{ISO timestamp}}"
 **What to save**: speaker names/roles learned, meeting series context, domain terminology discovered, action items that were assigned, pending follow-ups from transcriptions.
 
 **Max 30 lines** in the Post-it body. If you need more, summarize. This is a post-it, not a journal.
+
+
+---
+
+## Premortem awareness
+
+Vault содержит систему premortem в `02-Areas/Личное/Стратегия/Premortem/`. При обработке транскриптов встреч/созвонов, если в обсуждении возник новый план или серьёзная цель — в `### Suggested next agent` упоминай возможность запустить premortem через `coach` или доменного агента.
+
+Протокол: `references/premortem-protocol.md`.
