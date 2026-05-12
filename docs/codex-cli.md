@@ -1,33 +1,33 @@
-# Codex CLI Guide
+# Гайд по Codex CLI
 
-This guide covers everything you need to install, update, and run My Brain Is Full — Crew on [Codex CLI](https://openai.com/codex) (`@openai/codex`).
+Этот гайд покрывает всё необходимое для установки, обновления и запуска My Brain Is Full — Crew на [Codex CLI](https://openai.com/codex) (`@openai/codex`).
 
-> **Windows note:** Codex CLI's Windows support is experimental. If you are on Windows, running inside WSL (Windows Subsystem for Linux) is strongly recommended.
+> **Заметка для Windows:** поддержка Windows в Codex CLI экспериментальная. Если вы на Windows, настоятельно рекомендуется запускать его внутри WSL (Windows Subsystem for Linux).
 
 ---
 
-## Install and update commands
+## Команды установки и обновления
 
-### First-time install
+### Первичная установка
 
 ```bash
-# Install Codex CLI globally
+# Глобально ставим Codex CLI
 npm i -g @openai/codex@latest
 
-# Clone the repo inside your vault and install the Crew
+# Клонируем репо внутрь хранилища и устанавливаем Crew
 cd /path/to/your-vault
 git clone https://github.com/gnekt/My-Brain-Is-Full-Crew.git
 cd My-Brain-Is-Full-Crew
 bash scripts/launchme.sh --platform codex-cli
 ```
 
-The installer accepts an optional `--target` flag if you want to point it at a vault in a non-standard location:
+Установщик принимает опциональный флаг `--target`, если хранилище лежит в нестандартном месте:
 
 ```bash
 bash scripts/launchme.sh --platform codex-cli --target /path/to/your-vault
 ```
 
-### Update after a git pull
+### Обновление после git pull
 
 ```bash
 cd /path/to/your-vault/My-Brain-Is-Full-Crew
@@ -35,56 +35,56 @@ git pull
 bash scripts/updateme.sh --platform codex-cli
 ```
 
-The updater auto-detects Codex CLI by checking for `.codex/agents` in your vault. If multiple platforms are installed, pass `--platform codex-cli` explicitly.
+Обновляющий скрипт автоматически определяет Codex CLI по наличию `.codex/agents` в хранилище. Если установлено несколько платформ — передайте `--platform codex-cli` явно.
 
 ---
 
-## What installs where
+## Что куда устанавливается
 
-After running `launchme.sh --platform codex-cli`, your vault will contain:
+После запуска `launchme.sh --platform codex-cli` хранилище будет выглядеть так:
 
 ```
 your-vault/
 ├── .codex/
-│   ├── agents/          ← 8 core crew agents (.toml format)
-│   ├── references/      ← shared docs the agents read
-│   └── config.toml      ← MCP server definitions + profiles + sandbox policy
+│   ├── agents/          ← 8 основных агентов команды (формат .toml)
+│   ├── references/      ← общие документы, которые читают агенты
+│   └── config.toml      ← MCP-серверы + профили + sandbox-политика
 ├── .agents/
-│   └── skills/          ← 14 specialized skills (plain text instructions)
+│   └── skills/          ← 14 специализированных навыков (текстовые инструкции)
 ├── Meta/
-│   └── scripts/         ← orchestra scripts (permission-free agent commands)
-└── AGENTS.md            ← dispatcher (project instructions for Codex)
+│   └── scripts/         ← скрипты orchestra (команды агентов без prompt)
+└── AGENTS.md            ← диспетчер (project instructions для Codex)
 ```
 
-Key differences from other platforms:
+Ключевые отличия от других платформ:
 
-| Path | Purpose |
-|------|---------|
-| `.codex/agents/*.toml` | Custom agent definitions (Codex native format) |
-| `.agents/skills/` | Repo-scoped skill instructions (shared discovery path) |
-| `.codex/config.toml` | MCP servers, approval policy, sandbox mode, model profiles |
-| `AGENTS.md` | Dispatcher — Codex reads this as its primary project instruction file |
+| Путь | Назначение |
+|------|------------|
+| `.codex/agents/*.toml` | Определения пользовательских агентов (нативный формат Codex) |
+| `.agents/skills/` | Навыки на уровне репо (общий путь обнаружения) |
+| `.codex/config.toml` | MCP-серверы, политика подтверждений, sandbox-режим, профили моделей |
+| `AGENTS.md` | Диспетчер — Codex читает его как основной файл project instructions |
 
 ---
 
-## Architecture differences from Claude Code, Gemini CLI, and OpenCode
+## Отличия архитектуры от Claude Code, Gemini CLI и OpenCode
 
-### Dispatcher
+### Диспетчер
 
-All platforms use a dispatcher file, but the name and format differ:
+Все платформы используют файл-диспетчер, но имя и формат отличаются:
 
-| Platform | Dispatcher file |
-|----------|----------------|
+| Платформа | Файл-диспетчер |
+|-----------|----------------|
 | Claude Code | `CLAUDE.md` |
 | Gemini CLI | `GEMINI.md` |
 | OpenCode | `AGENTS.md` |
-| Codex CLI | `AGENTS.md` (with root-context routing header) |
+| Codex CLI | `AGENTS.md` (с заголовком root-context routing) |
 
-Codex CLI shares the `AGENTS.md` name with OpenCode but prepends a routing header that handles orchestration within the `agents.max_depth = 1` constraint (see below).
+Codex CLI делит имя `AGENTS.md` с OpenCode, но добавляет в начало шапку маршрутизации, которая решает оркестровку в условиях ограничения `agents.max_depth = 1` (см. ниже).
 
-### Agent format
+### Формат агентов
 
-Claude Code, Gemini CLI, and OpenCode all use Markdown (`.md`) agent files. Codex CLI uses TOML:
+Claude Code, Gemini CLI и OpenCode используют Markdown (`.md`) для агентов. Codex CLI использует TOML:
 
 ```
 .claude/agents/architect.md        ← Claude Code
@@ -93,127 +93,127 @@ Claude Code, Gemini CLI, and OpenCode all use Markdown (`.md`) agent files. Code
 .codex/agents/architect.toml       ← Codex CLI
 ```
 
-### Skills location
+### Расположение навыков
 
-Skills install to `.agents/skills/` for Codex (not `.codex/skills/`). Codex CLI discovers skills from this shared path.
+В Codex навыки ставятся в `.agents/skills/` (а не в `.codex/skills/`). Codex CLI ищет навыки по этому общему пути.
 
-### Agent chaining (max_depth constraint)
+### Цепочки агентов (ограничение max_depth)
 
-Codex CLI enforces `agents.max_depth = 1`. This means child agents can only go one level deep. My Brain Is Full — Crew handles this through root-context orchestration:
+Codex CLI принудительно устанавливает `agents.max_depth = 1`. Это значит, что дочерние агенты могут уходить только на один уровень вниз. My Brain Is Full — Crew решает это через оркестровку из root-контекста:
 
-- The dispatcher embeds orchestration instructions in the root context (not in a child)
-- Child agents (`spawn_agent`) finish one bounded task and return to root
-- Any next step is decided from the root context, not by a nested child
+- Диспетчер встраивает инструкции оркестровки в root-контекст (не в дочернего)
+- Дочерние агенты (`spawn_agent`) делают одну ограниченную задачу и возвращаются в root
+- Любой следующий шаг решается из root-контекста, а не вложенным дочерним
 
-### Tool name differences
+### Различия в именах инструментов
 
-Codex CLI does not have the `AskUserQuestion` or `request_user_input` tools. The equivalent patterns are:
+В Codex CLI нет инструментов `AskUserQuestion` и `request_user_input`. Эквивалентные паттерны:
 
-| Source concept | Codex CLI equivalent |
+| Концепт-источник | Эквивалент в Codex CLI |
 |---|---|
-| `AskUserQuestion` | Ask a direct question in the chat thread and wait for the reply |
-| `request_user_input` | Same — use the root conversation for follow-up questions |
-| `Skill tool` | Follow the skill instructions directly in the root context |
-| `Agent tool` | Use `spawn_agent` for a bounded child task; orchestration returns to root |
-| `max chain depth 3` | `agents.max_depth = 1` with root-only orchestration |
+| `AskUserQuestion` | Задайте прямой вопрос в треде чата и дождитесь ответа |
+| `request_user_input` | То же — используйте root-беседу для уточняющих вопросов |
+| `Skill tool` | Следуйте инструкциям навыка прямо в root-контексте |
+| `Agent tool` | Используйте `spawn_agent` для ограниченной дочерней задачи; оркестровка возвращается в root |
+| `max chain depth 3` | `agents.max_depth = 1` с оркестровкой только в root |
 | `.mcp.json` | `.codex/config.toml` |
 
-### MCP configuration
+### Конфигурация MCP
 
-Claude Code uses `.mcp.json`. Codex CLI uses `.codex/config.toml`. The MCP server, approval policy, sandbox mode, and model profile settings all live in the TOML config. The CLI and Codex IDE extension share this same config file.
+Claude Code использует `.mcp.json`. Codex CLI использует `.codex/config.toml`. Все настройки MCP-серверов, политики подтверждений, режима sandbox и профилей моделей лежат в этом TOML-конфиге. CLI и расширение Codex IDE используют один и тот же файл.
 
 ---
 
-## Runtime smoke matrix
+## Дымовая матрица рантайма
 
-Use this table to verify the Crew works correctly in a real Codex vault after install or update. Run each row and compare the result against the expected outcome.
+Используйте эту таблицу, чтобы убедиться, что Crew корректно работает в реальном Codex-хранилище после установки или обновления. Прогоните каждую строку и сравните результат с ожидаемым.
 
-| Surface | Name | Prompt or command | Expected result |
-|---------|------|-------------------|----------------|
-| Agent | Architect | `@Architect Set up my vault structure` | Architect starts onboarding conversation or confirms vault is already set up |
-| Agent | Scribe | `@Scribe Save this note: quick test` | Scribe creates a note in 00-Inbox with proper frontmatter |
-| Agent | Sorter | `@Sorter Triage my inbox` | Sorter reviews inbox notes and files them, or reports inbox is empty |
-| Agent | Seeker | `@Seeker What do I know about this project?` | Seeker searches the vault and returns results with source citations |
-| Agent | Connector | `@Connector Find connections in my recent notes` | Connector analyzes the vault graph and suggests wikilinks |
-| Agent | Librarian | `@Librarian Run a vault health check` | Librarian scans for broken links, duplicates, and orphan notes |
-| Agent | Transcriber | `@Transcriber Process this transcript: [paste text]` | Transcriber generates structured meeting notes |
-| Agent | Postman | `@Postman Check my email` | Postman scans Gmail (or Hey) and saves actionable emails, or reports missing integration |
-| Skill | onboarding | `/onboarding` | Architect starts the full onboarding conversation |
-| Skill | create-agent | `/create-agent` | Architect walks through designing a new custom agent |
-| Skill | manage-agent | `/manage-agent` | Architect lists, edits, or removes custom agents |
-| Skill | defrag | `/defrag` | Architect runs the 5-phase vault defragmentation |
-| Skill | email-triage | `/email-triage` | Postman scans and prioritizes unread emails |
-| Skill | meeting-prep | `/meeting-prep` | Postman generates a comprehensive meeting brief |
-| Skill | weekly-agenda | `/weekly-agenda` | Postman produces a day-by-day week overview |
-| Skill | deadline-radar | `/deadline-radar` | Postman produces a unified deadline timeline |
-| Skill | transcribe | `/transcribe` | Transcriber processes a recording or transcript into structured notes |
-| Skill | vault-audit | `/vault-audit` | Librarian runs the full 7-phase vault audit |
-| Skill | deep-clean | `/deep-clean` | Librarian runs the extended vault cleanup |
-| Skill | tag-garden | `/tag-garden` | Librarian analyzes and cleans up tags |
-| Skill | inbox-triage | `/inbox-triage` | Sorter processes and routes all inbox notes |
-| Skill | contact-sync | `/contact-sync` | Postman syncs contacts to Apple Contacts |
-| Chaining | bounded child-agent chain | `@Sorter Triage my inbox` (with notes present that mention a new project) | Sorter files notes, then dispatcher signals Architect to create the new project folder; child returns to root before Architect runs |
-| MCP | MCP visibility | `codex -C <vault> mcp list` | Lists the MCP servers configured in `.codex/config.toml`, or shows the auth/setup state for each server |
+| Поверхность | Имя | Запрос или команда | Ожидаемый результат |
+|-------------|-----|--------------------|---------------------|
+| Агент | Architect | `@Architect Set up my vault structure` | Architect начинает диалог онбординга или подтверждает, что хранилище уже настроено |
+| Агент | Scribe | `@Scribe Save this note: quick test` | Scribe создаёт заметку в 00-Inbox с корректным фронтматтером |
+| Агент | Sorter | `@Sorter Triage my inbox` | Sorter просматривает заметки в инбоксе и раскладывает их, или сообщает, что инбокс пуст |
+| Агент | Seeker | `@Seeker What do I know about this project?` | Seeker ищет по хранилищу и возвращает результаты со ссылками на источники |
+| Агент | Connector | `@Connector Find connections in my recent notes` | Connector анализирует граф хранилища и предлагает wikilinks |
+| Агент | Librarian | `@Librarian Run a vault health check` | Librarian сканирует на битые ссылки, дубли и осиротевшие заметки |
+| Агент | Transcriber | `@Transcriber Process this transcript: [paste text]` | Transcriber генерирует структурированные заметки встречи |
+| Агент | Postman | `@Postman Check my email` | Postman сканирует Gmail (или Hey) и сохраняет письма, требующие действий, или сообщает об отсутствии интеграции |
+| Навык | onboarding | `/onboarding` | Architect запускает полный диалог онбординга |
+| Навык | create-agent | `/create-agent` | Architect проводит через дизайн нового пользовательского агента |
+| Навык | manage-agent | `/manage-agent` | Architect перечисляет, редактирует или удаляет пользовательских агентов |
+| Навык | defrag | `/defrag` | Architect запускает 5-фазную дефрагментацию хранилища |
+| Навык | email-triage | `/email-triage` | Postman сканирует и приоритизирует непрочитанные письма |
+| Навык | meeting-prep | `/meeting-prep` | Postman собирает подробный бриф к встрече |
+| Навык | weekly-agenda | `/weekly-agenda` | Postman формирует обзор недели по дням |
+| Навык | deadline-radar | `/deadline-radar` | Postman формирует единый таймлайн дедлайнов |
+| Навык | transcribe | `/transcribe` | Transcriber превращает запись или транскрипт в структурированные заметки |
+| Навык | vault-audit | `/vault-audit` | Librarian запускает полный 7-фазный аудит хранилища |
+| Навык | deep-clean | `/deep-clean` | Librarian выполняет расширенную чистку хранилища |
+| Навык | tag-garden | `/tag-garden` | Librarian анализирует и приводит теги в порядок |
+| Навык | inbox-triage | `/inbox-triage` | Sorter обрабатывает и распределяет все заметки из инбокса |
+| Навык | contact-sync | `/contact-sync` | Postman синхронизирует контакты с Apple Contacts |
+| Цепочка | ограниченная цепочка дочернего агента | `@Sorter Triage my inbox` (с заметками, упоминающими новый проект) | Sorter раскладывает заметки, затем диспетчер вызывает Architect для создания папки нового проекта; дочерний возвращается в root перед стартом Architect |
+| MCP | видимость MCP | `codex -C <vault> mcp list` | Перечисляет MCP-серверы, настроенные в `.codex/config.toml`, либо показывает состояние auth/setup для каждого |
 
-### Running the non-interactive discovery smoke
+### Запуск неинтерактивного дымового теста discovery
 
 ```bash
 codex exec -C <vault> "List the project custom agents under .codex/agents, the repo skills under .agents/skills, and the dispatcher file used in this workspace."
 ```
 
-Expected output references:
-- `AGENTS.md` (the dispatcher)
-- `.codex/agents` path (custom agents)
-- `.agents/skills` path (repo skills)
+Ожидаемый вывод должен ссылаться на:
+- `AGENTS.md` (диспетчер)
+- путь `.codex/agents` (пользовательские агенты)
+- путь `.agents/skills` (скилы репо)
 
-### Running the MCP visibility smoke
+### Запуск дымового теста видимости MCP
 
 ```bash
 codex -C <vault> mcp list
 ```
 
-Expected: lists MCP servers from `.codex/config.toml` (e.g., `Gmail`, `Calendar`) or shows their auth/setup state.
+Ожидаемо: перечисляет MCP-серверы из `.codex/config.toml` (например, `Gmail`, `Calendar`) или показывает их состояние auth/setup.
 
 ---
 
-## Troubleshooting
+## Поиск неисправностей
 
-### Agents are not discovered
+### Агенты не обнаруживаются
 
-- Verify `.codex/agents/` exists in your vault root and contains `.toml` files.
-- Open Codex CLI from your vault directory: `codex -C /path/to/your-vault`
-- Check that `AGENTS.md` exists at the vault root (not inside the repo subdirectory).
+- Убедитесь, что `.codex/agents/` существует в корне хранилища и содержит файлы `.toml`.
+- Открывайте Codex CLI из папки хранилища: `codex -C /path/to/your-vault`
+- Проверьте, что `AGENTS.md` лежит в корне хранилища (а не внутри подпапки репо).
 
-### Skills are not available
+### Навыки недоступны
 
-- Verify `.agents/skills/` exists in your vault root and contains subdirectories.
-- Skills must be at the vault root level: `<vault>/.agents/skills/<skill-name>/`
+- Убедитесь, что `.agents/skills/` существует в корне хранилища и содержит подпапки.
+- Навыки должны быть на уровне корня хранилища: `<vault>/.agents/skills/<skill-name>/`
 
-### Child agent chain does not return to root
+### Цепочка дочернего агента не возвращается в root
 
-- This is a Codex `agents.max_depth = 1` constraint. Child agents can only go one level deep.
-- The dispatcher uses root-context orchestration to work within this constraint.
-- If a task seems to require deeper nesting, flatten it: complete the first bounded step in a child, then handle the next step in the root context.
+- Это ограничение Codex `agents.max_depth = 1`. Дочерние агенты могут уходить только на один уровень.
+- Диспетчер использует оркестровку из root-контекста, чтобы работать в рамках этого ограничения.
+- Если задача требует более глубокой вложенности — расплющите её: завершите первый ограниченный шаг в дочернем, а следующий шаг сделайте в root-контексте.
 
-### MCP server not connecting
+### MCP-сервер не подключается
 
-- MCP configuration lives in `.codex/config.toml` (not `.mcp.json`).
-- Check `codex -C <vault> mcp list` to see the current server status.
-- For Gmail/Calendar setup, see `docs/gws-setup-guide.md`.
-- For Apple Contacts, verify the `apple-contacts` server entry in `.codex/config.toml`.
+- Конфигурация MCP лежит в `.codex/config.toml` (не в `.mcp.json`).
+- Проверьте `codex -C <vault> mcp list`, чтобы увидеть текущий статус серверов.
+- Для настройки Gmail/Calendar см. `docs/gws-setup-guide.md`.
+- Для Apple Contacts проверьте запись `apple-contacts` в `.codex/config.toml`.
 
-### Codex errors about approvals
+### Ошибки Codex про подтверждения
 
-- Child agent approvals surface in the child thread. Approve or deny there, then continue orchestration from the root context after the child returns.
-- If a task requires deeper recursion, stop spawning children and flatten the next step into the root context or split the work into separate bounded child tasks.
+- Подтверждения дочерних агентов всплывают в треде дочернего. Разрешите или отклоните там, затем продолжите оркестровку из root-контекста после возврата дочернего.
+- Если задача требует более глубокой рекурсии — перестаньте спаунить детей и расплющите следующий шаг в root-контекст, либо разбейте работу на отдельные ограниченные дочерние задачи.
 
-### Windows users
+### Windows-пользователи
 
-Codex CLI's Windows support is experimental. Use WSL (Windows Subsystem for Linux) for the most reliable experience. From WSL, follow the standard Linux install path above.
+Поддержка Windows в Codex CLI экспериментальная. Используйте WSL (Windows Subsystem for Linux) для самого надёжного опыта. Из WSL следуйте стандартному Linux-пути установки выше.
 
-### Reinstall vs update
+### Переустановка против обновления
 
-- **Reinstall** (`launchme.sh`): Use when setting up a new vault or recovering from a broken state.
-- **Update** (`updateme.sh`): Use after `git pull` to push new agents, skills, and references to an existing vault. Custom agents are never overwritten.
+- **Переустановка** (`launchme.sh`): когда настраиваете новое хранилище или восстанавливаетесь из сломанного состояния.
+- **Обновление** (`updateme.sh`): после `git pull` — пушит новых агентов, навыки и референсы в существующее хранилище. Пользовательские агенты никогда не перезаписываются.
 
-For a migration from another platform, see [docs/codex-migration.md](codex-migration.md).
+Для миграции с другой платформы см. [docs/codex-migration.md](codex-migration.md).

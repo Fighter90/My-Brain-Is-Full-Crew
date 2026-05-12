@@ -1,257 +1,260 @@
-# Terms of Use
+# Условия использования
 
-**My Brain Is Full - Crew**
-**Last updated: 2026-03-23**
+**My Brain Is Full — Crew**
+**Последнее обновление: 2026-03-23**
 
-By using this software, you agree to the following terms. If you do not agree, do not use the software.
+Используя это программное обеспечение, вы соглашаетесь с приведёнными ниже условиями. Если вы не согласны — не используйте программное обеспечение.
 
----
-
-## 1. Nature of the Software
-
-This software is a collection of AI agent prompts ("the Crew") designed to help individuals organize personal notes, tasks, and information inside an Obsidian vault using supported agent platforms. It is an open-source tool provided free of charge under the MIT License.
-
-The software does not collect, transmit, or store any data outside your local device. All data remains in your Obsidian vault on your filesystem.
+> **Примечание о языке.** Это перевод официального английского текста. В случае разночтений или юридического спора преимущественную силу имеет английская версия документа. Оригинал см. в истории файла или связанных версиях.
 
 ---
 
-## 2. Personal Use Only
+## 1. Природа программного обеспечения
 
-This software is designed and intended **exclusively for personal, non-commercial use** on your own data. It is not designed for:
+Это программное обеспечение — набор промптов для ИИ-агентов («команда», «Crew»), помогающий частным лицам организовывать личные заметки, задачи и информацию внутри Obsidian-хранилища с использованием поддерживаемых агентских платформ. Это open-source инструмент, предоставляемый бесплатно по лицензии MIT.
 
-- Professional or commercial data processing
-- Use by organizations, companies, or teams on behalf of third parties
-- Processing of data belonging to other individuals without their knowledge and consent
-- Any use that would qualify you as a "data controller" or "data processor" under applicable law without the appropriate legal basis and safeguards in place
-
-If you choose to use this software outside the scope of personal use, you do so **entirely at your own risk and responsibility**.
+Программное обеспечение не собирает, не передаёт и не хранит никаких данных за пределами вашего локального устройства. Все данные остаются в Obsidian-хранилище в вашей файловой системе.
 
 ---
 
-## 3. Custom Agents and Advice-Generating Output
+## 2. Только личное использование
 
-This software allows users to create **custom agents** (see Section 9) that may generate output in domains including, but not limited to: health, nutrition, fitness, diet, mental wellness, legal matters, financial planning, tax strategy, investment, career guidance, parenting, relationship advice, and any other area where professional expertise would normally be required.
+Это программное обеспечение спроектировано и предназначено **исключительно для личного, некоммерческого использования** на ваших собственных данных. Оно не предназначено для:
 
-**By using any agent — core or custom — that produces advice-like output, you explicitly acknowledge and accept that:**
+- Профессиональной или коммерческой обработки данных
+- Использования организациями, компаниями или командами от имени третьих лиц
+- Обработки данных, принадлежащих другим людям, без их ведома и согласия
+- Любого использования, которое квалифицирует вас как «контролёра данных» или «обработчика данных» по применимому праву без надлежащего правового основания и защитных мер
 
-a) All agents produce **AI-generated output only**. They are not medical devices, medical software, health apps, therapeutic tools, legal counsel systems, financial advisory platforms, or professional service tools within the meaning of any applicable regulation or professional licensing framework.
-
-b) The output of any agent **does not constitute medical advice, nutritional counseling, dietary prescription, psychological therapy, psychiatric treatment, legal advice, legal opinion, financial advice, investment recommendation, tax guidance, or any other form of professional counsel or service**, regardless of how specific, detailed, or authoritative the output may appear.
-
-c) The author of this software **is not a healthcare professional, licensed therapist, registered dietitian, medical practitioner, attorney, licensed financial advisor, certified public accountant, or any other licensed or regulated professional** of any kind. The author provides prompt engineering only.
-
-d) All output that resembles professional advice — including but not limited to calorie calculations, TDEE estimates, meal plans, dietary suggestions, therapeutic techniques, mood assessments, legal interpretations, contract analyses, financial projections, investment strategies, tax calculations, and any other domain-specific guidance — is **approximate, potentially inaccurate, potentially outdated, and not validated** by any medical, legal, financial, scientific, or regulatory authority.
-
-e) You **must not** rely on any agent as your sole or primary source of information in any domain where professional expertise is normally required. You **must** consult qualified, licensed professionals for all health-related, legal, financial, and other regulated decisions.
-
-f) If you have or suspect you have a medical condition, eating disorder, mental health crisis, or any health emergency, you must **immediately contact a qualified healthcare provider or emergency service**. If you face a legal emergency or time-sensitive legal matter, you must **immediately consult a licensed attorney in your jurisdiction**. These agents are not equipped to handle emergencies of any kind.
-
-g) You **voluntarily assume all risk** associated with following any suggestion, plan, technique, interpretation, or recommendation generated by any agent, whether core or custom.
-
-h) The author **accepts no liability whatsoever** for any harm, injury, illness, deterioration of health, psychological distress, financial loss, legal consequence, regulatory penalty, missed deadline, or any other adverse outcome resulting from your use of any agent's output, whether directly or indirectly.
-
-i) **Custom agents are entirely user-created.** The author has no control over, knowledge of, or responsibility for the prompts, domains, or behaviors of custom agents. Any custom agent that produces advice-like output is subject to all the disclaimers in this section, regardless of whether the user explicitly acknowledges it at creation time.
+Если вы используете это программное обеспечение за рамками личного использования — вы делаете это **полностью на свой страх и риск**.
 
 ---
 
-## 4. Data Protection and Privacy (GDPR, CCPA, and Applicable Laws)
+## 3. Пользовательские агенты и вывод в виде советов
 
-### 4.1. Your Responsibilities
+Программное обеспечение позволяет создавать **пользовательских агентов** (см. Раздел 9), которые могут генерировать вывод в областях, включая, но не ограничиваясь: здоровье, питание, фитнес, диета, психическое благополучие, юридические вопросы, финансовое планирование, налоговая стратегия, инвестиции, карьерное консультирование, родительство, советы в отношениях и любая иная область, где обычно требуется профессиональная экспертиза.
 
-This software can access your email inbox (Gmail via the Google Workspace CLI or MCP connectors, Hey.com via the Hey CLI) and Google Calendar, and may save content from those sources as notes inside your local Obsidian vault.
+**Используя любого агента — основного или пользовательского, — который выдаёт вывод в виде совета, вы явно подтверждаете и принимаете следующее:**
 
-**You are solely responsible for:**
+а) Все агенты выдают **только ИИ-сгенерированный вывод**. Они не являются медицинскими устройствами, медицинским программным обеспечением, приложениями здоровья, терапевтическими инструментами, системами юридической консультации, платформами финансового консультирования или инструментами оказания профессиональных услуг в смысле какого-либо применимого регулирования или системы лицензирования профессий.
 
-a) Ensuring that your use of this software complies with all applicable privacy and data protection laws, including but not limited to:
-   - The **EU General Data Protection Regulation (GDPR)**, Regulation (EU) 2016/679
-   - The **California Consumer Privacy Act (CCPA)**, Cal. Civ. Code § 1798.100 et seq.
-   - The **UK Data Protection Act 2018**
-   - Any other national, regional, or sector-specific data protection legislation applicable to you
+б) Вывод любого агента **не является медицинским советом, нутрициологической консультацией, диетическим назначением, психологической терапией, психиатрическим лечением, юридическим советом, юридическим заключением, финансовым советом, инвестиционной рекомендацией, налоговой консультацией или какой-либо иной формой профессионального совета или услуги**, независимо от того, насколько конкретным, подробным или авторитетным он выглядит.
 
-b) Obtaining all necessary consents and establishing a lawful basis before processing any personal data of third parties through this software.
+в) Автор этого программного обеспечения **не является работником здравоохранения, лицензированным терапевтом, дипломированным диетологом, медицинским практиком, адвокатом, лицензированным финансовым советником, сертифицированным аудитором или каким-либо иным лицензированным или регулируемым профессионалом**. Автор занимается исключительно prompt engineering.
 
-c) Implementing appropriate technical and organizational measures to protect any personal data processed through this software, including but not limited to encryption, access controls, retention policies, and data subject rights mechanisms.
+г) Любой вывод, напоминающий профессиональный совет, — включая, но не ограничиваясь: расчёты калорий, оценки TDEE, планы питания, диетические рекомендации, терапевтические техники, оценки настроения, юридические интерпретации, анализ договоров, финансовые проекции, инвестиционные стратегии, налоговые расчёты и любые иные доменные рекомендации, — является **приблизительным, потенциально неточным, потенциально устаревшим и не валидирован** никаким медицинским, юридическим, финансовым, научным или регуляторным органом.
 
-d) Responding to any data subject access requests, deletion requests, or other rights exercised by individuals whose data you process through this software.
+д) Вы **не должны** полагаться на любого агента как на единственный или основной источник информации в области, где обычно требуется профессиональная экспертиза. Вы **обязаны** консультироваться с квалифицированными лицензированными специалистами по всем медицинским, юридическим, финансовым и иным регулируемым решениям.
 
-### 4.2. Third-Party Data
+е) Если вы имеете или подозреваете у себя медицинское состояние, расстройство пищевого поведения, кризис психического здоровья или любую неотложную медицинскую ситуацию — вы обязаны **немедленно обратиться к квалифицированному медицинскому работнику или в службу экстренной помощи**. При юридической экстренной ситуации или срочном юридическом вопросе вы обязаны **немедленно консультироваться с лицензированным юристом своей юрисдикции**. Эти агенты не приспособлены к работе с экстренными ситуациями любого рода.
 
-Emails and calendar events **contain personal data of other people** (names, email addresses, phone numbers, meeting content, personal communications). When the Postman agent reads your inbox and saves content to your vault:
+ж) Вы **добровольно принимаете все риски**, связанные с следованием любому совету, плану, технике, интерпретации или рекомендации, сгенерированной любым агентом, основным или пользовательским.
 
-- That data is stored in **plaintext** on your local filesystem
-- **You become the data controller** for that data under applicable law
-- You are responsible for ensuring a **lawful basis** for that processing
-- You are responsible for **informing** those individuals that their data is being processed, if required by law
-- You are responsible for **deleting** that data upon request, if required by law
+з) Автор **не несёт никакой ответственности** за любой вред, травму, болезнь, ухудшение здоровья, психологический стресс, финансовые потери, юридические последствия, регуляторные санкции, пропущенные сроки или иные неблагоприятные последствия, возникшие из вашего использования вывода любого агента, прямо или косвенно.
 
-### 4.3. Author's Role
-
-The author of this software:
-
-- **Is not a data controller or data processor** with respect to any data you process
-- **Has no access** to your vault, emails, calendar, or any data you process
-- **Does not collect, receive, store, or transmit** any of your data or any third-party data
-- **Cannot respond** to data subject requests on your behalf
-- **Accepts no liability** for any data protection violations arising from your use of this software
+и) **Пользовательские агенты полностью создаются пользователем.** Автор не контролирует, не знает и не несёт ответственности за промпты, домены и поведение пользовательских агентов. Любой пользовательский агент, выдающий вывод в виде совета, подпадает под все оговорки этого раздела, независимо от того, явно ли пользователь подтвердил это при создании.
 
 ---
 
-## 4A. Email and Calendar Operations — Risks and Liability
+## 4. Защита данных и приватность (GDPR, CCPA и применимые законы)
 
-### 4A.1. Nature of Email and Calendar Access
+### 4.1. Ваши обязанности
 
-This software can perform **read and write operations** on your email inbox (Gmail and/or Hey.com) and Google Calendar, including but not limited to:
+Это программное обеспечение может обращаться к вашему почтовому ящику (Gmail через Google Workspace CLI или MCP-коннекторы, Hey.com через Hey CLI) и Google Calendar, и может сохранять содержимое из этих источников как заметки в локальном Obsidian-хранилище.
 
-**Read operations**: searching emails, reading email content and threads, listing calendar events, reading event details.
+**Вы единолично отвечаете за:**
 
-**Write operations on email** (when the Google Workspace CLI or Hey CLI is installed): archiving emails, deleting/trashing emails, marking emails as read/unread (or seen/unseen in Hey), adding and removing labels, sending emails, replying to threads, creating email drafts. **Write operations on Google Calendar** (when the Google Workspace CLI is installed): creating calendar events, modifying calendar events, deleting calendar events.
+а) Обеспечение того, что ваше использование этого программного обеспечения соответствует всем применимым законам о приватности и защите данных, включая, но не ограничиваясь:
+   - **Общим регламентом ЕС по защите данных (GDPR)**, Регламент (ЕС) 2016/679
+   - **Калифорнийским законом о защите прав потребителей (CCPA)**, Cal. Civ. Code § 1798.100 и далее
+   - **Законом Великобритании о защите данных 2018 года**
+   - Любым иным национальным, региональным или отраслевым законодательством о защите данных, применимым к вам
 
-### 4A.2. Risks from Read Operations
+б) Получение всех необходимых согласий и установление законного основания перед обработкой персональных данных третьих лиц через это программное обеспечение.
 
-When the software reads your emails and calendar events:
+в) Внедрение соответствующих технических и организационных мер для защиты любых персональных данных, обрабатываемых через это программное обеспечение, включая, но не ограничиваясь: шифрование, контроль доступа, политики хранения и механизмы реализации прав субъектов данных.
 
-a) Email and calendar content is processed by the underlying AI model. The AI model is a **stochastic system** (see Section 5) and may misinterpret, misclassify, or hallucinate information from your emails. The software may create vault notes that contain inaccurate summaries, wrong dates, fabricated action items, or misattributed quotes.
+г) Реагирование на любые запросы субъектов данных на доступ, удаление или иные права, осуществляемые лицами, чьи данные вы обрабатываете через это программное обеспечение.
 
-b) Emails may contain **adversarial content** (prompt injection, social engineering, phishing) designed to manipulate AI systems. While the software includes prompt-level defenses against such attacks, **prompt-based security is best-effort, not a guarantee.** The author cannot guarantee that the AI model will correctly ignore adversarial instructions embedded in email content under all circumstances.
+### 4.2. Данные третьих лиц
 
-c) Sensitive information from emails (personal data, financial details, confidential communications, passwords, tokens, API keys) may be inadvertently saved to vault notes in plaintext. You are responsible for reviewing what the software saves.
+Письма и события календаря **содержат персональные данные других людей** (имена, e-mail адреса, телефоны, содержимое встреч, личные коммуникации). Когда агент Postman читает ваш инбокс и сохраняет содержимое в хранилище:
 
-### 4A.3. Risks from Write Operations
+- Эти данные хранятся в **открытом виде** на вашей локальной файловой системе
+- **Вы становитесь контролёром данных** для этих данных по применимому праву
+- Вы отвечаете за обеспечение **законного основания** для этой обработки
+- Вы отвечаете за **информирование** этих лиц о том, что их данные обрабатываются, если это требуется законом
+- Вы отвечаете за **удаление** этих данных по запросу, если это требуется законом
 
-When the software performs write operations on your Gmail or Google Calendar:
+### 4.3. Роль автора
 
-a) **Sending emails**: The software may compose and send emails on your behalf. An email sent by the software is **indistinguishable from an email you sent yourself.** The author accepts no responsibility for the content, tone, accuracy, appropriateness, or consequences of any email sent by the software, including but not limited to: emails sent to wrong recipients, emails with incorrect information, emails with inappropriate tone or content, and emails that cause professional, personal, legal, or financial harm.
+Автор этого программного обеспечения:
 
-b) **Archiving, deleting, or modifying emails**: The software may archive, trash, delete, label, or mark emails as read. These operations may cause you to **miss important emails, deadlines, or communications.** Deleted emails may be unrecoverable. The author accepts no responsibility for any email that is lost, archived prematurely, mislabeled, or otherwise modified in a way that causes harm.
-
-c) **Calendar modifications**: The software may create, modify, or delete calendar events. This may result in **missed meetings, scheduling conflicts, double-bookings, deleted events, or events created with incorrect details** (wrong date, time, participants, or location). The author accepts no responsibility for any scheduling disruption caused by the software.
-
-d) **Adversarial email content triggering write actions**: Despite prompt-level security measures, a malicious or adversarial email could potentially manipulate the AI model into performing unintended write operations — such as sending a reply, forwarding content, archiving important emails, creating calendar events, or deleting messages. **The author cannot guarantee that prompt-based defenses will prevent all such scenarios.** You assume full responsibility for all actions performed by the software on your email and calendar accounts.
-
-### 4A.4. Your Responsibilities
-
-**By enabling email and calendar access, you explicitly acknowledge and accept that:**
-
-a) You have **reviewed and understood** the risks described in this section before granting the software access to your email and calendar accounts.
-
-b) You are **solely responsible** for monitoring and reviewing all actions the software performs on your email and calendar accounts, including emails sent, emails archived or deleted, labels applied, and calendar events created, modified, or deleted.
-
-c) You should **regularly check your Sent folder, Trash, and Calendar** to verify that the software has not performed unintended actions.
-
-d) The software's prompt-level security measures (instructions to ignore adversarial content, confirmation gates before write operations) are **best-effort safeguards, not guarantees.** They depend on the underlying AI model correctly following instructions, which cannot be assured in all cases.
-
-e) You **voluntarily assume all risk** associated with granting the software read and write access to your email and calendar accounts, including the risk of data loss, unintended communications, missed messages, and scheduling disruptions.
-
-f) The author **accepts no liability whatsoever** for any harm, loss, or damage resulting from the software's email and calendar operations, whether caused by AI misinterpretation, adversarial content, software bugs, model hallucination, or any other reason.
+- **Не является контролёром или обработчиком данных** в отношении любых обрабатываемых вами данных
+- **Не имеет доступа** к вашему хранилищу, почте, календарю или любым обрабатываемым вами данным
+- **Не собирает, не получает, не хранит и не передаёт** никаких ваших данных или данных третьих лиц
+- **Не может реагировать** на запросы субъектов данных от вашего имени
+- **Не несёт никакой ответственности** за любые нарушения законодательства о защите данных, возникшие из вашего использования этого программного обеспечения
 
 ---
 
-## 5. AI-Generated Output and Model Limitations
+## 4A. Операции с почтой и календарём — риски и ответственность
 
-### 5.1. Nature of the Output
+### 4A.1. Природа доступа к почте и календарю
 
-This software provides **prompts and instructions** to large language models (LLMs). The author does not provide, host, train, fine-tune, or control any AI model. All output is generated by the underlying LLM at runtime.
+Это программное обеспечение может выполнять **операции чтения и записи** в вашем почтовом ящике (Gmail и/или Hey.com) и Google Calendar, включая, но не ограничиваясь:
 
-**You explicitly acknowledge and accept that:**
+**Операции чтения**: поиск писем, чтение содержимого писем и тредов, перечисление событий календаря, чтение деталей событий.
 
-a) Large language models are **stochastic systems**. They generate output probabilistically. The same input can produce different output on different runs. Output may contain errors, fabrications, contradictions, or nonsensical content at any time, without warning.
+**Операции записи в почте** (когда установлен Google Workspace CLI или Hey CLI): архив писем, удаление/перемещение в корзину, пометка прочитанным/непрочитанным (или seen/unseen в Hey), добавление и снятие меток, отправка писем, ответы в тредах, создание черновиков. **Операции записи в Google Calendar** (когда установлен Google Workspace CLI): создание событий, изменение событий, удаление событий.
 
-b) LLMs can and do **hallucinate**: they generate text that appears factual but is partially or entirely fabricated. This includes invented facts, false citations, incorrect calculations, non-existent references, and plausible-sounding but wrong information.
+### 4A.2. Риски операций чтения
 
-c) The author provides **prompt engineering only**. The behavior, accuracy, safety, and reliability of the output depend entirely on the underlying model, its training data, its alignment methods (RLHF, DPO, Constitutional AI, or others), its safety filters, and its runtime configuration. The author has no control over any of these factors.
+Когда программное обеспечение читает ваши письма и события календаря:
 
-d) This software is primarily designed and tested with **Anthropic's Claude models**. If you use an unsupported LLM or platform (whether through a fork, a plugin modification, a different MCP configuration, or any other means), the quality, safety, and reliability of the output are **entirely unpredictable and entirely your responsibility**. Models without adequate alignment, safety training, or content filtering may produce harmful, misleading, dangerous, or offensive output.
+а) Содержимое писем и календарных событий обрабатывается базовой ИИ-моделью. ИИ-модель является **стохастической системой** (см. Раздел 5) и может неправильно интерпретировать, неправильно классифицировать или галлюцинировать информацию из ваших писем. Программное обеспечение может создавать заметки в хранилище, содержащие неточные сводки, неправильные даты, выдуманные пункты действий или ошибочно атрибутированные цитаты.
 
-e) Regardless of which platform or model you use, **no output should be treated as authoritative, factual, or reliable without independent verification.** This applies to all agents — core and custom — including but not limited to: factual claims made by the Seeker, organizational suggestions by the Architect, and any advice-like output generated by custom agents in domains such as health, legal, financial, or any other regulated field.
+б) Письма могут содержать **враждебный контент** (prompt injection, социальная инженерия, фишинг), спроектированный для манипулирования ИИ-системами. Хотя программное обеспечение включает защитные меры на уровне промптов против таких атак, **защита на уровне промптов — это best-effort, а не гарантия.** Автор не может гарантировать, что ИИ-модель во всех случаях корректно проигнорирует враждебные инструкции, встроенные в содержимое писем.
 
-f) Even though this software has been tested by the author using Anthropic's Claude, **no quality standard can be guaranteed.** Due to the inherent stochastic nature of large language models, the same prompt can produce different output across different sessions, model versions, context windows, and runtime conditions. Testing validates that the prompts are well-formed and produce reasonable results under observed conditions, but it **cannot and does not guarantee** consistent, accurate, or safe output in all circumstances or for all users.
+в) Чувствительная информация из писем (персональные данные, финансовые подробности, конфиденциальные коммуникации, пароли, токены, API-ключи) может быть случайно сохранена в заметках хранилища в открытом виде. Вы отвечаете за просмотр того, что программное обеспечение сохраняет.
 
-### 5.2. No Responsibility for Model Behavior
+### 4A.3. Риски операций записи
 
-The author:
+Когда программное обеспечение выполняет операции записи в Gmail или Google Calendar:
 
-- **Does not guarantee** the accuracy, completeness, safety, or appropriateness of any output generated by any agent under any circumstances
-- **Does not guarantee** that safety instructions in the prompts will be followed by the model in all cases. Prompt-based safety is best-effort, not a guarantee
-- **Does not guarantee** that the software will behave identically across different model versions, providers, or configurations
-- **Is not responsible** for any output generated by any model or platform, including but not limited to Anthropic's Claude, Google's Gemini, and any model used through OpenCode
-- **Is not responsible** for any action you take based on AI-generated output
+а) **Отправка писем**: Программное обеспечение может составлять и отправлять письма от вашего имени. Письмо, отправленное программным обеспечением, **неотличимо от письма, которое вы отправили сами.** Автор не несёт ответственности за содержание, тон, точность, уместность или последствия любого письма, отправленного программным обеспечением, включая, но не ограничиваясь: письма не тем адресатам, письма с некорректной информацией, письма с неподобающим тоном или содержанием, и письма, причиняющие профессиональный, личный, юридический или финансовый вред.
 
----
+б) **Архив, удаление или модификация писем**: Программное обеспечение может архивировать, отправлять в корзину, удалять, ставить метки или помечать письма прочитанными. Эти операции могут привести к тому, что вы **пропустите важные письма, дедлайны или коммуникации.** Удалённые письма могут оказаться невосстановимыми. Автор не несёт ответственности за любое письмо, которое было потеряно, преждевременно заархивировано, неправильно помечено или иначе изменено таким образом, что это причинило вред.
 
-## 6. No Warranty
+в) **Изменения календаря**: Программное обеспечение может создавать, изменять или удалять события календаря. Это может привести к **пропущенным встречам, конфликтам расписаний, двойным бронированиям, удалённым событиям или событиям с некорректными деталями** (неправильная дата, время, участники или место). Автор не несёт ответственности за любые срывы расписания, вызванные программным обеспечением.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+г) **Враждебное содержимое писем, провоцирующее запись**: Несмотря на меры безопасности уровня промптов, вредоносное или враждебное письмо может потенциально манипулировать ИИ-моделью на выполнение непреднамеренных операций записи — например, отправку ответа, пересылку содержимого, архивирование важных писем, создание событий календаря или удаление сообщений. **Автор не может гарантировать, что защиты на уровне промптов предотвратят все такие сценарии.** Вы принимаете полную ответственность за все действия программного обеспечения в ваших почтовом ящике и календаре.
 
-The author does not warrant that:
-- The software will function correctly, without errors, or without interruption
-- The output of any agent will be accurate, complete, or appropriate
-- The software will not cause data loss or corruption in your vault
-- The software is suitable for any particular purpose
+### 4A.4. Ваши обязанности
 
----
+**Включая доступ к почте и календарю, вы явно подтверждаете и принимаете следующее:**
 
-## 7. Limitation of Liability
+а) Вы **прочитали и поняли** риски, описанные в этом разделе, перед предоставлением программному обеспечению доступа к вашим почтовому ящику и календарю.
 
-IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+б) Вы **единолично отвечаете** за мониторинг и просмотр всех действий, выполненных программным обеспечением в ваших почтовом ящике и календаре, включая отправленные письма, заархивированные или удалённые письма, поставленные метки и созданные, изменённые или удалённые события календаря.
 
-This includes, without limitation, liability for:
-- Any advice-like output generated by core or custom agents, including but not limited to health, legal, financial, dietary, and wellness domains
-- Hallucinated, fabricated, inaccurate, or misleading content generated by the underlying AI model
-- Any consequence of using this software with any model or platform, whether supported or unsupported
-- Loss or corruption of data in your vault
-- Violations of data protection law arising from your use of the software
-- Any action taken by custom agents created by the user (Section 9)
-- **Emails sent, forwarded, or replied to** by the software, including emails with incorrect content, wrong recipients, or inappropriate tone
-- **Emails archived, deleted, trashed, labeled, or marked as read** by the software, including missed communications resulting from premature archival or deletion
-- **Calendar events created, modified, or deleted** by the software, including missed meetings, scheduling conflicts, or events with incorrect details
-- **Any action triggered by adversarial or malicious email content** that manipulates the AI model into performing unintended operations, despite prompt-level security measures
-- Any indirect, incidental, special, consequential, or punitive damages
-- Loss of profits, data, goodwill, or other intangible losses
+в) Вам следует **регулярно проверять папки «Отправленные», «Корзина» и Календарь** на предмет того, не выполнило ли программное обеспечение непреднамеренных действий.
+
+г) Меры безопасности на уровне промптов (инструкции игнорировать враждебный контент, подтверждения перед операциями записи) являются **best-effort, а не гарантиями.** Они зависят от того, насколько корректно базовая ИИ-модель следует инструкциям, что не может быть гарантировано во всех случаях.
+
+д) Вы **добровольно принимаете все риски**, связанные с предоставлением программному обеспечению доступа на чтение и запись в ваши почтовом ящике и календарь, включая риск потери данных, непреднамеренных коммуникаций, пропущенных сообщений и срывов расписания.
+
+е) Автор **не несёт никакой ответственности** за любой вред, потери или ущерб, возникшие из почтовых и календарных операций программного обеспечения, вызванные ли неправильной интерпретацией ИИ, враждебным контентом, багами программы, галлюцинациями модели или любой иной причиной.
 
 ---
 
-## 8. Forks, Modifications, and Derivative Works
+## 5. ИИ-сгенерированный вывод и ограничения модели
 
-The author takes no responsibility for forks, modifications, or derivative works of this software. If a third party modifies this software and distributes it, the modified version is governed by the third party's own terms, not these.
+### 5.1. Природа вывода
 
-The author explicitly condemns any use of this software or its derivatives for: unauthorized data collection, psychological manipulation, impersonation of medical or mental health professionals, surveillance, or any form of exploitation or harm.
+Это программное обеспечение предоставляет **промпты и инструкции** большим языковым моделям (LLM). Автор не предоставляет, не хостит, не обучает, не дообучает и не контролирует никакую ИИ-модель. Весь вывод генерируется базовой LLM в рантайме.
 
----
+**Вы явно подтверждаете и принимаете следующее:**
 
-## 9. Custom Agents
+а) Большие языковые модели являются **стохастическими системами**. Они генерируют вывод вероятностно. Один и тот же вход может производить разный вывод на разных запусках. Вывод может в любой момент содержать ошибки, фабрикации, противоречия или бессмыслицу — без предупреждения.
 
-This software allows users to create custom AI agents through the Architect agent. Custom agents are user-generated prompt configurations stored in the user's vault.
+б) LLM могут и **галлюцинируют**: они генерируют текст, выглядящий фактологическим, но частично или полностью выдуманный. Это включает выдуманные факты, ложные цитирования, неправильные расчёты, несуществующие ссылки и правдоподобно звучащую, но ошибочную информацию.
 
-**By creating and using custom agents, you explicitly acknowledge and accept that:**
+в) Автор занимается только **prompt engineering**. Поведение, точность, безопасность и надёжность вывода целиком зависят от базовой модели, её обучающих данных, методов выравнивания (RLHF, DPO, Constitutional AI и др.), её фильтров безопасности и её рантайм-конфигурации. Автор не контролирует ни один из этих факторов.
 
-a) Custom agents are **entirely your creation and your responsibility**. The author of this software has no involvement in their design, behavior, or output.
+г) Это программное обеспечение в первую очередь спроектировано и протестировано с **моделями Claude от Anthropic**. Если вы используете неподдерживаемую LLM или платформу (через форк, модификацию плагина, иную конфигурацию MCP или любым иным способом), качество, безопасность и надёжность вывода **полностью непредсказуемы и полностью ваша ответственность**. Модели без должного выравнивания, обучения безопасности или фильтрации контента могут выдавать вредный, вводящий в заблуждение, опасный или оскорбительный вывод.
 
-b) The author **provides no warranty whatsoever** on the functionality, accuracy, safety, or reliability of any custom agent you create, regardless of whether the Architect agent assisted in generating the agent file.
+д) Независимо от того, какую платформу или модель вы используете, **никакой вывод не следует считать авторитетным, фактологическим или надёжным без независимой проверки.** Это относится ко всем агентам — основным и пользовательским — включая, но не ограничиваясь: фактическими утверждениями Seeker'а, организационными предложениями Architect'а и любым выводом в виде совета, сгенерированным пользовательскими агентами в областях вроде здоровья, юриспруденции, финансов или иной регулируемой сферы.
 
-c) You are **solely responsible** for everything your custom agents do, including but not limited to: what data they read, what notes they create, what files they modify, what information they process, and any consequences of their actions.
+е) Хотя автор тестировал это программное обеспечение с Claude от Anthropic, **никакой стандарт качества не может быть гарантирован.** Из-за внутренней стохастической природы больших языковых моделей один и тот же промпт может производить разный вывод на разных сессиях, версиях модели, контекстных окнах и рантайм-условиях. Тестирование подтверждает, что промпты сформулированы хорошо и производят разумные результаты при наблюдаемых условиях, но **не может и не гарантирует** консистентный, точный или безопасный вывод во всех обстоятельствах или для всех пользователей.
 
-d) Custom agents are subject to the same limitations described in Section 5 (AI-Generated Output and Model Limitations). They produce **stochastic, probabilistic output** that may be inaccurate, incomplete, or misleading.
+### 5.2. Отсутствие ответственности за поведение модели
 
-e) The author **accepts no liability** for any harm, data loss, privacy violation, or any other adverse outcome resulting from the use of custom agents, whether directly or indirectly.
+Автор:
 
-f) If you share your custom agents with others (through forks, exports, or any other means), Section 8 (Forks, Modifications, and Derivative Works) applies in full. You become responsible for the shared agent's behavior.
-
----
-
-## 10. Governing Law
-
-These terms are governed by and construed in accordance with the laws of the jurisdiction in which the author resides, without regard to conflict of law principles. Any disputes arising from these terms or the use of the software shall be subject to the exclusive jurisdiction of the courts of that jurisdiction.
+- **Не гарантирует** точность, полноту, безопасность или уместность любого вывода, сгенерированного любым агентом, ни при каких обстоятельствах
+- **Не гарантирует**, что инструкции безопасности в промптах будут соблюдены моделью во всех случаях. Безопасность на уровне промптов — это best-effort, а не гарантия
+- **Не гарантирует**, что программное обеспечение будет вести себя идентично на разных версиях модели, провайдерах или конфигурациях
+- **Не отвечает** за любой вывод, сгенерированный любой моделью или платформой, включая, но не ограничиваясь: Claude от Anthropic, Gemini от Google и любые модели, используемые через OpenCode
+- **Не отвечает** за любые действия, которые вы предприняли на основе ИИ-сгенерированного вывода
 
 ---
 
-## 11. Changes to These Terms
+## 6. Отсутствие гарантий
 
-The author reserves the right to modify these terms at any time. Changes will be reflected in the `Last updated` date at the top of this document. Continued use of the software after changes constitutes acceptance of the updated terms.
+ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ПРЕДОСТАВЛЯЕТСЯ «КАК ЕСТЬ», БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ, ЯВНЫХ ИЛИ ПОДРАЗУМЕВАЕМЫХ, ВКЛЮЧАЯ, НО НЕ ОГРАНИЧИВАЯСЬ, ГАРАНТИЯМИ ТОВАРНОЙ ПРИГОДНОСТИ, ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЁННОЙ ЦЕЛИ И НЕНАРУШЕНИЯ ПРАВ.
+
+Автор не гарантирует, что:
+- Программное обеспечение будет работать корректно, без ошибок или без перерывов
+- Вывод любого агента будет точным, полным или уместным
+- Программное обеспечение не вызовет потери или повреждения данных в вашем хранилище
+- Программное обеспечение подходит для какой-либо конкретной цели
 
 ---
 
-## 12. Acceptance
+## 7. Ограничение ответственности
 
-By using this software (including by running the installer, loading the plugin, or interacting with any agent), **you confirm that you have read, understood, and agree to these Terms of Use**.
+НИ ПРИ КАКИХ ОБСТОЯТЕЛЬСТВАХ АВТОР НЕ НЕСЁТ ОТВЕТСТВЕННОСТИ ЗА ЛЮБЫЕ ТРЕБОВАНИЯ, УБЫТКИ ИЛИ ИНУЮ ОТВЕТСТВЕННОСТЬ, БУДЬ ТО В РАМКАХ ИСКА ПО ДОГОВОРУ, ДЕЛИКТА ИЛИ ИНОГО, ВОЗНИКШИХ ИЗ, СВЯЗАННЫХ С ИЛИ В СВЯЗИ С ПРОГРАММНЫМ ОБЕСПЕЧЕНИЕМ ЛИБО ИСПОЛЬЗОВАНИЕМ ИЛИ ИНЫМИ ОПЕРАЦИЯМИ С НИМ.
 
-If you create or use any custom agent that generates advice-like output in regulated domains (health, legal, financial, dietary, wellness, or similar), you additionally confirm that you have read and accepted the disclaimers in Section 3 above, and that you understand these disclaimers apply automatically to all such agents.
+Это включает, без ограничений, ответственность за:
+
+- Любой совет-подобный вывод, сгенерированный основными или пользовательскими агентами, включая, но не ограничиваясь, областями здоровья, юриспруденции, финансов, питания и благополучия
+- Галлюцинированный, выдуманный, неточный или вводящий в заблуждение контент, сгенерированный базовой ИИ-моделью
+- Любые последствия использования этого программного обеспечения с любой моделью или платформой, поддерживаемой или нет
+- Потерю или повреждение данных в вашем хранилище
+- Нарушения законодательства о защите данных, возникшие из вашего использования программного обеспечения
+- Любые действия пользовательских агентов, созданных пользователем (Раздел 9)
+- **Письма, отправленные, пересланные или отвеченные** программным обеспечением, включая письма с некорректным содержанием, не тем адресатам или неподобающим тоном
+- **Письма, заархивированные, удалённые, перемещённые в корзину, помеченные метками или прочитанными** программным обеспечением, включая пропущенные коммуникации в результате преждевременного архивирования или удаления
+- **События календаря, созданные, изменённые или удалённые** программным обеспечением, включая пропущенные встречи, конфликты расписаний или события с некорректными деталями
+- **Любые действия, спровоцированные враждебным или вредоносным содержимым письма**, манипулирующим ИИ-моделью на выполнение непреднамеренных операций, несмотря на меры безопасности на уровне промптов
+- Любые косвенные, побочные, специальные, последующие или штрафные убытки
+- Потерю прибыли, данных, репутации или иных нематериальных ценностей
+
+---
+
+## 8. Форки, модификации и производные работы
+
+Автор не несёт ответственности за форки, модификации или производные работы от этого программного обеспечения. Если третья сторона модифицирует это программное обеспечение и распространяет его — модифицированная версия регулируется собственными условиями третьей стороны, а не настоящими.
+
+Автор явно осуждает любое использование этого программного обеспечения или его производных для: несанкционированного сбора данных, психологической манипуляции, выдачи себя за специалистов по медицине или психическому здоровью, слежки и любой формы эксплуатации или причинения вреда.
+
+---
+
+## 9. Пользовательские агенты
+
+Программное обеспечение позволяет пользователям создавать пользовательских ИИ-агентов через агента Architect. Пользовательские агенты — это пользовательские промпт-конфигурации, хранящиеся в хранилище пользователя.
+
+**Создавая и используя пользовательских агентов, вы явно подтверждаете и принимаете следующее:**
+
+а) Пользовательские агенты — **целиком ваше создание и ваша ответственность**. Автор этого программного обеспечения не имеет отношения к их дизайну, поведению или выводу.
+
+б) Автор **не даёт никаких гарантий** на функциональность, точность, безопасность или надёжность любого пользовательского агента, которого вы создаёте, независимо от того, помогал ли Architect-агент в генерации файла этого агента.
+
+в) Вы **единолично отвечаете** за всё, что делают ваши пользовательские агенты, включая, но не ограничиваясь: какие данные читают, какие заметки создают, какие файлы изменяют, какую информацию обрабатывают, и за любые последствия их действий.
+
+г) Пользовательские агенты подпадают под те же ограничения, что описаны в Разделе 5 (ИИ-сгенерированный вывод и ограничения модели). Они производят **стохастический вероятностный вывод**, который может быть неточным, неполным или вводящим в заблуждение.
+
+д) Автор **не несёт никакой ответственности** за любой вред, потерю данных, нарушение приватности или иные неблагоприятные последствия, возникшие из использования пользовательских агентов, прямо или косвенно.
+
+е) Если вы делитесь своими пользовательскими агентами с другими (через форки, экспорты или иным образом) — Раздел 8 (Форки, модификации и производные работы) применяется в полной мере. Вы становитесь ответственным за поведение разделяемого агента.
+
+---
+
+## 10. Применимое право
+
+Настоящие условия регулируются и толкуются в соответствии с законодательством юрисдикции, в которой проживает автор, без учёта норм коллизионного права. Любые споры, возникающие из настоящих условий или использования программного обеспечения, подлежат исключительной юрисдикции судов этой юрисдикции.
+
+---
+
+## 11. Изменения настоящих условий
+
+Автор оставляет за собой право изменять настоящие условия в любое время. Изменения будут отражены в дате `Последнее обновление` в начале документа. Продолжение использования программного обеспечения после изменений означает согласие с обновлёнными условиями.
+
+---
+
+## 12. Согласие
+
+Используя это программное обеспечение (в том числе запуская установщик, загружая плагин или взаимодействуя с любым агентом), **вы подтверждаете, что прочитали, поняли и согласны с настоящими Условиями использования**.
+
+Если вы создаёте или используете любого пользовательского агента, который генерирует вывод в виде совета в регулируемых областях (здоровье, юриспруденция, финансы, питание, благополучие и т.п.), — вы дополнительно подтверждаете, что прочитали и приняли оговорки Раздела 3 выше, и понимаете, что эти оговорки автоматически применяются ко всем таким агентам.

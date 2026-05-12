@@ -49,7 +49,7 @@
 
 ### Изменено (из upstream)
 
-- Обновлены 41 файл: все ядровые агенты (`agents/architect.md`,
+- Обновлён 41 файл: все ядровые агенты (`agents/architect.md`,
   `connector.md`, `librarian.md`, `postman.md`, `scribe.md`, `seeker.md`,
   `sorter.md`, `transcriber.md`), все 14 навыков (`skills/*/SKILL.md`),
   диспетчер (`DISPATCHER.md`), общие референсы (`references/agents.md`,
@@ -62,7 +62,7 @@
 
 ### Сохранено локально (наше)
 
-- **Premortem-протокол** (Klein / Kahneman) — кросс-cutting capability
+- **Premortem-протокол** (Klein / Kahneman) — сквозная возможность
   для всех агентов. Файл `references/premortem-protocol.md` (281 строка)
   и блоки про premortem в каждом ядровом агенте сохранены. Upstream
   удалил этот файл, мы оставили (стратегия `ours`).
@@ -80,8 +80,8 @@
 
 | Файл | Тип конфликта | Решение |
 |------|---------------|---------|
-| `README.md` | 4 блока (Russian HEAD vs English upstream + новые куски про vault) | Сохранён русский текст, новые upstream-добавления (vault-mapping ссылки, vault-map.md в дереве, фраза про адаптацию) переведены и интегрированы |
-| `references/premortem-protocol.md` | upstream: delete vs наш: add | Файл сохранён (стратегия `ours`) |
+| `README.md` | 4 блока: русский HEAD против английского upstream + новые куски про vault | Сохранён русский текст, новые upstream-добавления (vault-mapping ссылки, vault-map.md в дереве, фраза про адаптацию) переведены и интегрированы |
+| `references/premortem-protocol.md` | upstream удалил, у нас добавлен | Файл сохранён (стратегия `ours`) |
 | `agents/*.md` (8 файлов) | auto-merge | Без конфликтов — git склеил наш premortem-блок с upstream-токенами |
 
 ### Переведено
@@ -95,7 +95,7 @@
 
 ### Добавлено
 
-- **Premortem (Klein / Kahneman)** как кросс-cutting capability для всех
+- **Premortem (Klein / Kahneman)** как сквозная возможность для всех
   агентов. Полная спецификация в `references/premortem-protocol.md`
   (триггеры, маппинг 11 категорий на папки, шаблон файла с фронтматтером и
   7 секциями, таблица маршрутизации, частые ошибки).

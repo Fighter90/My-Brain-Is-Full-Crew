@@ -1,291 +1,293 @@
-# Contributing to My Brain Is Full - Crew
+# Вклад в My Brain Is Full — Crew
 
-Thank you for your interest in making the Crew better. This project was born from personal need, and it grows through shared ones.
+Спасибо за интерес к развитию Crew. Этот проект родился из личной потребности и растёт за счёт общих.
 
 ---
 
-## Ways to contribute
+## Способы внести вклад
 
-### Improve an existing agent
+### Улучшить существующего агента
 
-Found that an agent behaves weirdly, gives poor results, or misses edge cases?
+Заметили, что агент ведёт себя странно, выдаёт плохие результаты или пропускает граничные случаи?
 
-1. Open an issue describing the problem with a concrete example
-2. Or submit a PR with the improvement
+1. Откройте issue с описанием проблемы и конкретным примером
+2. Или пришлите PR с улучшением
 
-Agent source files live in `agents/<agent-name>.md`. They use a platform-neutral format with `capabilities:` (not tool names) and `model`: `low`/`mid`/`high` (not platform-specific model names). The build system translates these into each platform's native format. All agents are written in English, and they automatically respond in the user's language.
+Исходные файлы агентов лежат в `agents/<agent-name>.md`. Они используют платформо-нейтральный формат с `capabilities:` (а не имена инструментов) и `model:` `low`/`mid`/`high` (а не платформо-специфичные имена моделей). Билд-система переводит это в нативный формат каждой платформы. Все агенты написаны на английском и автоматически отвечают на языке пользователя.
 
-To test your changes locally, build and install into a test vault:
+Чтобы протестировать ваши изменения локально — соберите и поставьте в тестовое хранилище:
+
 ```bash
-bash scripts/build.sh --platform claude-code   # or gemini-cli, opencode, etc.
+bash scripts/build.sh --platform claude-code   # или gemini-cli, opencode и т.д.
 bash scripts/launchme.sh --platform claude-code --target /tmp/test-vault
 ```
 
-### Propose a new core crew member
+### Предложить нового основного члена команды
 
-> **Note**: Users can create custom agents directly within their vault by saying "create a new agent". The Architect handles the entire process. The section below is for proposing new *core* agents that ship with the project.
+> **Заметка**: пользователи могут создавать собственных агентов прямо в своём хранилище, сказав «создай нового агента». Архитектор берёт на себя весь процесс. Раздел ниже — про предложение новых *основных* агентов, которые поставляются с проектом.
 
-Have an idea for a new core agent? Open an issue with:
+Есть идея для нового основного агента? Откройте issue с:
 
-- **Name**: both a descriptive English name and a short codename
-- **Role**: what problem does it solve?
-- **Triggers**: when should it activate? (include phrases in multiple languages)
-- **Tool access**: which tools does it need? (Read, Write, Edit, Bash, Glob, Grep)
-- **Vault integration**: which folders does it read/write?
-- **Inter-agent coordination**: which other agents should it suggest chaining to?
-- **Why it matters**: what gap in the current crew does it fill?
+- **Имя**: описательное английское имя плюс короткий кодовой нейм
+- **Роль**: какую проблему он решает?
+- **Триггеры**: когда должен активироваться? (включите фразы на нескольких языках)
+- **Доступ к инструментам**: какие инструменты ему нужны? (Read, Write, Edit, Bash, Glob, Grep)
+- **Интеграция с хранилищем**: какие папки читает/пишет?
+- **Координация с другими агентами**: к каким другим агентам стоит чейнить?
+- **Зачем нужен**: какую дыру в текущей команде он закрывает?
 
-### Add usage examples
+### Добавить примеры использования
 
-Real-world examples of how you use the Crew help everyone. Add them to `docs/examples.md` or share them in an issue.
+Реальные примеры того, как вы пользуетесь Crew, помогают всем. Добавляйте их в `docs/examples.md` или поделитесь в issue.
 
-### Report a bug
+### Сообщить о баге
 
-Open an issue with:
-- What you asked the agent to do
-- What it actually did
-- What you expected
-- Your vault structure (roughly) if relevant
+Откройте issue с:
+- что вы попросили агента сделать
+- что он на самом деле сделал
+- что вы ожидали
+- структуру вашего хранилища (примерно), если это важно
 
 ---
 
-## Agent file structure
+## Структура файла агента
 
-Each agent is a standalone `.md` file with YAML frontmatter in the **source format** (platform-neutral):
+Каждый агент — отдельный `.md` файл с YAML-фронтматтером в **исходном формате** (платформо-нейтральном):
 
 ```yaml
 ---
 name: <agent-codename>
 description: >
-  One paragraph description used for auto-triggering.
-  Include trigger phrases in multiple languages (English, Italian, French,
-  Spanish, German, Portuguese) for maximum discoverability.
+  Описание в один абзац для автотриггеринга.
+  Включите триггер-фразы на нескольких языках (English, Italian, French,
+  Spanish, German, Portuguese) для максимальной обнаруживаемости.
 capabilities: [read, write, edit]
 model: mid
 ---
 
 # <Display Name> — <Subtitle>
 
-[Agent instructions in English]
+[Инструкции агента на английском]
 ```
 
-The build system translates `capabilities` into platform-specific tool lists or permission blocks, and `model` into platform-specific model names (e.g., `mid` → `sonnet` for Claude Code, `gemini-2.5-flash` for Gemini CLI).
+Билд-система переводит `capabilities` в платформо-специфичные списки инструментов или блоки разрешений, а `model` — в платформо-специфичные имена моделей (например, `mid` → `sonnet` для Claude Code, `gemini-2.5-flash` для Gemini CLI).
 
-### Frontmatter fields (source format)
+### Поля фронтматтера (исходный формат)
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| `name` | Yes | Lowercase, hyphens only (e.g., `my-agent`) |
-| `description` | Yes | When the platform should auto-invoke this agent. Include multilingual triggers |
-| `capabilities` | Yes | List from: `read`, `write`, `edit`, `bash`, `webfetch`, `websearch`, `task`, `todo` |
-| `model` | No | `low`, `mid`, or `high` (default: inherits from parent) |
-| `exclude` | No | List of platforms to exclude this agent from (e.g., `[opencode]`) |
+| Поле | Обязательное | Описание |
+|------|--------------|----------|
+| `name` | Да | Lowercase, только дефисы (например, `my-agent`) |
+| `description` | Да | Когда платформа должна автовызвать этого агента. Включите мультиязычные триггеры |
+| `capabilities` | Да | Из списка: `read`, `write`, `edit`, `bash`, `webfetch`, `websearch`, `task`, `todo` |
+| `model` | Нет | `low`, `mid` или `high` (по умолчанию: наследуется от родителя) |
+| `exclude` | Нет | Список платформ, на которые этот агент не ставится (например, `[opencode]`) |
 
-### Key rules for agent files
+### Ключевые правила для файлов агентов
 
-1. **Write in English.** All agent instructions are in English. Agents respond in the user's language automatically.
-2. **Multilingual triggers.** The `description` field should include natural trigger phrases in at least English and Italian, ideally more languages.
-3. **Read user profile.** Agents should read `{{meta}}/user-profile.md` for personalization. Never hardcode personal data.
-4. **Use vault-role tokens for folder paths.** Never hardcode folder names like `00-Inbox/` or `Meta/`. Use tokens (`{{inbox}}`, `{{meta}}`, etc.) so the Crew works with any vault structure. See [Vault path tokens](#vault-path-tokens) below.
-5. **Inter-agent coordination.** Every agent must include the coordination section with `### Suggested next agent` output format. See `references/agent-orchestration.md`.
-6. **Conservative by default.** Agents never delete, always archive. They ask before making structural decisions.
-7. **Minimal tools.** Only grant the tools the agent actually needs. Read-only agents should use `disallowedTools: Write, Edit`.
+1. **Пишите на английском.** Все инструкции агентов — английские. Агенты автоматически отвечают на языке пользователя.
+2. **Мультиязычные триггеры.** Поле `description` должно включать естественные триггер-фразы как минимум на английском и итальянском, идеально — на большем количестве языков.
+3. **Читать профиль пользователя.** Агенты должны читать `{{meta}}/user-profile.md` для персонализации. Никогда не зашивайте личные данные.
+4. **Использовать vault-role токены для путей.** Не зашивайте имена папок типа `00-Inbox/` или `Meta/`. Используйте токены (`{{inbox}}`, `{{meta}}` и т.д.), чтобы Crew работал с любой структурой хранилища. Смотрите [Vault path tokens](#vault-path-tokens) ниже.
+5. **Координация между агентами.** Каждый агент должен включать секцию координации в формате вывода `### Suggested next agent`. См. `references/agent-orchestration.md`.
+6. **Консервативный по умолчанию.** Агенты никогда не удаляют, всегда архивируют. Спрашивают перед структурными решениями.
+7. **Минимум инструментов.** Давайте только те инструменты, которые агенту реально нужны. Read-only агенты должны использовать `disallowedTools: Write, Edit`.
 
 ---
 
 ## Vault path tokens
 
-Every agent and skill uses **vault-role tokens** instead of hardcoded folder paths. This allows the Crew to work with any Obsidian vault structure.
+Каждый агент и навык использует **vault-role токены** вместо зашитых путей папок. Это позволяет Crew работать с любой структурой Obsidian-хранилища.
 
-### The 11 tokens
+### 11 токенов
 
-| Token | Default | Purpose |
-|-------|---------|---------|
-| `{{inbox}}` | `00-Inbox` | Capture inbox |
-| `{{projects}}` | `01-Projects` | Active projects |
-| `{{areas}}` | `02-Areas` | Life areas |
-| `{{resources}}` | `03-Resources` | Reference material |
-| `{{archive}}` | `04-Archive` | Completed content |
-| `{{people}}` | `05-People` | Person notes |
-| `{{meetings}}` | `06-Meetings` | Meeting notes |
-| `{{daily}}` | `07-Daily` | Daily notes |
-| `{{templates}}` | `Templates` | Note templates |
-| `{{meta}}` | `Meta` | Crew config |
+| Токен | По умолчанию | Назначение |
+|-------|--------------|------------|
+| `{{inbox}}` | `00-Inbox` | Инбокс захвата |
+| `{{projects}}` | `01-Projects` | Активные проекты |
+| `{{areas}}` | `02-Areas` | Зоны жизни |
+| `{{resources}}` | `03-Resources` | Справочные материалы |
+| `{{archive}}` | `04-Archive` | Завершённый контент |
+| `{{people}}` | `05-People` | Заметки про людей |
+| `{{meetings}}` | `06-Meetings` | Заметки встреч |
+| `{{daily}}` | `07-Daily` | Ежедневные заметки |
+| `{{templates}}` | `Templates` | Шаблоны заметок |
+| `{{meta}}` | `Meta` | Конфиг Crew |
 | `{{moc}}` | `MOC` | Maps of Content |
 
-### Rules for using tokens
+### Правила использования токенов
 
-1. **Every agent/skill file needs a Vault Path Resolution preamble** after the YAML frontmatter. It tells the LLM to read `Meta/vault-map.md` (always this literal path — never `{{meta}}/vault-map.md`, to avoid circular lookup) and substitute the tokens listed in its table.
-2. **Only list tokens the file actually uses** in the preamble table.
-3. **Only substitute vault-role tokens** — the 11 listed above. Many files use `{{...}}` for template placeholders (`{{date}}`, `{{Name}}`, `{{YYYY}}`, `{{N}}`). Those must **not** be substituted. The preamble must explicitly say this.
-4. **Use tokens everywhere**: in instructions, examples, templates, output formats, and `### Suggested next agent` sections. No hardcoded folder names outside the preamble defaults table.
+1. **Каждому файлу агента/навыка нужна преамбула Vault Path Resolution** после YAML-фронтматтера. Она говорит LLM прочитать `Meta/vault-map.md` (всегда этот литеральный путь — никогда `{{meta}}/vault-map.md`, чтобы избежать рекурсивного резолвинга) и подставить токены, перечисленные в её таблице.
+2. **Перечисляйте только те токены, которые файл реально использует**, в таблице преамбулы.
+3. **Подставляйте только vault-role токены** — 11 перечисленных выше. Многие файлы используют `{{...}}` как шаблонные плейсхолдеры (`{{date}}`, `{{Name}}`, `{{YYYY}}`, `{{N}}`). Их подставлять **нельзя**. Преамбула должна это явно сказать.
+4. **Используйте токены везде**: в инструкциях, примерах, шаблонах, форматах вывода и секциях `### Suggested next agent`. Никаких зашитых имён папок вне таблицы дефолтов в преамбуле.
 
-See [`docs/vault-mapping.md`](docs/vault-mapping.md) for the full specification.
-
----
-
-## Inter-agent coordination
-
-Agents coordinate through a dispatcher-driven orchestration system. When an agent detects work for another agent, it includes a `### Suggested next agent` section in its output. The dispatcher reads this and chains the next agent automatically. The protocol is documented in `references/agent-orchestration.md` and the agent registry is at `references/agents-registry.md`. If your new or improved agent needs to coordinate with existing ones, follow that protocol.
+Полную спецификацию см. в [`docs/vault-mapping.md`](docs/vault-mapping.md).
 
 ---
 
-## Custom agents vs. core agents
+## Координация между агентами
 
-**Custom agents** are created by users within their own vault using the Architect agent. They live in the user's platform agents directory (e.g., `.claude/agents/`) and are personal to that vault. Custom agents:
-- Are created through a conversational flow with the Architect
-- Follow the same file structure and conventions as core agents
-- Participate in the dispatcher's routing and orchestration system
-- Have lower priority than core agents
-- Are tracked in `references/agents-registry.md` and `references/agents.md`
-
-**Core agents** ship with the project and are maintained by contributors. To propose a new core agent, open an issue (see above).
-
-If your custom agent solves a problem that many users would benefit from, consider proposing it as a core agent!
+Агенты координируются через систему оркестровки, управляемую диспетчером. Когда агент обнаруживает работу для другого, он включает секцию `### Suggested next agent` в свой вывод. Диспетчер читает это и автоматически чейнит следующего агента. Протокол задокументирован в `references/agent-orchestration.md`, реестр агентов — в `references/agents-registry.md`. Если ваш новый или улучшенный агент должен координироваться с существующими — следуйте этому протоколу.
 
 ---
 
-## Agent directory
+## Пользовательские агенты vs основные
 
-| File | Agent name | Role | Tools |
-|------|-----------|------|-------|
-| `architect.md` | Architect | Vault Structure & Setup | Read, Write, Edit, Bash, Glob, Grep |
-| `scribe.md` | Scribe | Text Capture | Read, Write, Edit, Glob, Grep |
-| `sorter.md` | Sorter | Inbox Triage | Read, Write, Edit, Glob, Grep, Bash |
-| `seeker.md` | Seeker | Search & Retrieval | Read, Glob, Grep |
-| `connector.md` | Connector | Knowledge Graph | Read, Edit, Glob, Grep |
-| `librarian.md` | Librarian | Vault Maintenance | Read, Write, Edit, Bash, Glob, Grep |
-| `transcriber.md` | Transcriber | Audio & Transcription | Read, Write, Glob, Grep |
-| `postman.md` | Postman | Email & Calendar | Read, Write, Edit, Glob, Grep |
+**Пользовательские агенты** создаются пользователями внутри их собственного хранилища через Архитектора. Они лежат в директории агентов платформы (например, `.claude/agents/`) и персональны для этого хранилища. Пользовательские агенты:
 
----
+- Создаются через разговорный флоу с Архитектором
+- Следуют той же структуре и соглашениям, что и основные
+- Участвуют в системе маршрутизации и оркестровки диспетчера
+- Имеют меньший приоритет, чем основные
+- Учитываются в `references/agents-registry.md` и `references/agents.md`
 
-## Hooks
+**Основные агенты** поставляются с проектом и поддерживаются контрибьюторами. Чтобы предложить нового основного — откройте issue (см. выше).
 
-Three hooks ship with the crew, protecting vault integrity across all platforms:
-
-| Hook | Event | What it does |
-|------|-------|-------------|
-| `protect-system-files` | `before-tool-use` | Blocks edits to core agents, skills, references, and the dispatcher file. Custom agents are allowed through. |
-| `validate-frontmatter` | `after-tool-use` | Warns if a written `.md` file has broken YAML frontmatter (missing delimiters, tabs, unquoted colons). |
-| `notify` | `on-notification` | Sends a desktop notification (macOS/Linux) when the platform needs attention during long agent chains. |
-
-Hook source files live in `hooks/`. Each hook has a `.hook.yaml` (metadata: name, script, triggers, match-tool filters) and a `.sh` (implementation). Hooks are **platform-agnostic** — they read `platform_dir` and `dispatcher_name` from the neutral JSON input to determine which paths to protect. The adapter layer handles translating platform-native events into the neutral schema before calling the hooks.
-
-If you add a new hook:
-1. Create `hooks/<name>.hook.yaml` with `name`, `script`, `triggers` (using the neutral event vocabulary: `before-tool-use`, `after-tool-use`, `on-notification`, `on-session-start`, `on-prompt-submit`)
-2. Create `hooks/<name>.sh` reading neutral JSON from stdin
-3. Use `$PLATFORM_DIR` and `$DISPATCHER_NAME` (extracted from JSON input) instead of hardcoded paths
+Если ваш пользовательский агент решает проблему, от которой бы выиграли многие — подумайте о том, чтобы предложить его как основного!
 
 ---
 
-## Adding a new platform adapter
+## Каталог агентов
 
-The build system uses a **source-of-truth + per-platform adapters** architecture. Source files (`agents/`, `skills/`, `references/`, `hooks/`, `DISPATCHER.md`) are platform-neutral. Each adapter translates them into a platform's native format.
-
-### Adapter contract
-
-Every adapter is a single file at `adapters/<platform-name>/adapter.sh` that implements these functions:
-
-| Function | Responsibility |
-|----------|---------------|
-| `adapter_translate_dispatcher(src, dst)` | Copy `DISPATCHER.md` to the platform's dispatcher filename |
-| `adapter_translate_references(src, dst)` | Copy reference `.md` files to the platform's references directory |
-| `adapter_translate_skills(src, dst)` | Copy skill `SKILL.md` files to the platform's skills directory |
-| `adapter_translate_agents(src, dst)` | Translate agent frontmatter (capabilities → tools/permissions, model → native name) and write to agents directory |
-| `adapter_translate_hooks(src, dst)` | Copy hook scripts and generate platform-native hook configuration (settings.json, JS plugin, etc.) |
-| `adapter_translate_mcp(src, dst)` | Read `mcp/servers.yaml` and write platform-native MCP config |
-| `adapter_finalize(src, dst)` | Any final assembly (e.g., merging multiple config files into one) |
-
-The entry point is `adapter_build(src, dst)` which calls all seven functions in order.
-
-### How to add a new platform
-
-1. **Create the adapter directory**: `mkdir -p adapters/<name>/templates/`
-
-2. **Create `adapters/<name>/adapter.sh`** with:
-   - Platform constants (e.g., `MY_PLATFORM="my-platform"`, `MY_FW_DIR="myplatform"`, `MY_DISPATCHER="MY_DISPATCH.md"`)
-   - Vocabulary mapping functions (capabilities → native tools, events → native events, model tiers → native model names)
-   - All 7 `adapter_translate_*` functions + `adapter_build`
-   - Call `rewrite_platform_paths "$file" "$MY_FW_DIR" "$MY_DISPATCHER"` on every output text file
-
-3. **Add the platform to install scripts**: add a case to the `case "$PLATFORM"` block in `scripts/launchme.sh` and `scripts/updateme.sh`, setting `DIST_COMPONENTS_DIR`, `VAULT_COMPONENTS_DIR`, `DISPATCHER_SRC`, `DISPATCHER_DST`, `MCP_SRC`, `MCP_DST`, and `HAS_PLUGINS`.
-
-4. **Write tests**: create `tests/adapters/<name>/adapter.test.sh` with tests for each translation function.
-
-5. **Verify**: `bash scripts/build.sh --platform <name>` should produce a complete `dist/<name>/` tree. Check that no `.platform/` or `DISPATCHER.md` placeholders leak into the output.
-
-The shared library `adapters/lib.sh` provides parsing helpers (`parse_frontmatter`, `parse_capabilities`, `should_include`, `parse_hook_yaml`, `agent_body`, `enumerate_agents`, `enumerate_hooks`) and the `rewrite_platform_paths` function. Your adapter sources this automatically via `scripts/build.sh`.
-
-Look at `adapters/claude-code/adapter.sh` or `adapters/gemini-cli/adapter.sh` as reference implementations.
+| Файл | Имя агента | Роль | Инструменты |
+|------|------------|------|-------------|
+| `architect.md` | Architect | Структура и настройка хранилища | Read, Write, Edit, Bash, Glob, Grep |
+| `scribe.md` | Scribe | Захват текста | Read, Write, Edit, Glob, Grep |
+| `sorter.md` | Sorter | Триаж инбокса | Read, Write, Edit, Glob, Grep, Bash |
+| `seeker.md` | Seeker | Поиск и извлечение | Read, Glob, Grep |
+| `connector.md` | Connector | Граф знаний | Read, Edit, Glob, Grep |
+| `librarian.md` | Librarian | Поддержание порядка | Read, Write, Edit, Bash, Glob, Grep |
+| `transcriber.md` | Transcriber | Аудио и транскрипция | Read, Write, Glob, Grep |
+| `postman.md` | Postman | Почта и календарь | Read, Write, Edit, Glob, Grep |
 
 ---
 
-## Testing
+## Хуки
 
-The project has two levels of tests:
+С командой поставляется три хука, защищающих целостность хранилища на всех платформах:
 
-### Unit tests
+| Хук | Событие | Что делает |
+|-----|---------|------------|
+| `protect-system-files` | `before-tool-use` | Блокирует правки основных агентов, навыков, референсов и файла диспетчера. Пользовательских агентов пропускает. |
+| `validate-frontmatter` | `after-tool-use` | Предупреждает, если в записанном `.md`-файле сломанный YAML-фронтматтер (отсутствуют разделители, табы, неэкранированные двоеточия). |
+| `notify` | `on-notification` | Шлёт desktop-уведомление (macOS/Linux), когда платформе нужно внимание во время длинных цепочек агентов. |
 
-Per-adapter unit tests live in `tests/adapters/`:
+Исходные файлы хуков лежат в `hooks/`. Каждый хук имеет `.hook.yaml` (метаданные: имя, скрипт, триггеры, фильтры match-tool) и `.sh` (реализация). Хуки **платформо-агностичны** — они читают `platform_dir` и `dispatcher_name` из нейтрального JSON-входа, чтобы понять, какие пути защищать. Слой адаптеров переводит платформо-нативные события в нейтральную схему перед вызовом хуков.
+
+Если вы добавляете новый хук:
+1. Создайте `hooks/<name>.hook.yaml` с `name`, `script`, `triggers` (используя нейтральный словарь событий: `before-tool-use`, `after-tool-use`, `on-notification`, `on-session-start`, `on-prompt-submit`)
+2. Создайте `hooks/<name>.sh`, читающий нейтральный JSON из stdin
+3. Используйте `$PLATFORM_DIR` и `$DISPATCHER_NAME` (извлекаются из JSON-входа) вместо зашитых путей
+
+---
+
+## Добавление нового платформенного адаптера
+
+Билд-система использует архитектуру **source-of-truth + адаптеры на платформу**. Исходные файлы (`agents/`, `skills/`, `references/`, `hooks/`, `DISPATCHER.md`) платформо-нейтральны. Каждый адаптер переводит их в нативный формат платформы.
+
+### Контракт адаптера
+
+Каждый адаптер — это один файл `adapters/<platform-name>/adapter.sh`, реализующий эти функции:
+
+| Функция | Ответственность |
+|---------|-----------------|
+| `adapter_translate_dispatcher(src, dst)` | Скопировать `DISPATCHER.md` в имя файла диспетчера платформы |
+| `adapter_translate_references(src, dst)` | Скопировать файлы референсов `.md` в директорию референсов платформы |
+| `adapter_translate_skills(src, dst)` | Скопировать `SKILL.md`-файлы навыков в директорию навыков платформы |
+| `adapter_translate_agents(src, dst)` | Перевести фронтматтер агентов (capabilities → tools/permissions, model → нативное имя) и записать в директорию агентов |
+| `adapter_translate_hooks(src, dst)` | Скопировать скрипты хуков и сгенерировать платформо-нативную конфигурацию (settings.json, JS-плагин и т.д.) |
+| `adapter_translate_mcp(src, dst)` | Прочитать `mcp/servers.yaml` и записать платформо-нативный MCP-конфиг |
+| `adapter_finalize(src, dst)` | Финальная сборка (например, слияние нескольких конфигов в один) |
+
+Точка входа — `adapter_build(src, dst)`, которая вызывает все семь функций по порядку.
+
+### Как добавить новую платформу
+
+1. **Создайте директорию адаптера**: `mkdir -p adapters/<name>/templates/`
+
+2. **Создайте `adapters/<name>/adapter.sh`** с:
+   - Константами платформы (например, `MY_PLATFORM="my-platform"`, `MY_FW_DIR="myplatform"`, `MY_DISPATCHER="MY_DISPATCH.md"`)
+   - Функциями маппинга словарей (capabilities → нативные tools, события → нативные события, тиры моделей → нативные имена моделей)
+   - Всеми 7 функциями `adapter_translate_*` + `adapter_build`
+   - Вызовом `rewrite_platform_paths "$file" "$MY_FW_DIR" "$MY_DISPATCHER"` на каждом выходном текстовом файле
+
+3. **Добавьте платформу в установочные скрипты**: добавьте case в блок `case "$PLATFORM"` в `scripts/launchme.sh` и `scripts/updateme.sh`, задав `DIST_COMPONENTS_DIR`, `VAULT_COMPONENTS_DIR`, `DISPATCHER_SRC`, `DISPATCHER_DST`, `MCP_SRC`, `MCP_DST` и `HAS_PLUGINS`.
+
+4. **Напишите тесты**: создайте `tests/adapters/<name>/adapter.test.sh` с тестами на каждую функцию перевода.
+
+5. **Проверьте**: `bash scripts/build.sh --platform <name>` должен произвести полное дерево `dist/<name>/`. Убедитесь, что в выводе не утекают плейсхолдеры `.platform/` или `DISPATCHER.md`.
+
+Общая библиотека `adapters/lib.sh` предоставляет хелперы парсинга (`parse_frontmatter`, `parse_capabilities`, `should_include`, `parse_hook_yaml`, `agent_body`, `enumerate_agents`, `enumerate_hooks`) и функцию `rewrite_platform_paths`. Ваш адаптер подключает её автоматически через `scripts/build.sh`.
+
+Смотрите `adapters/claude-code/adapter.sh` или `adapters/gemini-cli/adapter.sh` как референсные реализации.
+
+---
+
+## Тестирование
+
+В проекте два уровня тестов:
+
+### Юнит-тесты
+
+Юнит-тесты на каждый адаптер лежат в `tests/adapters/`:
 
 ```
 tests/adapters/
-├── lib.test.sh                    Shared library tests (18 tests)
-├── claude-code/adapter.test.sh    CC adapter tests (10 tests)
-├── opencode/adapter.test.sh       OC adapter tests (17 tests)
-├── opencode/config-merge.test.sh  OC config merge tests (6 tests)
-└── gemini-cli/adapter.test.sh     Gemini adapter tests (13 tests)
+├── lib.test.sh                    Тесты общей библиотеки (18 тестов)
+├── claude-code/adapter.test.sh    Тесты CC-адаптера (10 тестов)
+├── opencode/adapter.test.sh       Тесты OC-адаптера (17 тестов)
+├── opencode/config-merge.test.sh  Тесты слияния OC-конфига (6 тестов)
+└── gemini-cli/adapter.test.sh     Тесты адаптера Gemini (13 тестов)
 ```
 
-Run them in isolation (each adapter must be tested in its own shell since they share function names):
+Запускайте их в изоляции (каждый адаптер тестируется в своём шелле, потому что они делят имена функций):
 
 ```bash
-# All lib tests
+# Все тесты библиотеки
 bash -c 'source adapters/lib.sh; source tests/adapters/lib.test.sh; P=0; F=0; for fn in $(declare -F | awk "{print \$3}" | grep "^test_"); do $fn >/dev/null 2>&1 && P=$((P+1)) || { echo "FAIL: $fn"; F=$((F+1)); }; done; echo "$P pass, $F fail"'
 
-# CC adapter tests
+# Тесты CC-адаптера
 bash -c 'source adapters/lib.sh; source adapters/claude-code/adapter.sh; source tests/adapters/claude-code/adapter.test.sh; P=0; F=0; for fn in $(declare -F | awk "{print \$3}" | grep "^test_"); do $fn >/dev/null 2>&1 && P=$((P+1)) || { echo "FAIL: $fn"; F=$((F+1)); }; done; echo "$P pass, $F fail"'
 
-# Same pattern for opencode (grep "^test_oc_") and gemini-cli (grep "^test_gemini_")
+# Тот же паттерн для opencode (grep "^test_oc_") и gemini-cli (grep "^test_gemini_")
 ```
 
-### Regression test
+### Регрессионный тест
 
-`tests/regression/run.sh` builds the Claude Code adapter and compares the output byte-for-byte against a pre-captured snapshot. This catches accidental changes to the CC build output.
+`tests/regression/run.sh` собирает Claude Code адаптер и сравнивает вывод побайтово с заранее зафиксированным снапшотом. Это ловит случайные изменения в выводе CC-сборки.
 
 ```bash
 bash tests/regression/run.sh
 ```
 
-If you change source files or the CC adapter, you may need to update the snapshot:
+Если вы меняете исходные файлы или CC-адаптер, может потребоваться обновить снапшот:
 
 ```bash
 bash scripts/build.sh --platform claude-code
 cp -r dist/claude-code/.claude/* tests/regression/snapshot/.claude/
 cp dist/claude-code/CLAUDE.md tests/regression/snapshot/CLAUDE.md
-bash tests/regression/run.sh   # should now pass
+bash tests/regression/run.sh   # теперь должен пройти
 ```
 
-### When to run tests
+### Когда запускать тесты
 
-- After modifying any adapter: run that adapter's tests
-- After modifying `adapters/lib.sh`: run all adapter tests
-- After modifying source files (agents, skills, references, hooks, DISPATCHER.md): run the regression test
-- Before submitting a PR: run everything
-
----
-
-## Philosophy
-
-This project is built for people who are already overwhelmed. Contributions should make things **simpler**, not more complex.
-
-When in doubt, ask: *"Does this make life easier for someone who's barely keeping it together?"*
-
-If yes, it belongs here.
+- После правок любого адаптера: тесты этого адаптера
+- После правок `adapters/lib.sh`: тесты всех адаптеров
+- После правок исходных файлов (agents, skills, references, hooks, DISPATCHER.md): регрессионный тест
+- Перед отправкой PR: всё
 
 ---
 
-## Code of conduct
+## Философия
 
-Be kind. Treat contributors and users with the same care you'd want when you're not at your best.
+Этот проект сделан для людей, которые уже перегружены. Контрибьюции должны делать вещи **проще**, а не сложнее.
+
+Если сомневаетесь — спросите себя: *«Это упрощает жизнь тому, кто едва справляется?»*
+
+Если да — этому место здесь.
+
+---
+
+## Кодекс поведения
+
+Будьте добры. Относитесь к контрибьюторам и пользователям с той же заботой, которую вы бы хотели получить сами, когда у вас не лучший день.

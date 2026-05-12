@@ -1,76 +1,76 @@
-# Setting Up Email Backends for the Postman Agent
+# Настройка почтовых бэкендов для агента Postman
 
-The Postman agent supports three email backends. You can use one or more:
+Агент Postman поддерживает три почтовых бэкенда. Вы можете использовать один или несколько:
 
-| Backend | Email Provider | Access Level | Calendar |
-|---------|---------------|-------------|----------|
-| **GWS CLI** (`gws`) | Gmail / Google Workspace | Full read/write | Yes (Google Calendar) |
-| **Hey CLI** (`hey`) | Hey.com | Full read/write | No (Hey has its own productivity tools, not Google Calendar) |
-| **MCP connectors** | Gmail | Read-only + drafts | Read-only (Google Calendar) |
+| Бэкенд | Провайдер почты | Уровень доступа | Календарь |
+|--------|-----------------|-----------------|-----------|
+| **GWS CLI** (`gws`) | Gmail / Google Workspace | Полный read/write | Да (Google Calendar) |
+| **Hey CLI** (`hey`) | Hey.com | Полный read/write | Нет (у Hey свои инструменты, не Google Calendar) |
+| **MCP-коннекторы** | Gmail | Только чтение + черновики | Только чтение (Google Calendar) |
 
-If you have both Gmail and Hey.com, you can use `gws` and `hey` simultaneously. Set your preferred primary backend in `Meta/user-profile.md` with `email_backend: hey` or `email_backend: gws` (default: `gws`).
+Если у вас есть и Gmail, и Hey.com — можно использовать `gws` и `hey` одновременно. Предпочитаемый основной бэкенд указывается в `Meta/user-profile.md` через `email_backend: hey` или `email_backend: gws` (по умолчанию — `gws`).
 
 ---
 
-## Option A: Hey CLI (for Hey.com users)
+## Вариант A: Hey CLI (для пользователей Hey.com)
 
-### Step 1: Install Hey CLI
+### Шаг 1: Установка Hey CLI
 
 ```bash
-# See https://github.com/basecamp/hey-cli for the latest instructions
+# Актуальные инструкции — https://github.com/basecamp/hey-cli
 gem install hey-cli
 ```
 
-### Step 2: Authenticate
+### Шаг 2: Аутентификация
 
 ```bash
 hey auth login
 ```
 
-### Step 3: Verify
+### Шаг 3: Проверка
 
 ```bash
 hey auth status --json
 hey box imbox --json --limit 1
 ```
 
-If both return JSON, you're good. The Postman will auto-detect `hey` on PATH.
+Если обе команды возвращают JSON — всё готово. Postman автоопределит `hey` в PATH.
 
-### Troubleshooting Hey
+### Поиск неисправностей Hey
 
-- **`hey: command not found`**: ensure the gem bin directory is on your PATH. Check with `gem environment` and add `<gem_dir>/bin` to PATH.
-- **Auth expired**: run `hey auth refresh` or `hey auth login`.
-- **General issues**: run `hey doctor` for diagnostics.
+- **`hey: command not found`**: убедитесь, что bin-директория гема в PATH. Проверьте через `gem environment` и добавьте `<gem_dir>/bin` в PATH.
+- **Auth протух**: запустите `hey auth refresh` или `hey auth login`.
+- **Общие проблемы**: запустите `hey doctor` для диагностики.
 
 ---
 
-## Option B: Google Workspace CLI (for Gmail users)
+## Вариант B: Google Workspace CLI (для пользователей Gmail)
 
-The Postman agent uses the [Google Workspace CLI](https://github.com/googleworkspace/cli) (`gws`) to interact with Gmail and Google Calendar. This gives the agent full read/write access — searching, reading, archiving, deleting, labelling emails, and creating/modifying calendar events.
+Агент Postman использует [Google Workspace CLI](https://github.com/googleworkspace/cli) (`gws`) для работы с Gmail и Google Calendar. Это даёт агенту полный read/write-доступ — поиск, чтение, архив, удаление, расстановка меток, создание и изменение событий календаря.
 
-### Why gws instead of MCP?
+### Почему gws, а не MCP?
 
-The Anthropic-hosted MCP servers for Gmail and Calendar are read-only (plus draft creation). They cannot archive, delete, label, or send emails. The Google Workspace CLI wraps the full Google API surface, giving the Postman agent the ability to actually manage your inbox — not just read it.
+MCP-серверы Gmail и Calendar, хостящиеся у Anthropic, — read-only (плюс создание черновиков). Они не умеют архивировать, удалять, ставить метки или отправлять письма. Google Workspace CLI оборачивает полный API Google и даёт Postman'у возможность реально управлять инбоксом, а не только читать его.
 
-## Prerequisites
+## Что нужно заранее
 
-- **Node.js** (v18+) and **npm**
-- Optional: **Google Cloud SDK** (`gcloud`) — only needed if you prefer CLI-based project setup instead of the Cloud Console UI
-- A **Google account** (personal Gmail works fine)
+- **Node.js** (v18+) и **npm**
+- Опционально: **Google Cloud SDK** (`gcloud`) — нужен только если предпочитаете CLI вместо UI Cloud Console
+- **Google-аккаунт** (личный Gmail тоже подходит)
 
-## Step 1: Install the Google Workspace CLI
+## Шаг 1: Установка Google Workspace CLI
 
 ```bash
 npm install -g @googleworkspace/cli
 ```
 
-Verify:
+Проверка:
 
 ```bash
 gws --version
 ```
 
-## Step 2: Install Google Cloud SDK (if not already installed)
+## Шаг 2: Установка Google Cloud SDK (если ещё не установлен)
 
 ### macOS (Apple Silicon)
 
@@ -88,162 +88,162 @@ tar -xf google-cloud-cli-darwin-x86_64.tar.gz
 ./google-cloud-sdk/install.sh
 ```
 
-### Other platforms
+### Другие платформы
 
-See https://cloud.google.com/sdk/docs/install
+Смотрите https://cloud.google.com/sdk/docs/install
 
-After installation, restart your terminal so the new PATH takes effect. If you don't want to restart, you can source your profile manually:
+После установки перезапустите терминал, чтобы новый PATH подхватился. Если перезапускать не хочется — прогрузите профиль вручную:
 
 ```bash
-source ~/.zshrc   # or ~/.bashrc
+source ~/.zshrc   # или ~/.bashrc
 ```
 
-Verify:
+Проверка:
 
 ```bash
 gcloud --version
 ```
 
-## Step 3: Create a Google Cloud project
+## Шаг 3: Создание проекта Google Cloud
 
-1. Go to https://console.cloud.google.com/
-2. Create a new project (e.g., `my-vault`)
-3. Note the project ID — you'll need it below
+1. Откройте https://console.cloud.google.com/
+2. Создайте новый проект (например, `my-vault`)
+3. Запомните Project ID — он понадобится ниже
 
-## Step 4: Configure the OAuth consent screen
+## Шаг 4: Настройка OAuth consent screen
 
-1. Go to **APIs & Services > OAuth consent screen** in your project:
+1. Откройте **APIs & Services > OAuth consent screen** в проекте:
    `https://console.cloud.google.com/apis/credentials/consent?project=YOUR_PROJECT_ID`
-2. Choose **External** as User Type (the only option for personal Gmail accounts)
-3. Fill in the required fields:
-   - App name: anything (e.g., "Vault CLI")
-   - User support email: your email
-   - Developer contact: your email
-4. Click through the remaining screens (scopes, test users) and save
+2. Выберите **External** в качестве User Type (это единственный вариант для личных Gmail-аккаунтов)
+3. Заполните обязательные поля:
+   - App name: что угодно (например, «Vault CLI»)
+   - User support email: ваша почта
+   - Developer contact: ваша почта
+4. Прокликайте оставшиеся экраны (scopes, test users) и сохраните
 
-**Important — Add yourself as a test user:**
+**Важно — добавьте себя как тестового пользователя:**
 
-5. Back on the OAuth consent screen, find the **Audience** section
-6. Under **Test users**, click **Add users**
-7. Enter your Gmail address and save
+5. Вернитесь на OAuth consent screen, найдите секцию **Audience**
+6. В **Test users** нажмите **Add users**
+7. Введите свой Gmail-адрес и сохраните
 
-This step is easy to miss and you will get an "Access blocked" error without it. Unverified apps can only be used by explicitly listed test users.
+Этот шаг легко пропустить — без него получите ошибку «Access blocked». Неверифицированные приложения могут использовать только явно прописанные тестовые пользователи.
 
-## Step 5: Create OAuth credentials
+## Шаг 5: Создание OAuth-кредов
 
-1. Go to **APIs & Services > Credentials**:
+1. Откройте **APIs & Services > Credentials**:
    `https://console.cloud.google.com/apis/credentials?project=YOUR_PROJECT_ID`
-2. Click **Create Credentials > OAuth client ID**
+2. Нажмите **Create Credentials > OAuth client ID**
 3. Application type: **Desktop app**
-4. Name: anything (e.g., "gws-cli")
-5. Click **Create**
-6. Copy the **Client ID** and **Client Secret**
+4. Name: что угодно (например, «gws-cli»)
+5. Нажмите **Create**
+6. Скопируйте **Client ID** и **Client Secret**
 
-## Step 6: Set up gws authentication
+## Шаг 6: Настройка аутентификации gws
 
 ```bash
 gws auth setup
 ```
 
-When prompted, paste your Client ID and Client Secret.
+Когда запросит — вставьте свой Client ID и Client Secret.
 
-## Step 7: Log in and select scopes
+## Шаг 7: Логин и выбор scopes
 
 ```bash
 gws auth login
 ```
 
-This opens an interactive scope selector. **Deselect everything** and only keep:
+Откроется интерактивный селектор scopes. **Снимите все галочки** и оставьте только:
 
-- `https://www.googleapis.com/auth/gmail.modify` — read/write/archive/delete emails
-- `https://www.googleapis.com/auth/gmail.send` — send emails and drafts
-- `https://www.googleapis.com/auth/calendar.events` — create/update/delete calendar events
-- `https://www.googleapis.com/auth/calendar.calendarlist.readonly` — list available calendars
+- `https://www.googleapis.com/auth/gmail.modify` — чтение/запись/архив/удаление писем
+- `https://www.googleapis.com/auth/gmail.send` — отправка писем и черновиков
+- `https://www.googleapis.com/auth/calendar.events` — создание/обновление/удаление событий календаря
+- `https://www.googleapis.com/auth/calendar.calendarlist.readonly` — список доступных календарей
 
-Optionally also keep:
+Опционально можно оставить:
 
-- `https://www.googleapis.com/auth/drive` — if you want Drive access
-- `https://www.googleapis.com/auth/tasks` — if you want Tasks access
-- `openid`, `userinfo.email`, `userinfo.profile` — for profile info
+- `https://www.googleapis.com/auth/drive` — если нужен доступ к Drive
+- `https://www.googleapis.com/auth/tasks` — если нужен доступ к Tasks
+- `openid`, `userinfo.email`, `userinfo.profile` — для информации профиля
 
-**Do not select all 85+ scopes.** Google will reject the auth request for unverified apps with too many scopes, especially admin/workspace scopes that aren't available to personal accounts.
+**Не выбирайте все 85+ scopes.** Google отклонит запрос для неверифицированных приложений со слишком большим количеством scopes, особенно админских/воркспейсных, недоступных личным аккаунтам.
 
-After selecting scopes, a browser window opens. Sign in with your Google account. You may see a "This app isn't verified" warning — click **Continue** (this is expected for personal-use OAuth apps).
+После выбора scopes откроется окно браузера. Залогиньтесь в Google-аккаунт. Может появиться предупреждение «This app isn't verified» — нажмите **Continue** (это ожидаемо для OAuth-приложений личного использования).
 
-On success you'll see:
+Если всё успешно — увидите:
 
 ```
 Authentication successful. Encrypted credentials saved.
 ```
 
-## Step 8: Verify it works
+## Шаг 8: Проверка работы
 
-Test Gmail access:
+Тест доступа к Gmail:
 
 ```bash
 gws gmail users messages list --params '{"userId": "me", "maxResults": 3}'
 ```
 
-Test Calendar access:
+Тест доступа к Calendar:
 
 ```bash
 gws calendar events list --params '{"calendarId": "primary", "timeMin": "2026-03-01T00:00:00Z", "maxResults": 3}'
 ```
 
-Both should return JSON results.
+Обе команды должны вернуть JSON.
 
-## Step 9: Remove MCP servers (optional)
+## Шаг 9: Удаление MCP-серверов (опционально)
 
-If your `.mcp.json` still has the Anthropic-hosted Gmail/Calendar servers, you can remove them. Remove only the `gmail` and `google-calendar` entries from your `.mcp.json`, leaving any other MCP servers intact.
+Если в `.mcp.json` всё ещё прописаны Gmail/Calendar серверы от Anthropic — их можно удалить. Уберите только записи `gmail` и `google-calendar` из `.mcp.json`, оставив остальные MCP-серверы как есть.
 
-If `.mcp.json` contained only those two servers, you can delete the file entirely.
+Если `.mcp.json` содержит только эти два сервера — можно удалить файл целиком.
 
-## Troubleshooting
+## Поиск неисправностей
 
-### "Access blocked" / Error 403
+### «Access blocked» / Error 403
 
-You haven't added yourself as a test user. Go back to Step 4, point 5-7.
+Вы не добавили себя как тестового пользователя. Вернитесь к Шагу 4, пункты 5–7.
 
-### "invalid_scope" / Error 400
+### «invalid_scope» / Error 400
 
-You selected too many scopes, including ones not available to personal Gmail accounts (e.g., admin, classroom, chat). Re-run `gws auth login` and select only the scopes listed in Step 7.
+Выбрали слишком много scopes, в том числе недоступных личным Gmail-аккаунтам (admin, classroom, chat и т.д.). Перезапустите `gws auth login` и выберите только scopes из Шага 7.
 
-### "gcloud CLI not found"
+### «gcloud CLI not found»
 
-The Google Cloud SDK isn't on your PATH. Restart your terminal. If you don't want to restart, run:
+Google Cloud SDK не в PATH. Перезапустите терминал. Если не хотите — выполните:
 
 ```bash
-source ~/google-cloud-sdk/path.zsh.inc   # adjust path if installed elsewhere
+source ~/google-cloud-sdk/path.zsh.inc   # поправьте путь, если ставили в другое место
 ```
 
-### gws command not found
+### команда gws не найдена
 
-Restart your terminal first — this resolves most cases. If it still fails, the npm global bin directory may not be on your PATH. Check with:
+Сначала перезапустите терминал — это решает большинство случаев. Если не помогло — глобальная bin-директория npm может быть не в PATH. Проверьте:
 
 ```bash
 npm config get prefix
 ```
 
-And ensure `<prefix>/bin` is in your PATH.
+И убедитесь, что `<prefix>/bin` находится в PATH.
 
-### "Using keyring backend: keyring" warning
+### Предупреждение «Using keyring backend: keyring»
 
-This is normal — gws stores encrypted credentials in your OS keyring. Not an error.
+Это нормально — gws хранит зашифрованные креды в системном keyring. Не ошибка.
 
-## How it works in the Postman agent
+## Как это работает внутри агента Postman
 
-The Postman agent calls `gws` commands via the Bash tool. Key operations:
+Агент Postman вызывает команды `gws` через Bash-инструмент. Ключевые операции:
 
-| Operation | Command |
-|-----------|---------|
-| Search inbox | `gws gmail users messages list --params '{"userId": "me", "q": "..."}'` |
-| Read email | `gws gmail users messages get --params '{"userId": "me", "id": "ID", "format": "full"}'` |
-| Read thread | `gws gmail users threads get --params '{"userId": "me", "id": "ID"}'` |
-| Mark as read | `gws gmail users messages modify --params '{"userId": "me", "id": "ID"}' --json '{"removeLabelIds": ["UNREAD"]}'` |
-| Archive | `gws gmail users messages modify --params '{"userId": "me", "id": "ID"}' --json '{"removeLabelIds": ["INBOX"]}'` |
-| Trash | `gws gmail users messages trash --params '{"userId": "me", "id": "ID"}'` |
-| List events | `gws calendar events list --params '{"calendarId": "primary", "timeMin": "...", "timeMax": "..."}'` |
-| Create event | `gws calendar events insert --params '{"calendarId": "primary"}' --json '{"summary": "...", ...}'` |
-| Create draft | `gws gmail users drafts create --params '{"userId": "me"}' --json '{"message": {"raw": "BASE64"}}'` |
+| Операция | Команда |
+|----------|---------|
+| Поиск в инбоксе | `gws gmail users messages list --params '{"userId": "me", "q": "..."}'` |
+| Чтение письма | `gws gmail users messages get --params '{"userId": "me", "id": "ID", "format": "full"}'` |
+| Чтение треда | `gws gmail users threads get --params '{"userId": "me", "id": "ID"}'` |
+| Пометка прочитанным | `gws gmail users messages modify --params '{"userId": "me", "id": "ID"}' --json '{"removeLabelIds": ["UNREAD"]}'` |
+| Архив | `gws gmail users messages modify --params '{"userId": "me", "id": "ID"}' --json '{"removeLabelIds": ["INBOX"]}'` |
+| Корзина | `gws gmail users messages trash --params '{"userId": "me", "id": "ID"}'` |
+| Список событий | `gws calendar events list --params '{"calendarId": "primary", "timeMin": "...", "timeMax": "..."}'` |
+| Создание события | `gws calendar events insert --params '{"calendarId": "primary"}' --json '{"summary": "...", ...}'` |
+| Создание черновика | `gws gmail users drafts create --params '{"userId": "me"}' --json '{"message": {"raw": "BASE64"}}'` |
 
-All commands return JSON. The `--params` flag is for URL/query parameters; `--json` is for the request body.
+Все команды возвращают JSON. Флаг `--params` — это URL/query-параметры; `--json` — тело запроса.

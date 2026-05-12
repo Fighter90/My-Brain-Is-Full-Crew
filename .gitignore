@@ -13,3 +13,24 @@ Test-SecondBrain/
 .planning/
 # Personal Claude Code permissions cache (not for fork)
 .claude/settings.json
+
+# Secrets — defense in depth (don't commit these even if accidentally created)
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+*_rsa
+*_ed25519
+*.cert
+# Local databases
+*.sqlite
+*.sqlite3
+*.db
+# IDE state
+.vscode/
+.idea/
+*.swp
+*.swo

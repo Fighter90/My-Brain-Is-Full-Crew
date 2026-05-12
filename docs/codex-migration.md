@@ -1,172 +1,172 @@
-# Migrating to Codex CLI
+# Миграция на Codex CLI
 
-This guide covers how to move an existing My Brain Is Full — Crew installation from Claude Code, Gemini CLI, or OpenCode to Codex CLI. It also explains what transfers automatically and what needs manual attention.
+Этот гайд описывает, как перенести существующую инсталляцию My Brain Is Full — Crew с Claude Code, Gemini CLI или OpenCode на Codex CLI. Также объясняет, что переносится автоматически, а что требует ручного внимания.
 
-> **If you are doing a fresh install** (not migrating), follow [docs/codex-cli.md](codex-cli.md) instead.
-
----
-
-## When to reinstall vs update
-
-| Scenario | Recommended action |
-|----------|-------------------|
-| You have an existing Claude Code / Gemini CLI / OpenCode vault and want to add Codex CLI alongside it | Run `bash scripts/launchme.sh --platform codex-cli` in the same vault — multiple platforms can coexist |
-| You want to switch exclusively to Codex CLI | Run `launchme.sh --platform codex-cli`; the other platform files remain but are inactive |
-| Your Codex layout is broken or missing files | Run `launchme.sh --platform codex-cli` again — it is idempotent and safe to re-run |
-| You pulled new repo changes and want to update Codex | Run `bash scripts/updateme.sh --platform codex-cli` |
-
-You do not need to remove other platform directories. Codex CLI only reads `.codex/` and `.agents/skills/`; it ignores `.claude/`, `.gemini/`, and `.opencode/`.
+> **Если вы делаете чистую установку** (не миграцию), смотрите вместо этого [docs/codex-cli.md](codex-cli.md).
 
 ---
 
-## Path mapping by platform
+## Когда переустанавливать, а когда обновлять
 
-When you switch to Codex CLI, the project files move to new paths. Use this table to locate your existing files and understand where the equivalent lives in Codex.
+| Сценарий | Рекомендуемое действие |
+|----------|------------------------|
+| У вас уже есть хранилище под Claude Code / Gemini CLI / OpenCode, и вы хотите добавить Codex CLI рядом | Запустите `bash scripts/launchme.sh --platform codex-cli` в том же хранилище — несколько платформ могут сосуществовать |
+| Вы хотите перейти исключительно на Codex CLI | Запустите `launchme.sh --platform codex-cli`; файлы других платформ остаются, но становятся неактивны |
+| Раскладка Codex сломана или отсутствуют файлы | Запустите `launchme.sh --platform codex-cli` снова — он идемпотентен и его безопасно перезапускать |
+| Вы подтянули новые изменения репо и хотите обновить Codex | Запустите `bash scripts/updateme.sh --platform codex-cli` |
 
-| Source platform | Dispatcher | Agents | Skills | MCP or config | Codex target |
-|----------------|-----------|--------|--------|--------------|-------------|
+Удалять папки других платформ не нужно. Codex CLI читает только `.codex/` и `.agents/skills/`; он игнорирует `.claude/`, `.gemini/` и `.opencode/`.
+
+---
+
+## Маппинг путей по платформам
+
+При переходе на Codex CLI файлы проекта переезжают на новые пути. Используйте таблицу, чтобы найти ваши текущие файлы и понять, где живёт их эквивалент в Codex.
+
+| Исходная платформа | Диспетчер | Агенты | Навыки | MCP или конфиг | Цель в Codex |
+|--------------------|-----------|--------|--------|----------------|--------------|
 | Claude Code | `CLAUDE.md` | `.claude/agents/*.md` | `.claude/skills/` | `.mcp.json` | `AGENTS.md` / `.codex/agents/*.toml` / `.agents/skills/` / `.codex/config.toml` |
-| Gemini CLI | `GEMINI.md` | `.gemini/agents/*.md` | `.gemini/skills/` | (none) | `AGENTS.md` / `.codex/agents/*.toml` / `.agents/skills/` / `.codex/config.toml` |
+| Gemini CLI | `GEMINI.md` | `.gemini/agents/*.md` | `.gemini/skills/` | (нет) | `AGENTS.md` / `.codex/agents/*.toml` / `.agents/skills/` / `.codex/config.toml` |
 | OpenCode | `AGENTS.md` | `.opencode/agents/*.md` | `.opencode/skills/` | `opencode.json` | `AGENTS.md` / `.codex/agents/*.toml` / `.agents/skills/` / `.codex/config.toml` |
 
-After running `launchme.sh --platform codex-cli`, the Codex files are installed automatically. You do not need to copy the old platform files manually.
+После запуска `launchme.sh --platform codex-cli` файлы Codex устанавливаются автоматически. Копировать старые файлы платформы вручную не нужно.
 
 ---
 
-## Moving from Claude Code
+## Переход с Claude Code
 
-1. Pull the latest repo changes:
+1. Подтяните последние изменения репо:
    ```bash
    cd /path/to/your-vault/My-Brain-Is-Full-Crew
    git pull
    ```
 
-2. Run the Codex installer:
+2. Запустите установщик Codex:
    ```bash
    bash scripts/launchme.sh --platform codex-cli
    ```
 
-3. The installer creates:
-   - `.codex/agents/` — all 8 core agents in TOML format
-   - `.agents/skills/` — all 14 skills as plain text instructions
-   - `.codex/config.toml` — MCP servers (translated from `mcp/servers.yaml`)
-   - `AGENTS.md` — dispatcher with Codex routing header
+3. Установщик создаст:
+   - `.codex/agents/` — все 8 основных агентов в формате TOML
+   - `.agents/skills/` — все 14 навыков как текстовые инструкции
+   - `.codex/config.toml` — MCP-серверы (переведённые из `mcp/servers.yaml`)
+   - `AGENTS.md` — диспетчер с шапкой маршрутизации Codex
 
-4. Your existing `.claude/` directory and `CLAUDE.md` are left untouched.
+4. Ваша существующая папка `.claude/` и файл `CLAUDE.md` остаются нетронутыми.
 
-5. MCP configuration: Claude Code uses `.mcp.json`. Codex CLI uses `.codex/config.toml`. If you added custom MCP servers to `.mcp.json` manually, you will need to add them to `.codex/config.toml` as well. See the `[mcp_servers.*]` TOML table format.
+5. Конфигурация MCP: Claude Code использует `.mcp.json`. Codex CLI использует `.codex/config.toml`. Если вы добавляли свои MCP-серверы в `.mcp.json` вручную, придётся добавить их и в `.codex/config.toml`. Смотрите формат TOML-таблицы `[mcp_servers.*]`.
 
-6. Custom agents: Claude Code custom agents live in `.claude/agents/`. Codex CLI custom agents must be in `.toml` format in `.codex/agents/`. Custom agents created via the `/create-agent` skill are not automatically migrated — see [Custom agents and what does not migrate automatically](#custom-agents-and-what-does-not-migrate-automatically).
+6. Пользовательские агенты: пользовательские агенты Claude Code лежат в `.claude/agents/`. Пользовательские агенты Codex CLI должны быть в формате `.toml` в `.codex/agents/`. Агенты, созданные через навык `/create-agent`, автоматически не мигрируют — смотрите [Пользовательские агенты и что не мигрирует автоматически](#пользовательские-агенты-и-что-не-мигрирует-автоматически).
 
 ---
 
-## Moving from Gemini CLI
+## Переход с Gemini CLI
 
-1. Pull the latest repo changes:
+1. Подтяните последние изменения репо:
    ```bash
    cd /path/to/your-vault/My-Brain-Is-Full-Crew
    git pull
    ```
 
-2. Run the Codex installer:
+2. Запустите установщик Codex:
    ```bash
    bash scripts/launchme.sh --platform codex-cli
    ```
 
-3. The installer creates the full Codex layout (same as above).
+3. Установщик создаёт полную раскладку Codex (как выше).
 
-4. Your existing `.gemini/` directory and `GEMINI.md` are left untouched.
+4. Ваша существующая папка `.gemini/` и файл `GEMINI.md` остаются нетронутыми.
 
-5. MCP configuration: Gemini CLI does not use `.mcp.json`. If you have MCP servers configured elsewhere, add them to `.codex/config.toml` manually.
+5. Конфигурация MCP: Gemini CLI не использует `.mcp.json`. Если MCP-серверы настроены где-то ещё, добавьте их в `.codex/config.toml` вручную.
 
-6. Custom agents: Gemini CLI custom agents live in `.gemini/agents/`. These are Markdown files. For Codex CLI, custom agents must be TOML files in `.codex/agents/`. See [Custom agents and what does not migrate automatically](#custom-agents-and-what-does-not-migrate-automatically).
+6. Пользовательские агенты: пользовательские агенты Gemini CLI лежат в `.gemini/agents/`. Это Markdown-файлы. Для Codex CLI пользовательские агенты должны быть TOML-файлами в `.codex/agents/`. Смотрите [Пользовательские агенты и что не мигрирует автоматически](#пользовательские-агенты-и-что-не-мигрирует-автоматически).
 
 ---
 
-## Moving from OpenCode
+## Переход с OpenCode
 
-1. Pull the latest repo changes:
+1. Подтяните последние изменения репо:
    ```bash
    cd /path/to/your-vault/My-Brain-Is-Full-Crew
    git pull
    ```
 
-2. Run the Codex installer:
+2. Запустите установщик Codex:
    ```bash
    bash scripts/launchme.sh --platform codex-cli
    ```
 
-3. The installer creates the full Codex layout. Note that both OpenCode and Codex CLI use `AGENTS.md` as the dispatcher. The installer will overwrite `AGENTS.md` with the Codex-specific version (which includes the root-context routing header). If you are running both platforms from the same vault, be aware that the two platforms share `AGENTS.md`.
+3. Установщик создаёт полную раскладку Codex. Обратите внимание: и OpenCode, и Codex CLI используют `AGENTS.md` в качестве диспетчера. Установщик перезапишет `AGENTS.md` Codex-специфичной версией (со шапкой root-context routing). Если вы используете обе платформы из одного хранилища — учтите, что `AGENTS.md` у них общий.
 
-4. Your existing `.opencode/` directory is left untouched.
+4. Ваша существующая папка `.opencode/` остаётся нетронутой.
 
-5. MCP configuration: OpenCode uses `opencode.json`. Codex CLI uses `.codex/config.toml`. If you added custom MCP servers to `opencode.json`, add them to `.codex/config.toml` manually.
+5. Конфигурация MCP: OpenCode использует `opencode.json`. Codex CLI использует `.codex/config.toml`. Если вы добавляли свои MCP-серверы в `opencode.json` — добавьте их в `.codex/config.toml` вручную.
 
-6. Custom agents: OpenCode custom agents live in `.opencode/agents/` as Markdown files. Codex CLI custom agents must be TOML files in `.codex/agents/`. See [Custom agents and what does not migrate automatically](#custom-agents-and-what-does-not-migrate-automatically).
+6. Пользовательские агенты: пользовательские агенты OpenCode лежат в `.opencode/agents/` как Markdown-файлы. Пользовательские агенты Codex CLI должны быть TOML-файлами в `.codex/agents/`. Смотрите [Пользовательские агенты и что не мигрирует автоматически](#пользовательские-агенты-и-что-не-мигрирует-автоматически).
 
 ---
 
-## Custom agents and what does not migrate automatically
+## Пользовательские агенты и что не мигрирует автоматически
 
-When you run the installer, the 8 core crew agents are automatically translated to Codex TOML format. However, **custom agents you created with `/create-agent`** are not automatically migrated because:
+Когда вы запускаете установщик, 8 основных агентов команды автоматически переводятся в формат Codex TOML. Однако **пользовательские агенты, созданные через `/create-agent`**, автоматически не мигрируют, потому что:
 
-- They live in your platform's agents directory (`.claude/agents/`, `.gemini/agents/`, etc.)
-- They are Markdown files; Codex requires TOML
-- The installer never overwrites or deletes files in the agents directory that it did not create
+- Они живут в директории агентов вашей платформы (`.claude/agents/`, `.gemini/agents/` и т.д.)
+- Это Markdown-файлы; Codex требует TOML
+- Установщик никогда не перезаписывает и не удаляет файлы в директории агентов, которые он не создавал сам
 
-### To migrate a custom agent manually
+### Как мигрировать пользовательского агента вручную
 
-1. Locate your custom agent file (e.g., `.claude/agents/budget-tracker.md`)
-2. Open Codex CLI in your vault and run `/create-agent`
-3. Describe the agent's purpose — the Architect will guide you through creating a new `.toml` file in `.codex/agents/`
-4. Alternatively, create the TOML file manually using one of the generated core agents as a template (e.g., `.codex/agents/scribe.toml`)
+1. Найдите файл вашего пользовательского агента (например, `.claude/agents/budget-tracker.md`)
+2. Откройте Codex CLI в хранилище и запустите `/create-agent`
+3. Опишите назначение агента — Архитектор проведёт вас через создание нового `.toml`-файла в `.codex/agents/`
+4. Альтернативно, создайте TOML-файл вручную, используя один из сгенерированных основных агентов как шаблон (например, `.codex/agents/scribe.toml`)
 
-### What the TOML format looks like
+### Как выглядит формат TOML
 
 ```toml
 [agent]
 name = "budget-tracker"
-description = "Monitors spending notes and flags when you are close to the monthly limit"
+description = "Отслеживает заметки о тратах и предупреждает, когда близко к месячному лимиту"
 model = "o4-mini"
 
 [agent.prompt]
 content = """
-You are the Budget Tracker agent for the My Brain Is Full — Crew system.
-... (your agent instructions here)
+Ты — агент Budget Tracker для системы My Brain Is Full — Crew.
+... (инструкции вашего агента здесь)
 """
 ```
 
 ---
 
-## Verification after migration
+## Проверка после миграции
 
-After running the installer, verify the Codex layout with these commands:
+После запуска установщика проверьте раскладку Codex этими командами:
 
-### Check that files installed correctly
+### Убедитесь, что файлы поставлены корректно
 
 ```bash
-ls <vault>/.codex/agents/       # Should list *.toml files for all 8 agents
-ls <vault>/.agents/skills/      # Should list subdirectories for all 14 skills
-ls <vault>/.codex/config.toml   # Should exist with [mcp_servers.*] tables
-ls <vault>/AGENTS.md            # Should exist with Codex routing header
+ls <vault>/.codex/agents/       # Должен показать *.toml-файлы для всех 8 агентов
+ls <vault>/.agents/skills/      # Должен показать подпапки для всех 14 навыков
+ls <vault>/.codex/config.toml   # Должен существовать с таблицами [mcp_servers.*]
+ls <vault>/AGENTS.md            # Должен существовать с шапкой маршрутизации Codex
 ```
 
-### Run the non-interactive discovery smoke
+### Запустите неинтерактивный дымовой тест discovery
 
 ```bash
 codex exec -C <vault> "List the project custom agents under .codex/agents, the repo skills under .agents/skills, and the dispatcher file used in this workspace."
 ```
 
-Expected: response references `AGENTS.md`, `.codex/agents`, and `.agents/skills`.
+Ожидаемо: ответ ссылается на `AGENTS.md`, `.codex/agents` и `.agents/skills`.
 
-### Check MCP visibility
+### Проверьте видимость MCP
 
 ```bash
 codex -C <vault> mcp list
 ```
 
-Expected: lists MCP servers from `.codex/config.toml`.
+Ожидаемо: перечисляет MCP-серверы из `.codex/config.toml`.
 
-### Run the full runtime smoke matrix
+### Прогоните полную дымовую матрицу рантайма
 
-See [docs/codex-cli.md — Runtime smoke matrix](codex-cli.md#runtime-smoke-matrix) for the complete list of agents, skills, chaining, and MCP checks.
+Смотрите [docs/codex-cli.md — Дымовая матрица рантайма](codex-cli.md#дымовая-матрица-рантайма) для полного списка проверок агентов, навыков, цепочек и MCP.
