@@ -78,11 +78,23 @@ jobs:
           # of the previous release body.
           if [ -n "$PREV_TAG" ]; then
             COMMIT_LIST=$(git log --format='- %h %s' "${PREV_TAG}..HEAD" 2>/dev/null || true)
-            SEP=$'\n\n---\n\n'
+            # Strip trailing horizontal-rule + whitespace from BODY so we don't
+            # double-print '---' (CHANGELOG sections already end with one).
+            # Pure-awk implementation — portable across BSD/GNU.
+            BODY=$(printf '%s' "$BODY" | awk '
+              { lines[NR] = $0 }
+              END {
+                n = NR
+                while (n > 0 && (lines[n] ~ /^[[:space:]-]*$/)) n--
+                for (i = 1; i <= n; i++) print lines[i]
+              }
+            ')
+            SEP_BEFORE=$'\n\n---\n\n'
+            SEP_INNER=$'\n\n'
             if [ -n "$COMMIT_LIST" ]; then
-              BODY="${BODY}${SEP}### Commits since \`${PREV_TAG}\`${SEP}${COMMIT_LIST}"
+              BODY="${BODY}${SEP_BEFORE}### Commits since \`${PREV_TAG}\`${SEP_INNER}${COMMIT_LIST}"
             else
-              BODY="${BODY}${SEP}> Retry of \`${PREV_TAG}\` — no new commits. CHANGELOG section content unchanged; this release exists because the previous workflow run did not complete successfully."
+              BODY="${BODY}${SEP_BEFORE}> Retry of \`${PREV_TAG}\` — no new commits. CHANGELOG section content unchanged; this release exists because the previous workflow run did not complete successfully."
             fi
           fi
 
