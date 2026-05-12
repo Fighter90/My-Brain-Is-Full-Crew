@@ -9,10 +9,20 @@
 
 ---
 
-## [Unreleased] — 2026-05-12
+## [2026.05.12] — 2026-05-12
 
 Слияние upstream-коммита `340be6e` (vault path tokenization) с локальной веткой,
 содержащей premortem-функционал и русские переводы документации.
+
+### CI / Release
+
+- Добавлен `.github/workflows/release.yml` — автоматический GitHub-релиз
+  при изменении `CHANGELOG.md` или ручном `workflow_dispatch`. Парсит первый
+  раздел `## [...] — YYYY-MM-DD`, создаёт тег `v{date}` (или из заголовка),
+  собирает install-бандл `agents/ + references/ + scripts/ + adapters/ +
+  mcp/ + docs/` в tar.gz и прикрепляет к релизу.
+- Permissions: `contents: write`, `packages: write` (на случай будущей
+  публикации npm-пакета в GitHub Packages).
 
 ### Добавлено (из upstream)
 

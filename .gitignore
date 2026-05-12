@@ -11,3 +11,5 @@ Test-SecondBrain/
 .mcp.json
 # GSD planning artifacts (internal workflow — not for upstream)
 .planning/
+# Personal Claude Code permissions cache (not for fork)
+.claude/settings.json
