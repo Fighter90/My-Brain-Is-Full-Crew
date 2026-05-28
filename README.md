@@ -1,4 +1,4 @@
-<h1 align="center">🧠 My Brain Is Full — Crew</h1>
+<h1 align="center">🧠 Russian-brain-Is-full-crew</h1>
 
 <p align="center">
   <strong>Команда из 8+ ИИ-агентов и 14 специализированных навыков, которые управляют вашим хранилищем Obsidian,<br>чтобы вашему мозгу не приходилось этим заниматься.</strong>
